@@ -34,11 +34,12 @@ public class JdbcWithBookRepository implements WithBookRepository{
 			public WithBook mapRow(ResultSet rs, int rowNum) throws SQLException {
 				log.info("withRowMapper() 실행");
 				WithBook withBook = new WithBook();
-				withBook.setB_no(rs.getLong("w_no"));
-				withBook.setB_title(rs.getString("w_title"));
-				withBook.setB_memo(rs.getString("w_memo"));
-				withBook.setB_area(rs.getString("w_area"));
-				withBook.setB_pwd(rs.getString("w_pwd"));
+				withBook.setB_no(rs.getLong("b_no"));
+				withBook.setB_title(rs.getString("b_title"));
+				withBook.setB_memo(rs.getString("b_memo"));
+				withBook.setB_area(rs.getString("b_area"));
+				withBook.setB_pwd(rs.getString("b_pwd"));
+				withBook.setB_date(rs.getDate("b_date"));
 				return withBook;
 			}
 		};
