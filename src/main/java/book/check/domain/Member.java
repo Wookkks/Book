@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter @Setter 
 @NoArgsConstructor
 public class Member {
+	private Long m_no;
 	private String m_name;
 	private String m_phone;
 	private String m_address;
