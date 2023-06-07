@@ -7,19 +7,19 @@ import lombok.Setter;
 
 @Getter @Setter
 public class WithBook {
-	private Long b_no;
-	private String b_title;
-	private String b_memo;
-	private String b_area;
-	private String b_pwd;
-	private Date b_date;
+	private Long w_no;
+	private String w_title;
+	private String w_memo;
+	private String w_area;
+	private String w_pwd;
+	private Date w_date;
 	
 	public WithBook() {}
 	
-	public WithBook(String b_title, String b_memo, String b_area, String b_pwd) {
-		this.b_title = b_title;
-		this.b_memo = b_memo;
-		this.b_area = b_area;
-		this.b_pwd = b_pwd;
+	public WithBook(String w_title, String w_memo, String w_area, String w_pwd) {
+		this.w_title = w_title;
+		this.w_memo = w_memo;
+		this.w_area = w_area;
+		this.w_pwd = w_pwd;
 	}
 }

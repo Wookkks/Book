@@ -34,12 +34,12 @@ public class JdbcWithBookRepository implements WithBookRepository{
 			public WithBook mapRow(ResultSet rs, int rowNum) throws SQLException {
 				log.info("withRowMapper() 실행");
 				WithBook withBook = new WithBook();
-				withBook.setB_no(rs.getLong("b_no"));
-				withBook.setB_title(rs.getString("b_title"));
-				withBook.setB_memo(rs.getString("b_memo"));
-				withBook.setB_area(rs.getString("b_area"));
-				withBook.setB_pwd(rs.getString("b_pwd"));
-				withBook.setB_date(rs.getDate("b_date"));
+				withBook.setW_no(rs.getLong("w_no"));
+				withBook.setW_title(rs.getString("w_title"));
+				withBook.setW_memo(rs.getString("w_memo"));
+				withBook.setW_area(rs.getString("w_area"));
+				withBook.setW_pwd(rs.getString("w_pwd"));
+				withBook.setW_date(rs.getDate("w_date"));
 				return withBook;
 			}
 		};
@@ -51,13 +51,13 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("b_no");
 		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("b_title", withbook.getB_title());
-		parameters.put("b_memo", withbook.getB_memo());
-		parameters.put("b_area", withbook.getB_area());
-		parameters.put("b_pwd", withbook.getB_pwd());
-		parameters.put("b_date", withbook.getB_date());
+		parameters.put("b_title", withbook.getW_title());
+		parameters.put("b_memo", withbook.getW_memo());
+		parameters.put("b_area", withbook.getW_area());
+		parameters.put("b_pwd", withbook.getW_pwd());
+		parameters.put("b_date", withbook.getW_date());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-		withbook.setB_no(key.longValue());
+		withbook.setW_no(key.longValue());
 		return withbook;
 	}
 
@@ -86,9 +86,9 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	@Override
 	public WithBook updateWithBook(Long w_no, WithBook withBook) {
 		String sql = "UPDATE WITHBOOK SET W_TITLE = ?, W_MEMO = ?, W_AREA = ?, W_PWD = ? WHERE W_NO = ?";
-		jdbcTemplate.update(sql, withBook.getB_title(), withBook.getB_memo(), withBook.getB_area()
-				, withBook.getB_pwd(), w_no);
-		withBook.setB_no(w_no);
+		jdbcTemplate.update(sql, withBook.getW_title(), withBook.getW_memo(), withBook.getW_area()
+				, withBook.getW_pwd(), w_no);
+		withBook.setW_no(w_no);
 		return findByNo(w_no).get();
 	}
 

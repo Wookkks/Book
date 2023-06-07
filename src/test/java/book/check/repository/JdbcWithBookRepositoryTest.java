@@ -17,13 +17,13 @@ class JdbcWithBookRepositoryTest {
 	@Test
 	void save() {
 		WithBook withBook = new WithBook();
-		withBook.setB_title("title");
-		withBook.setB_memo("memo");
-		withBook.setB_area("area");
-		withBook.setB_pwd("pwd");
+		withBook.setW_title("title");
+		withBook.setW_memo("memo");
+		withBook.setW_area("area");
+		withBook.setW_pwd("pwd");
 		
 		WithBook saveWithBook = repository.saveWithBook(withBook);
-		assertThat(withBook.getB_no()).isEqualTo(saveWithBook.getB_no());
+		assertThat(withBook.getW_no()).isEqualTo(saveWithBook.getW_no());
 	}
 
 }
