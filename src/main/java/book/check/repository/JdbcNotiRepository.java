@@ -63,10 +63,10 @@ public class JdbcNotiRepository implements NotiRepository {
 	}
 
 	@Override
-	public List<Noti> findByTitle(String notiTitle) {
+	public Optional<Noti> findByTitle(String notiTitle) {
 		List<Noti> result = jdbcTemplate.query("select * from NOTI where n_title like ?", notiRowMapper(), notiTitle);
 		String title = "%" + notiTitle + "%";
-		return result;
+		return result.stream().findAny();
 	}
 
 	@Override
