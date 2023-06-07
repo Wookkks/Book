@@ -11,13 +11,12 @@ public interface NotiRepository {
 	
 	//공지 등록번호로 조회
 	Optional<Noti> findByNo(Long notiNo);
-	//Optional vs List 사용시 결과는 차이 없는지? - 구현부 차이?
 	
 	//공지 제목으로 조회
-	List<Noti> findByTitle(String notiTitle);
+	Optional<Noti> findByTitle(String notiTitle);
 	
 	//공지 전체목록
-	List<Noti> findAll(); //파라미터 Long n_no 안 씀 
+	List<Noti> findAll(); 
 	 
 	//공지수정
 	Noti updateNoti(Long n_no, Noti updateNoti);
