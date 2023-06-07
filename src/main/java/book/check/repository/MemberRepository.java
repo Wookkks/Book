@@ -1,5 +1,8 @@
 package book.check.repository;
 
-public interface MemberRepository {
+import book.check.domain.Member;
 
+public interface MemberRepository {
+	// 가입신청
+	Member saveMember(Member member);
 }

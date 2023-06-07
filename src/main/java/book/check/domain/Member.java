@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter @Setter @NoArgsConstructor
+@Getter @Setter 
+@NoArgsConstructor
 public class Member {
 	private String m_name;
 	private String m_phone;
