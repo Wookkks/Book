@@ -1,5 +1,5 @@
 package book.check.controller;
 
-public class MemberController {
+public class ManagerController {
 
 }
