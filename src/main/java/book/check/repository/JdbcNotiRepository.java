@@ -32,7 +32,6 @@ public class JdbcNotiRepository implements NotiRepository {
 		return new RowMapper<Noti>() {
 			@Override
 			public Noti mapRow(ResultSet rs, int rowNum) throws SQLException {
-				// TODO Auto-generated method stub
 				Noti noti = new Noti();
 				noti.setN_no(rs.getLong("n_no"));
 				noti.setN_title(rs.getString("n_title"));
@@ -45,7 +44,8 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public Noti saveNoti(Noti noti) {
-		SimpleJdbcInsert jdbcinsert = new SimpleJdbcInsert(jdbcTemplate).usingColumns("noti")
+		SimpleJdbcInsert jdbcinsert = new SimpleJdbcInsert(jdbcTemplate)
+				.usingColumns("noti")
 				.usingGeneratedKeyColumns("n_no");
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("n_title", noti.getN_title());
@@ -77,8 +77,7 @@ public class JdbcNotiRepository implements NotiRepository {
 	@Override
 	public Noti updateNoti(Long n_no, Noti updateNoti) {
 		String sql = "update NOTI set n_title, n_content, n_date, where n_no = ?";
-		int result = jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(),
-				updateNoti.getN_date(), n_no);
+		int result = jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), updateNoti.getN_date(), n_no);
 		return findByNo(n_no).get();
 	}
 
