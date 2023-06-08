@@ -3,21 +3,22 @@ package book.check.repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import book.check.domain.Member;
-import book.check.domain.Noti;
+import lombok.extern.slf4j.Slf4j;
 
+@Repository
+@Slf4j
 public class JdbcMemberRepository implements MemberRepository {
 	private final JdbcTemplate jdbcTemplate;
 
@@ -42,16 +43,14 @@ public class JdbcMemberRepository implements MemberRepository {
 
 	@Override
 	public Member saveMember(Member member) {
-		// TODO Auto-generated method stub
-		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate)
-				.usingColumns("member")
-				.usingColumns("m_no");
+		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+		jdbcInsert.withTableName("MEMBER").usingGeneratedKeyColumns("m_no");
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("m_name", member.getM_name());
 		parameters.put("m_phone", member.getM_phone());
 		parameters.put("m_address", member.getM_address());
-		
-		Number key =jdbcInsert.executeAndReturnKey(parameters).longValue()
+		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+		member.setM_no(key.longValue());
 		return member;
 	}
 

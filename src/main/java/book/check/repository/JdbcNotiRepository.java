@@ -12,6 +12,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -44,45 +45,44 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public Noti saveNoti(Noti noti) {
-		SimpleJdbcInsert jdbcinsert = new SimpleJdbcInsert(jdbcTemplate)
-				.usingColumns("noti")
-				.usingGeneratedKeyColumns("n_no");
+		SimpleJdbcInsert jdbcinsert = new SimpleJdbcInsert(jdbcTemplate);
+		jdbcinsert.withTableName("noti").usingGeneratedKeyColumns("n_no");
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("n_title", noti.getN_title());
 		parameters.put("n_content", noti.getN_content());
 		parameters.put("n_date", noti.getN_date());
-
-		Number key = jdbcinsert.executeAndReturnKey(parameters).longValue();
+		Number key = jdbcinsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+		noti.setN_no(key.longValue());
 		return noti;
 	}
-	
+
 	@Override
 	public Optional<Noti> findByNo(Long notiNo) {
-		List<Noti> result = jdbcTemplate.query("select * from NOTI where n_no = ?", notiRowMapper(), notiNo);
+		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI WHERE N_NO = ?", notiRowMapper(), notiNo);
 		return result.stream().findAny();
 	}
 
 	@Override
 	public Optional<Noti> findByTitle(String notiTitle) {
-		List<Noti> result = jdbcTemplate.query("select * from NOTI where n_title like ?", notiRowMapper(), notiTitle);
+		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI WHERE N_TITLE LIKE ?", notiRowMapper(), notiTitle);
 		String title = "%" + notiTitle + "%";
 		return result.stream().findAny();
 	}
 
 	@Override
 	public List<Noti> findAll() {
-		return jdbcTemplate.query("select * from NOTI", notiRowMapper());
+		return jdbcTemplate.query("SELECT * FROM NOTI", notiRowMapper());
 	}
 
 	@Override
 	public Noti updateNoti(Long n_no, Noti updateNoti) {
-		String sql = "update NOTI set n_title, n_content, n_date, where n_no = ?";
-		int result = jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), updateNoti.getN_date(), n_no);
+		String sql = "UPDATE NOTI SET N_TITLE, N_CONTENT, WHERE N_NO = ?";
+		int result = jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), n_no);
 		return findByNo(n_no).get();
 	}
 
 	@Override
 	public void deleteNoti(Long n_no) {
-		jdbcTemplate.update("delete from NOTI where n_no = ?", n_no);
+		jdbcTemplate.update("DELETE FROM NOTI WHERE N_NO = ?", n_no);
 	}
 }

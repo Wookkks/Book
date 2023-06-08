@@ -19,5 +19,4 @@ public class Noti {
 		this.n_content = n_content;
 		this.n_date = n_date;
 	}
-	
 }
