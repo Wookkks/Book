@@ -63,8 +63,9 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public Optional<Noti> findByTitle(String notiTitle) {
-		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI WHERE N_TITLE LIKE ?", notiRowMapper(), notiTitle);
+		String sql = "SELECT * FROM NOTI WHERE N_TITLE LIKE ?";
 		String title = "%" + notiTitle + "%";
+		List<Noti> result = jdbcTemplate.query(sql, notiRowMapper(), title);
 		return result.stream().findAny();
 	}
 
@@ -76,7 +77,8 @@ public class JdbcNotiRepository implements NotiRepository {
 	@Override
 	public Noti updateNoti(Long n_no, Noti updateNoti) {
 		String sql = "UPDATE NOTI SET N_TITLE, N_CONTENT, WHERE N_NO = ?";
-		int result = jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), n_no);
+		jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), n_no);
+		updateNoti.setN_no(n_no);
 		return findByNo(n_no).get();
 	}
 

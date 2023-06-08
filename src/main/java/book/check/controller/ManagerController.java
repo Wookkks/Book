@@ -19,13 +19,13 @@ import lombok.extern.slf4j.Slf4j;
 public class ManagerController {
 	//<관리자>
 	
-	//Service가 없는 경우.. notiRepository? //일단 여기서부터 작성 시작
-	private final NotiRepository notiRepository;
-	
-	@Autowired
-	public NotiController(NotiRepository notiRepository) { //??
-		this.notiRepository = notiRepository;
-	}
+//	//Service가 없는 경우.. notiRepository? //일단 여기서부터 작성 시작
+//	private final NotiRepository notiRepository;
+//	
+//	@Autowired
+//	public NotiController(NotiRepository notiRepository) { //??
+//		this.notiRepository = notiRepository;
+//	}
 	
 	//공지사항
 	@GetMapping("/noti")

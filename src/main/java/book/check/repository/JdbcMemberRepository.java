@@ -27,19 +27,19 @@ public class JdbcMemberRepository implements MemberRepository {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	private RowMapper<Member> memberRowMapper() {
-		return new RowMapper<Member>() {
-			@Override
-			public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Member member = new Member();
-				member.setM_no(rs.getLong("m_no"));
-				member.setM_name(rs.getString("m_name"));
-				member.setM_address(rs.getString("m_phone"));
-				member.setM_address(rs.getString("m_address"));
-				return member;
-			}
-		};
-	}
+//	private RowMapper<Member> memberRowMapper() {
+//		return new RowMapper<Member>() {
+//			@Override
+//			public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+//				Member member = new Member();
+//				member.setM_no(rs.getLong("m_no"));
+//				member.setM_name(rs.getString("m_name"));
+//				member.setM_address(rs.getString("m_phone"));
+//				member.setM_address(rs.getString("m_address"));
+//				return member;
+//			}
+//		};
+//	}
 
 	@Override
 	public Member saveMember(Member member) {
