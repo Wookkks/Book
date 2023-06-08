@@ -14,9 +14,8 @@ public class Noti {
 	private String n_content;
 	private Date n_date;
 	
-	public Noti(String n_title, String n_content, Date n_date) {
+	public Noti(String n_title, String n_content) {
 		this.n_title = n_title;
 		this.n_content = n_content;
-		this.n_date = n_date;
 	}
 }

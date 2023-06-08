@@ -50,7 +50,6 @@ public class JdbcNotiRepository implements NotiRepository {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("n_title", noti.getN_title());
 		parameters.put("n_content", noti.getN_content());
-		parameters.put("n_date", noti.getN_date());
 		Number key = jdbcinsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		noti.setN_no(key.longValue());
 		return noti;

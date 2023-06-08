@@ -11,6 +11,4 @@ public interface ApplyRepository {
 	
 	// 요청글 목록
 	List<Apply> findAll();
-	
-	
 }

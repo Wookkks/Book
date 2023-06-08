@@ -10,13 +10,13 @@ public interface WithBookRepository {
 	// 나눔글 등록
 	WithBook saveWithBook(WithBook withBook);
 	
-	// 나눔글 등록번호 조회
+	// 나눔글 등록번호로 조회
 	Optional<WithBook> findByNo(Long w_no);
 	
-	// 나눔글 전체 목록
+	// 나눔글 전체 목록 조회
 	List<WithBook> findAll();
 	
-	// 나눔글 조회
+	// 나눔글 제목으로 검색
 	List<WithBook> search(String title);
 	
 	// 나눔글 수정

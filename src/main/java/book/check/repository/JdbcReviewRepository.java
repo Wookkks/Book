@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.sql.DataSource;
 
@@ -56,11 +57,24 @@ public class JdbcReviewRepository implements ReviewRepository{
 		List<Review> result = jdbcTemplate.query(sql, reviewRowMapper());
 		return result;
 	}
+	
+	@Override
+	public Optional<Review> findByNo(Long r_no) {
+		String sql = "SELECT * FROM REVIEW WHERE R_NO = ?";
+		List<Review> result =jdbcTemplate.query(sql, reviewRowMapper(), r_no);
+		return result.stream().findAny();
+	}
 
 	@Override
+	public Review updateReview(Long r_no, Review review) {
+		String sql = "UPDATE REVIEW SET R_NAME = ? R_CONTENT = ? WHERE R_NO = ?";
+		jdbcTemplate.update(sql, review.getR_name(), review.getR_content(), r_no);
+		review.setR_no(r_no);
+		return findByNo(r_no).get();
+	}
+	@Override
 	public void deleteReview(Long r_no) {
-		String sql = "DELETE FROM REVIEW WHERE r_no = ?";
+		String sql = "DELETE FROM REVIEW WHERE R_NO = ?";
 		jdbcTemplate.update(sql, r_no);
 	}
-	
 }

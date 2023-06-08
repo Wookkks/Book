@@ -57,5 +57,5 @@ public class JdbcApplyRepository implements ApplyRepository{
 		List<Apply> result = jdbcTemplate.query(sql, applyRowMapper());
 		return result;
 	}
-	
+
 }

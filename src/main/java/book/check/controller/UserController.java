@@ -117,7 +117,7 @@ public class UserController {
 		return "redirect:/user/u_with_book";
 	}
 	
-	// 책 나눔 신청 폼
+	// 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)
 	@GetMapping("/apply")
 	public String getApply() {
 		
