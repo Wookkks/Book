@@ -49,13 +49,12 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	public WithBook saveWithBook(WithBook withbook) {
 		log.info("save() 실행");
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
-		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("b_no");
+		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("w_no");
 		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("b_title", withbook.getW_title());
-		parameters.put("b_memo", withbook.getW_memo());
-		parameters.put("b_area", withbook.getW_area());
-		parameters.put("b_pwd", withbook.getW_pwd());
-		parameters.put("b_date", withbook.getW_date());
+		parameters.put("w_title", withbook.getW_title());
+		parameters.put("w_memo", withbook.getW_memo());
+		parameters.put("w_area", withbook.getW_area());
+		parameters.put("w_pwd", withbook.getW_pwd());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		withbook.setW_no(key.longValue());
 		return withbook;
