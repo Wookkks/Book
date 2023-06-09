@@ -56,22 +56,23 @@ public class JdbcNotiRepository implements NotiRepository {
 	}
 
 	@Override
-	public Optional<Noti> findByNo(Long notiNo) {
-		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI WHERE N_NO = ?", notiRowMapper(), notiNo);
+	public Optional<Noti> findByNo(Long n_no) {
+		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI WHERE N_NO = ?", notiRowMapper(), n_no);
 		return result.stream().findAny();
 	}
 
 	@Override
-	public Optional<Noti> findByTitle(String notiTitle) {
+	public Optional<Noti> findByTitle(String n_title) {
 		String sql = "SELECT * FROM NOTI WHERE N_TITLE LIKE ?";
-		String title = "%" + notiTitle + "%";
+		String title = "%" + n_title + "%";
 		List<Noti> result = jdbcTemplate.query(sql, notiRowMapper(), title);
 		return result.stream().findAny();
 	}
 
 	@Override
 	public List<Noti> findAll() {
-		return jdbcTemplate.query("SELECT * FROM NOTI", notiRowMapper());
+		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI", notiRowMapper()); 
+		return result;
 	}
 
 	@Override

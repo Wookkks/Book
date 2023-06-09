@@ -23,5 +23,4 @@ public interface NotiRepository {
 
 	// 공지삭제
 	void deleteNoti(Long n_no);
-
 }
