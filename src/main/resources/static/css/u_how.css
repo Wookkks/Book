@@ -44,12 +44,12 @@ p, ul, li, dl, dt, dd, tr, th, td {
   margin-bottom: 20px;
 }
 
-.how_check .month_record {display: flex; justify-content: space-around;}
-.how_check .month_record p {padding: 80px 0;}
+.how_check .month_record {display: flex;}
+.how_check .month_record p {padding: 80px 20px 0 20px;}
 .how_check .month_record img {
   width: 100px;
   height: auto;
-  margin:30px 0;
+  margin:30px 50px;
 }
 
 .how_check hr:nth-of-type(2) {

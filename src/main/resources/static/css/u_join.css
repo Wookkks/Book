@@ -33,8 +33,7 @@
 
   .join_check {margin: 50px 0;}
 
-  .join_check a img {
-    margin-bottom: 10px;
+  .join_check button img {
     width: 30px;
   }
 
