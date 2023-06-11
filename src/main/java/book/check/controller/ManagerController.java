@@ -1,6 +1,5 @@
 package book.check.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import book.check.domain.Noti;
-import book.check.repository.NotiRepository;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -19,11 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ManagerController {
 	//<관리자>
 	
-//	//Service가 없는 경우.. notiRepository? //일단 여기서부터 작성 시작
+//	작성 시작 부//Service단 생성예정. Repository랑 둘 다 의존성 주입 예정.  
 //	private final NotiRepository notiRepository;
 //	
 //	@Autowired
-//	public NotiController(NotiRepository notiRepository) { //??
+//	public NotiController(NotiRepository notiRepository) {
 //		this.notiRepository = notiRepository;
 //	}
 	
@@ -49,7 +47,7 @@ public class ManagerController {
 		return "redirect:/manager/m_noti";
 	}
 	
-//	// 공지사항 글 작성 후 저장
+//	// 공지사항 글 작성 후 저장 // 삭제예정
 //	@PostMapping("/create")
 //	public String createNoti(@ModelAttribute Noti noti,
 //			RedirectAttributes redirectAttributes, Model model) {

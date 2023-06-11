@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import book.check.domain.Apply;
-import book.check.repository.ApplyRepository;
+import book.check.repository.JdbcApplyRepository;
 
 @Service
 public class ApplyService {
 	
 	@Autowired
-	ApplyRepository applyRepository;
+	JdbcApplyRepository applyRepository;
 	
 	// 나눔신청
 	public Apply saveApply(Apply apply) {
