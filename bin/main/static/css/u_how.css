@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+* {
+  font-family: 'NanumSquare';
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: 'NanumSquareExtraBold';
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 50px 0;
+}
+
+p, ul, li, dl, dt, dd, tr, th, td {
+  font-size: 14px;
+}
+
+.grid-container {
+  justify-content: space-between;
+}
+
+/* how.css */
+
+.how_check {
+  margin: 50px 0;
+}
+
+.how_check h3 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.how_check ul {
+  display: inline-block;
+  width: 500px;
+  line-height: 40px;
+  background-color: rgb(247, 236, 230);
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.how_check .month_record {display: flex;}
+.how_check .month_record p {padding: 80px 20px 0 20px;}
+.how_check .month_record img {
+  width: 100px;
+  height: auto;
+  margin:30px 50px;
+}
+
+.how_check hr:nth-of-type(2) {
+  width: 200px;
+  height: 3px;
+  border-style: none;
+  background-color: rgb(58, 58, 58);;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.how_check textarea::placeholder {padding: 10px;}
+
+.how_check .review div {
+  background-color: rgb(244, 237, 206);
+  width: 800px;
+  height: 90px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.how_check .review p {
+  line-height: 20px;
+}
+
+.how_check b {
+  font-size: 18px;
+}
+
+.how_check textarea {
+  resize: none;
+}
+
+.how_check button {
+  border-style: none;
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  float: right;
+}
+
+.how_check button.submit {
+  background-color: rgb(244, 237, 206);
+  margin-left: 20px;
+}
+
+.how_check button.delete {
+  background-color: none;
+}
+
+.how_check .review .first_reviwer {
+  margin-top: 70px;
+}
+
+.how_check .review div{
+  margin-top: 30px;
+}
