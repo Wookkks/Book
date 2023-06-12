@@ -11,21 +11,13 @@ import book.check.repository.NotiRepository;
 
 @Service
 public class NotiService {
-	// 1. 생성자 주입
-	// @Autowired
-	// interface NotiRepository
-	//	private final NotiRepository notiRepository;
 
-	//	public NotiService(NotiRepository notiRepository) {
-	//		this.notiRepository = notiRepository;
-
-	// 2. 필드주입
 	@Autowired
 	NotiRepository notiRepository;
 
 	// 공지등록
-	public void saveNoti(Noti noti) {
-		notiRepository.saveNoti(noti);
+	public Noti saveNoti(Noti noti) {
+		return notiRepository.saveNoti(noti);
 	}
 
 	// 공지 등록번호로 조회
