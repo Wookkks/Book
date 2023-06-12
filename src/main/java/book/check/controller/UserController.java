@@ -1,16 +1,23 @@
 package book.check.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import book.check.domain.Member;
+import book.check.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
 @RequestMapping("/user")
 public class UserController {
+	
+	@Autowired
+	MemberService memberService;
 	
 	// 공지 
 	@GetMapping("/noti")
@@ -28,8 +35,8 @@ public class UserController {
 	
 	// 가입신청 폼
 	@GetMapping("/join")
-	public String getJoin() {
-		
+	public String getJoin(@ModelAttribute Member member) {
+		memberService.saveMember(member);
 		return "user/u_join";
 	}
 	

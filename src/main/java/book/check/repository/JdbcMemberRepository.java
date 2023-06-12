@@ -45,7 +45,7 @@ public class JdbcMemberRepository implements MemberRepository {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("m_name", member.getM_name());
 		parameters.put("m_phone", member.getM_phone());
-		parameters.put("m_address", member.getM_address());
+		parameters.put("m_address", member.getM_birth());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		member.setM_no(key.longValue());
 		return member;
