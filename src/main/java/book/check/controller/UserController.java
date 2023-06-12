@@ -35,15 +35,16 @@ public class UserController {
 	
 	// 가입신청 폼
 	@GetMapping("/join")
-	public String getJoin(@ModelAttribute Member member) {
-		memberService.saveMember(member);
+	public String getJoin() {
+		
 		return "user/u_join";
 	}
 	
 	// 가입신청
 	@PostMapping("/join")
-	public String postJoin() {
-		
+	public String postJoin(@ModelAttribute Member member) {
+		log.info("[postJoin] 실행");
+		memberService.saveMember(member);
 		return "redirect:/user/main";
 	}
 	

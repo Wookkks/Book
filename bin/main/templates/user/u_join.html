@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="https://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <title>신청하기</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/u_join.css">
+  <link rel="stylesheet" href="/css/u_join.css" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -35,10 +35,10 @@
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="#main">홈</a></li>
-              <li><a href="#how">어때책첵</a></li>
-              <li><a href="#chart">분석책첵</a></li>
-              <li><a href="#with">나눔책첵</a></li>
+              <li><a href="main.html">홈</a></li>
+              <li><a href="u_how.html">어때책첵</a></li>
+              <li><a href="u_chart.html">분석책첵</a></li>
+              <li><a href="u_with_book.html">나눔책첵</a></li>
             </ul>
             <hr>
             <p><a href="#noti">공지사항</a></p>
@@ -46,48 +46,41 @@
         </div>
       </div>
 
-      <!--  -->
+      <!-- 신청하기 시작 -->
       <div class="container join_check">
-        <!-- <a href="">????</a> -->
-        <button><img src="img/arrow_back.png" alt="뒤로가기"></button>
+        <a href="###"><img src="img/arrow_back.png" alt="뒤로가기"></a>
         <div class="explain">
           <b>책첵 회원가입</b>
           <span>책첵은 나이와 성별 그 무엇도 필요하지 않습니다. <br>
             오로지 책을 사랑하는 사람들이 모여 서로의 이야기를 공유하고<br>서로의 책첵 체크리스트를 만들어 보세요.</span>
         </div>
-        <form action="">
+        <form action="/user/join" method="post">
           <div>
             <img src="img/배경없는로고.png" alt="신청하기_로고">
           </div>
           <div>
             <div>
               <p>이름</p>
-              <input type="text" name="name" id="name" placeholder="이름을 입력해주세요." autofocus required>
+              <input type="text" name="m_name" id="m_name" th:value="${m_name}" placeholder="이름을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
               <p>연락처</p>
               <div class="tel">
-                <input type="tel" name="tel1" id="tel1" value="010" required
-                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                <span>-</span>
-                <input type="tel" placeholder="0000" required
-                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
-                <span>-</span>
-                <input type="tel" placeholder="0000" required
+                <input type="tel" name="m_phone" id="m_phone" th:value="${m_phone}" required placeholder="-를 제외한 전화번호를 입력하세요."
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               </div>
               <hr>
             </div>
             <div>
               <p>생년월일</p>
-              <input type="date" required>
+              <input type="date" name="m_birth" id="m_birth" th:value="${m_birth}" required>
               <hr>
             </div>
             <div class="agree">
               <p>개인정보 수집, 이용, 목적</p>
               <input type="checkbox" name="agree" id="agree" autocomplete="off" checked>
-              <textarea name="agree_content" id="agree_content" cols="40" rows="7">제1조 (목적)
+              <textarea name="agree_content" id="agree_content" cols="40" rows="7" style="resize: none;">제1조 (목적)
 
 본 약관은 책첵에서 제공하는 책첵 및 책첵 관련 제반 서비스(이하 '서비스')의 이용과 관련하여 회사와 회원의 권리, 의무 및 책임사항, 기타 필요한 사항을 규정함을 목적으로 합니다.
                         
@@ -118,39 +111,67 @@
             <div class="simple_noti">
               <a href="#noti">
                 <h3>공지 하나</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
+                <p>[어때책첵] 책첵의 월간 모임 기록</p>
               </a>
             </div>
             <div class="simple_noti">
               <a href="#noti">
                 <h3>공지 둘</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
+                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
               </a>
             </div>
             <div class="simple_noti">
               <a href="#noti">
                 <h3>공지 셋</h3>
+                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="#noti">
+                <h3>공지 넷</h3>
                 <p>개인정보이용약관 변경 안내</p>
               </a>
             </div>
+            <!-- 신청하기 -->
+            <div class="side_join">
+              <p>책첵과 함께하기</p>
+              <a href="join.html">신청</a>
+            </div>
           </div>
-          <!-- 신청하기 -->
-          <div class="side_join">
-            <p>책첵과 함께하기</p>
-            <a href="#join">신청</a>
-          </div>
+          <!-- footer -->
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">공지사항</a></li>
+                <li><a href="#">이용약관</a></li>
                 <li><a href="#">개인정보처리방침</a></li>
-                <li><a href="#">관리자페이지</a></li>
+                <li><button id="form_show">관리자페이지</li>
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
               </div>
             </div>
           </div>
+          <!-- modal -->
+          <div id="pw_content" class="modal">
+            <div class="form_password modal_wrap">
+              <div class="modal_header">
+                <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
+                <p class="caution">비밀번호를 확인해주세요</p>
+              </div>
+              <div class="modal_content">
+                <div class="description_head">
+                  <!-- x 버튼 -->
+                  <button class="btn_close">&times;</button>
+                </div>
+                <!-- m_noti.html 연결 -->
+                <form action="#" name="maneger_pw_form" class="description_header">
+                  <input type="password" maxlength="6" placeholder="비밀번호를 입력하세요" title="비밀번호">
+                  <button type="submit" minlength="4" disabled>확인</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

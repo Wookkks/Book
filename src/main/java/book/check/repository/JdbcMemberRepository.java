@@ -1,5 +1,7 @@
 package book.check.repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
@@ -24,19 +27,19 @@ public class JdbcMemberRepository implements MemberRepository {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-//	private RowMapper<Member> memberRowMapper() {
-//		return new RowMapper<Member>() {
-//			@Override
-//			public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
-//				Member member = new Member();
-//				member.setM_no(rs.getLong("m_no"));
-//				member.setM_name(rs.getString("m_name"));
-//				member.setM_address(rs.getString("m_phone"));
-//				member.setM_address(rs.getString("m_address"));
-//				return member;
-//			}
-//		};
-//	}
+	private RowMapper<Member> memberRowMapper() {
+		return new RowMapper<Member>() {
+			@Override
+			public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Member member = new Member();
+				member.setM_no(rs.getLong("m_no"));
+				member.setM_name(rs.getString("m_name"));
+				member.setM_phone(rs.getString("m_phone"));
+				member.setM_birth(rs.getDate("m_birth"));
+				return member;
+			}
+		};
+	}
 
 	@Override
 	public Member saveMember(Member member) {
@@ -45,7 +48,7 @@ public class JdbcMemberRepository implements MemberRepository {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("m_name", member.getM_name());
 		parameters.put("m_phone", member.getM_phone());
-		parameters.put("m_address", member.getM_birth());
+		parameters.put("m_birth", member.getM_birth());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		member.setM_no(key.longValue());
 		return member;

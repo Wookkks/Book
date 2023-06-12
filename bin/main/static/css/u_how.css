@@ -4,7 +4,11 @@
   font-family: 'NanumSquare';
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'NanumSquareExtraBold';
   font-weight: 700;
   font-size: 24px;
@@ -15,7 +19,15 @@ h3 {
   margin: 50px 0;
 }
 
-p, ul, li, dl, dt, dd, tr, th, td {
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+tr,
+th,
+td {
   font-size: 14px;
 }
 
@@ -26,6 +38,7 @@ p, ul, li, dl, dt, dd, tr, th, td {
 /* how.css */
 
 .how_check {
+  position: relative;
   margin: 50px 0;
 }
 
@@ -44,24 +57,30 @@ p, ul, li, dl, dt, dd, tr, th, td {
   margin-bottom: 20px;
 }
 
-.how_check .month_record {display: flex;}
-.how_check .month_record p {padding: 80px 20px 0 20px;}
+.how_check .month_record {
+  display: flex;
+  justify-content: space-around;
+}
+
+.how_check .month_record p {
+  padding: 80px 0;
+}
+
 .how_check .month_record img {
   width: 100px;
   height: auto;
-  margin:30px 50px;
+  margin: 30px 0;
 }
 
 .how_check hr:nth-of-type(2) {
   width: 200px;
   height: 3px;
   border-style: none;
-  background-color: rgb(58, 58, 58);;
+  background-color: rgb(58, 58, 58);
+  ;
   text-align: center;
   margin-top: 50px;
 }
-
-.how_check textarea::placeholder {padding: 10px;}
 
 .how_check .review div {
   background-color: rgb(244, 237, 206);
@@ -79,11 +98,30 @@ p, ul, li, dl, dt, dd, tr, th, td {
   font-size: 18px;
 }
 
+.how_check input[type='text'] {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
 .how_check textarea {
+  display: block;
   resize: none;
 }
 
-.how_check button {
+.how_check textarea::placeholder,
+.how_check input[type='text']::placeholder {
+  padding: 10px;
+}
+
+.how_check .btn_review {
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+}
+
+.how_check input[type='submit'],
+.how_check input[type='reset'] {
   border-style: none;
   width: 50px;
   height: 30px;
@@ -91,19 +129,15 @@ p, ul, li, dl, dt, dd, tr, th, td {
   float: right;
 }
 
-.how_check button.submit {
+.how_check #btn_sub {
   background-color: rgb(244, 237, 206);
   margin-left: 20px;
-}
-
-.how_check button.delete {
-  background-color: none;
 }
 
 .how_check .review .first_reviwer {
   margin-top: 70px;
 }
 
-.how_check .review div{
+.how_check .review div {
   margin-top: 30px;
 }
