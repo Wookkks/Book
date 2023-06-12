@@ -1,14 +1,20 @@
 package book.check.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import book.check.domain.Member;
+import book.check.domain.Review;
+import book.check.service.ApplyService;
 import book.check.service.MemberService;
+import book.check.service.ReviewService;
+import book.check.service.WithBookService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
@@ -16,8 +22,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 public class UserController {
 	
-	@Autowired
-	MemberService memberService;
+	private final MemberService memberService;
+	private final ReviewService reviewService;
+	private final ApplyService applyService;
+	private final WithBookService withBookService;
+	
+	public UserController(MemberService memberService, ReviewService reviewService, ApplyService applyService, WithBookService withbookService) {
+		this.memberService = memberService;
+		this.reviewService = reviewService;
+		this.applyService = applyService;
+		this.withBookService = withbookService;
+	}
+	// 메인
+	@GetMapping("/main")
+	public String main() {
+		return "user/main";
+	}
 	
 	// 공지 
 	@GetMapping("/noti")
@@ -42,7 +62,7 @@ public class UserController {
 	
 	// 가입신청
 	@PostMapping("/join")
-	public String postJoin(@ModelAttribute Member member) {
+	public String postJoin(Member member) {
 		log.info("[postJoin] 실행");
 		memberService.saveMember(member);
 		return "redirect:/user/main";
@@ -50,44 +70,19 @@ public class UserController {
 	
 	// 활동후기
 	@GetMapping("/how")
-	public String Review() {
-		
+	public String getReview(Model model) {
+		log.info("[getReview] 실행");
+		List<Review> review = reviewService.findAll();
+		model.addAttribute("review", review);
 		return "user/u_how";
 	}
 	
-	// 활동후기 폼
-	@GetMapping("/add/how")
-	public String getAddReview() {
-		
-		return "user/u_how_addForm";
-	}
-	
 	// 활동후기 등록
-	@PostMapping("add/how")
-	public String postAddReview() {
-		
-		return "redirect:/user/u_how";
-	}
-	
-	// 활동후기 수정 폼
-	@GetMapping("edit/how{r_no}")
-	public String getEditReview() {
-		
-		return "user/u_how_editForm";
-	}
-	
-	// 활동 후기 수정
-	@PostMapping("edit/how{r_no}")
-	public String postEditReview() {
-		
-		return "redirect:/user/u_how";
-	}
-	
-	// 활동후기 삭제
 	@PostMapping("/how")
-	public String deleteReview() {
-		
-		return "redirect:/user/u_how";
+	public String postReview(Review review) {
+		log.info("[postReview] 실행");
+		reviewService.saveReview(review);
+		return "redirect:/user/how";
 	}
 	
 	// 책 나눔

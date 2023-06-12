@@ -31,8 +31,10 @@ public class JdbcReviewRepository implements ReviewRepository{
 			@Override
 			public Review mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Review review = new Review();
+				review.setR_no(rs.getLong("r_no"));
 				review.setR_name(rs.getString("r_name"));
 				review.setR_content(rs.getString("r_content"));
+				review.setR_date(rs.getDate("r_date"));
 				return review;
 			}
 		};
@@ -54,8 +56,7 @@ public class JdbcReviewRepository implements ReviewRepository{
 	@Override
 	public List<Review> findAll() {
 		String sql = "SELECT * FROM REVIEW";
-		List<Review> result = jdbcTemplate.query(sql, reviewRowMapper());
-		return result;
+		return jdbcTemplate.query(sql, reviewRowMapper());
 	}
 	
 	@Override
