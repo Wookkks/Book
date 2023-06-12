@@ -48,17 +48,19 @@
 
       <!-- 신청하기 시작 -->
       <div class="container join_check">
-        <a href="###"><img src="img/arrow_back.png" alt="뒤로가기"></a>
+        <a><img src="img/arrow_back.png" alt="뒤로가기" onclick="javascript:window.history.back();"></a>
         <div class="explain">
           <b>책첵 회원가입</b>
           <span>책첵은 나이와 성별 그 무엇도 필요하지 않습니다. <br>
             오로지 책을 사랑하는 사람들이 모여 서로의 이야기를 공유하고<br>서로의 책첵 체크리스트를 만들어 보세요.</span>
         </div>
         <form action="/user/join" method="post">
-          <div>
-            <img src="img/배경없는로고.png" alt="신청하기_로고">
-          </div>
-          <div>
+          <a href="/user/join">
+            <div>
+              <img src="img/배경없는로고.png" alt="신청하기_로고">
+            </div>
+          </a>  
+            <div>
             <div>
               <p>이름</p>
               <input type="text" name="m_name" id="m_name" th:value="${m_name}" placeholder="이름을 입력해주세요." autofocus required>
@@ -135,7 +137,7 @@
             <!-- 신청하기 -->
             <div class="side_join">
               <p>책첵과 함께하기</p>
-              <a href="join.html">신청</a>
+              <a href="/user/join">신청</a>
             </div>
           </div>
           <!-- footer -->
