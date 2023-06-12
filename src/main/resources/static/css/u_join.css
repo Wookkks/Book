@@ -1,135 +1,150 @@
 @charset "utf-8";
 
 * {
-    font-family: 'NanumSquare';
-  }
-  
-  h2, h3, h4, h5, h6 {
-    font-family: 'NanumSquareExtraBold';
-    font-weight: 700;
-    font-size: 24px;
-  }
-  
-  h3 {
-    font-size: 18px;
-    margin: 50px 0;
-  }
-  
-  p, ul, li, dl, dt, dd, tr, th, td {
-    font-size: 14px;
-    list-style: none;
-    -webkit-margin-before: 0em;
-    -webkit-margin-after: 0em;
-    -webkit-margin-start: 0px;
-    -webkit-margin-end: 0px;
-    -webkit-padding-start: 0px;  
-  }
+  font-family: 'NanumSquare';
+}
 
-  .grid-container {
-    justify-content: space-between;
-  }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'NanumSquareExtraBold';
+  font-weight: 700;
+  font-size: 24px;
+}
 
-  /* join.html */
+h3 {
+  font-size: 18px;
+  margin: 50px 0;
+}
 
-  .join_check {margin: 50px 0;}
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+tr,
+th,
+td {
+  font-size: 14px;
+  list-style: none;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
 
-  .join_check button img {
-    width: 30px;
-  }
+.grid-container {
+  justify-content: space-between;
+}
 
-  .join_check .explain {
-    width: 450px;
-    height: 200px;
-    background-color: rgb(247, 236, 230);
-    padding-top: 30px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-  }
+/* join.html */
 
-  .join_check .explain span {
-    display: block;
-    line-height: 25px;
-    font-size: 14px;
-  }
+.join_check {
+  margin: 50px 0;
+}
+
+.join_check a img {
+  margin-bottom: 10px;
+  width: 30px;
+}
+
+.join_check .explain {
+  width: 450px;
+  height: 200px;
+  background-color: rgb(247, 236, 230);
+  padding-top: 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.join_check .explain span {
+  display: block;
+  line-height: 25px;
+  font-size: 14px;
+}
 
 .join_check form {
-    width: 450px;
-    height: 800px;
-    background-color: rgb(244, 237, 206);
-    border-radius: 10px;
-    padding: 50px;
+  width: 450px;
+  height: 800px;
+  background-color: rgb(244, 237, 206);
+  border-radius: 10px;
+  padding: 50px;
 }
 
 .join_check form img {
-    width: 100px;
+  width: 100px;
 }
 
 .join_check hr {
-    width: 300px;
-    margin-top: -5px;
+  width: 300px;
+  margin-top: -5px;
 }
 
 .join_check div {
-    position: relative;
-    text-align: center;
-    line-height: 50px;
+  position: relative;
+  text-align: center;
+  line-height: 50px;
 }
 
 .join_check div p {
-    position: absolute;
-    left: 30px;
-    color: rgb(158, 158, 158);
+  position: absolute;
+  left: 30px;
+  color: rgb(158, 158, 158);
 }
 
-.join_check input[type="text"], input[type="tel"], input[type="date"] {
-    border-style: none;
-    background-color: rgb(244, 237, 206);
-    font-size: 18px;
-    margin-top: 70px;
-    width: 300px;
+.join_check input[type="text"],
+input[type="tel"],
+input[type="date"] {
+  border-style: none;
+  background-color: rgb(244, 237, 206);
+  font-size: 18px;
+  margin-top: 70px;
+  width: 300px;
 }
 
 .join_check input[type="tel"] {
-    width: 50px;
-    height: 30px;
-    font-size: 18px;
+  width: 300px;
+  height: 30px;
+  font-size: 18px;
 }
-
-.join_check .tel {
-    margin-left: -70px;
-}
-
-.join_check span {
-    margin-right: 10px;
-}
-
 .join_check span:nth-of-type(2) {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .join_check .agree {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .join_check input[type="checkbox"] {
-    width: 15px;
-    height: 15px;
-    position: absolute;
-    top: 15px;
-    right: 25px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 15px;
+  right: 25px;
 }
 
 .join_check textarea {
-    margin-top: 50px;
-    border-style: none;
-    background-color: rgb(247, 236, 230);
+  margin-top: 50px;
+  border-style: none;
+  background-color: rgb(247, 236, 230);
 }
 
 .join_check input[type="submit"] {
-    border-style: none;
-    width: 300px;
-    height: 50px;
-    background-color:rgb(250, 250, 250);
-    border-radius: 15px;
-    margin: 30px 0 0 25px;
+  border-style: none;
+  width: 300px;
+  height: 50px;
+  background-color: #4c4c4c;
+  border-radius: 15px;
+  font-size: 18px;
+  color: #fff;
+  margin: 30px 0 0 25px;
+}
+
+.join_check input[type="submit"]:hover {
+  background-color: #fff;
+  color: #4c4c4c;
 }
