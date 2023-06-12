@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나눔책첵 신청하기</title>
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="icon" href="icon/favicon-96x96.png">
+  <link rel="stylesheet" href="css/u_share_addForm.css" />
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body id="wrap">
+  <dl class="skip-nav">
+    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dd><a href="#main">skip to main</a></dd>
+    <dd><a href="#how">skip to how</a></dd>
+    <dd><a href="#chart">skip to chart</a></dd>
+    <dd><a href="#with">skip to with</a></dd>
+    <dd><a href="#noti">skip to noti</a></dd>
+    <dd><a href="#join">skip to join</a></dd>
+    <dd><a href="#footer">skip to footer</a></dd>
+  </dl>
+  <!-- START -->
+  <div class="whole_page">
+    <div id="wrap" class="grid-container">
+      <div id="side_header" class="grid-item1">
+        <div class="header_content">
+          <div class="logo">
+            <h1>
+              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+            </h1>
+          </div>
+          <div class="gnb">
+            <ul>
+              <li><a href="main.html">홈</a></li>
+              <li><a href="u_how.html">어때책첵</a></li>
+              <li><a href="u_chart.html">분석책첵</a></li>
+              <li><a href="u_with_book.html">나눔책첵</a></li>
+            </ul>
+            <hr>
+            <p><a href="#noti">공지사항</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 나눔 도서등록 시작 -->
+      <div class="container join_check">
+        <a href="###"><img src="img/arrow_back.png" alt="뒤로가기"></a>
+        <div class="explain">
+          <b>책첵 나눔도서 등록</b>
+          <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
+            함께 나누고 싶은 도서를 등록하시고,<br>직접 신청자를 선택해 공유하실 수 있습니다.</span>
+        </div>
+        <form action="">
+          <div>
+            <img src="img/배경없는로고.png" alt="신청하기_로고">
+          </div>
+          <div>
+            <div>
+              <p>도서명</p>
+              <input type="text" name="w_title" id="w_title" placeholder="도서명을 입력해주세요." autofocus required>
+              <hr>
+            </div>
+            <div>
+                <p>한줄평</p>
+                <textarea name="w_memo" id="w_memo" cols="30" rows="10" required></textarea>
+            </div>
+            <div>
+              <p>비밀번호</p>
+              <input type="password" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="숫자를 입력하세요." name="w_pwd" id="w_pwd"/>
+              <hr>
+            </div>
+            <div class="local">
+              <p>나눔지역</p>
+              <select name="w_area" id="w_area">
+                <option value="seo">서울 서대문구</option>
+                <option value="ma">서울 마포구</option>
+                <option value="jong">서울 종로구</option>
+                <option value="gang">서울 강남구</option>
+                <option value="yeong">서울 영등포구</option>
+                <option value="jung">서울 중구</option>
+              </select>
+            </div>
+          </div>
+          <input type="submit" value="신청">
+        </form>
+      </div>
+
+      <!-- START aside -->
+      <div id="aside" class="grid-item3">
+        <div class="aside_content">
+          <div class="noties">
+            <div class="simple_noti">
+              <a href="#noti">
+                <h3>공지 하나</h3>
+                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="#noti">
+                <h3>공지 둘</h3>
+                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="#noti">
+                <h3>공지 셋</h3>
+                <p>개인정보이용약관 변경 안내</p>
+              </a>
+            </div>
+            <!-- 신청하기 -->
+            <div class="side_join">
+              <p>책첵과 함께하기</p>
+              <a href="u_join.html">신청</a>
+            </div>
+          </div>
+          <div id="side_footer">
+            <div class="footer">
+              <ul>
+                <li><a href="#">공지사항</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="#">관리자페이지</a></li>
+              </ul>
+              <div>
+                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>
