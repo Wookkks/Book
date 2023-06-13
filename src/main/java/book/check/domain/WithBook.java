@@ -13,6 +13,7 @@ public class WithBook {
 	private String w_area;
 	private String w_pwd;
 	private Date w_date;
+	private Boolean w_yn = false;
 	
 	public WithBook() {}
 	

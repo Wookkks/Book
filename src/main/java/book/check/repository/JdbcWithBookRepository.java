@@ -40,6 +40,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 				withBook.setW_area(rs.getString("w_area"));
 				withBook.setW_pwd(rs.getString("w_pwd"));
 				withBook.setW_date(rs.getDate("w_date"));
+				withBook.setW_yn(rs.getBoolean("w_yn"));
 				return withBook;
 			}
 		};
@@ -56,6 +57,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		parameters.put("w_area", withBook.getW_area());
 		parameters.put("w_date", withBook.getW_date());
 		parameters.put("w_pwd", withBook.getW_pwd());
+		parameters.put("w_yn", withBook.getW_yn());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		withBook.setW_no(key.longValue());
 		return withBook;

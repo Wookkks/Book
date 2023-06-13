@@ -14,6 +14,8 @@
                         
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/bin/generated-sources/annotations"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/bin/generated-test-sources/annotations"/>
                         
         
         <property name="context-root" value="Book"/>
