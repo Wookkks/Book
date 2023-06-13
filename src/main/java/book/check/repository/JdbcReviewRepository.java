@@ -55,7 +55,7 @@ public class JdbcReviewRepository implements ReviewRepository{
 
 	@Override
 	public List<Review> findAll() {
-		String sql = "SELECT * FROM REVIEW";
+		String sql = "SELECT * FROM REVIEW ORDER BY R_NO DESC";
 		return jdbcTemplate.query(sql, reviewRowMapper());
 	}
 	

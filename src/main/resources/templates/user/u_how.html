@@ -128,10 +128,10 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti">
+            <div class="simple_noti" th:each="noti:${noti}">
               <a href="#noti">
-                <h3>공지 하나</h3>
-                <p>[어때책첵] 책첵의 월간 모임 기록</p>
+                <h3 th:text="${noti.n_title}">공지 하나</h3>
+                <p th:text="${noti.n_content}">[어때책첵] 책첵의 월간 모임 기록</p>
               </a>
             </div>
             <div class="simple_noti">

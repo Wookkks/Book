@@ -1,6 +1,7 @@
 package book.check.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +19,17 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/manager")
 public class ManagerController {
 	
-//	private final NotiService notiService;
-//
-//	@Autowired
-//	public NotiController(NotiService notiService) {
-//		this.notiService = notiService;
-//	}
+	private final NotiService notiService;
+
+	public ManagerController(NotiService notiService) {
+		this.notiService = notiService;
+	}
 	
 	//공지사항
 	@GetMapping("/noti")
-	public String noti () {
+	public String noti (Model model) {
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute(noti);
 		return "manager/m_noti";
 	}
 		

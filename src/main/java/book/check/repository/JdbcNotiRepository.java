@@ -71,8 +71,7 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public List<Noti> findAll() {
-		List<Noti> result = jdbcTemplate.query("SELECT * FROM NOTI", notiRowMapper()); 
-		return result;
+		return jdbcTemplate.query("SELECT * FROM NOTI", notiRowMapper());
 	}
 
 	@Override

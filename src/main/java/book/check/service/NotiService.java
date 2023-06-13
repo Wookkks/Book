@@ -21,22 +21,22 @@ public class NotiService {
 	}
 
 	// 공지 등록번호로 조회
-	Optional<Noti> findByNo(Long n_no) {
+	public Optional<Noti> findByNo(Long n_no) {
 		return notiRepository.findByNo(n_no);
 	}
 
 	// 공지 제목으로 조회
-	Optional<Noti> findByTitle(String n_title) {
+	public Optional<Noti> findByTitle(String n_title) {
 		return notiRepository.findByTitle(n_title);
 	}
 
 	// 공지 전체목록
-	List<Noti> findAll() {
+	public List<Noti> findAll() {
 		return notiRepository.findAll();
 	}
 
 	// 공지수정
-	Noti updateNoti(Long n_no, Noti update_noti) {
+	public Noti updateNoti(Long n_no, Noti update_noti) {
 		return notiRepository.updateNoti(n_no, update_noti);
 	}
 
