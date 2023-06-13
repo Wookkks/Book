@@ -34,7 +34,6 @@ public class JdbcReviewRepository implements ReviewRepository{
 				review.setR_no(rs.getLong("r_no"));
 				review.setR_name(rs.getString("r_name"));
 				review.setR_content(rs.getString("r_content"));
-				review.setR_date(rs.getDate("r_date"));
 				return review;
 			}
 		};
@@ -47,7 +46,6 @@ public class JdbcReviewRepository implements ReviewRepository{
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("r_name", review.getR_name());
 		parameters.put("r_content", review.getR_content());
-		parameters.put("r_date", review.getR_date());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		review.setR_no(key.longValue());
 		return review;

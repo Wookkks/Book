@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -29,18 +29,18 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="main.html">홈</a></li>
-              <li><a href="u_how.html">어때책첵</a></li>
-              <li><a href="u_chart.html">분석책첵</a></li>
-              <li><a href="u_share_book.html">나눔책첵</a></li>
+              <li><a href="/user/main">홈</a></li>
+              <li><a href="/user/how">어때책첵</a></li>
+              <li><a href="/user/chart">분석책첵</a></li>
+              <li><a href="/user/share">나눔책첵</a></li>
             </ul>
             <hr>
-            <p><a href="u_noti.html">공지사항</a></p>
+            <p><a href="/manager/noti">공지사항</a></p>
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@
           <div class="wrap_section">
             <div id="noti">
               <div class="title">
-                <a href="m_noti_addform.html">공지사항 쓰기</a>
+                <a href="/manager/noti/add">공지사항 쓰기</a>
               </div>
               <div class="noti_list">
                 <div class="notice">
@@ -67,7 +67,7 @@
                     <div class="btns">
                       <span>
                         <button class="btn_remove">삭제</button>
-                        <a href="m_noti_detail_fiix.html" class="modify">수정</a>
+                        <a href="/maneger/noti/edit{n_no}" class="modify">수정</a>
                       </span>
                     </div>
                   </a>

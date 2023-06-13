@@ -1,7 +1,5 @@
 package book.check.domain;
 
-import java.sql.Date;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +8,6 @@ public class Review {
 	private Long r_no;
 	private String r_name;
 	private String r_content;
-	private Date r_date;
 	
 	public Review() {}
 

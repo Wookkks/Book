@@ -28,6 +28,7 @@ public class ManagerController {
 	//공지사항
 	@GetMapping("/noti")
 	public String noti (Model model) {
+		log.info("[GET] noti 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute(noti);
 		return "manager/m_noti";
@@ -39,13 +40,13 @@ public class ManagerController {
 	//공지사항 등록 폼
 	@GetMapping("add/noti")
 	public String notiForm() {
-	
+		log.info("[GET] notiForm 실행");
 		return "manager/m_noti_addForm";
 	}
 	
 	//공지사항 등록
 	@PostMapping("add/noti")
-	public String notiCreate(@ModelAttribute Noti noti, RedirectAttributes redirectAttributes, Model model) {
+	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirectAttributes) {
 		
 		return "redirect:/manager/m_noti";
 	}
