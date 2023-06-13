@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <title>나눔책첵 신청하기</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/u_share_addForm.css" />
+  <link rel="stylesheet" href="css/u_share_addForm.css" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -30,55 +30,54 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="/user/main">홈</a></li>
-              <li><a href="/user/how">어때책첵</a></li>
-              <li><a href="/user/chart">분석책첵</a></li>
-              <li><a href="/user/share">나눔책첵</a></li>
+              <li><a href="main.html">홈</a></li>
+              <li><a href="u_how.html">어때책첵</a></li>
+              <li><a href="u_chart.html">분석책첵</a></li>
+              <li><a href="u_with_book.html">나눔책첵</a></li>
             </ul>
             <hr>
-            <p><a href="/user/noti">공지사항</a></p>
+            <p><a href="#noti">공지사항</a></p>
           </div>
         </div>
       </div>
 
       <!-- 나눔 도서등록 시작 -->
       <div class="container join_check">
-        <a><img src="img/arrow_back.png" alt="뒤로가기" onclick="javascript:window.history.back();"></a>
+        <a href="###"><img src="img/arrow_back.png" alt="뒤로가기"></a>
         <div class="explain">
           <b>책첵 나눔도서 등록</b>
           <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
             함께 나누고 싶은 도서를 등록하시고,<br>직접 신청자를 선택해 공유하실 수 있습니다.</span>
         </div>
-        <form action="/user/share/add" method="post">
-          <a href="/user/share/add">
-            <div>
-              <img src="img/배경없는로고.png" alt="신청하기_로고">
-            </div>
-          </a>
+        <form action="">
+          <div>
+            <img src="img/배경없는로고.png" alt="신청하기_로고">
+          </div>
           <div>
             <div>
               <p>도서명</p>
-              <input type="text" name="w_title" id="w_title" th:value="${w_title}" placeholder="도서명을 입력해주세요." autofocus required>
+              <input type="text" name="w_title" id="w_title" placeholder="도서명을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
-                <p>한줄평</p>
-                <textarea name="w_memo" id="w_memo" th:value="${w_memo}" cols="30" rows="10" required></textarea>
+              <p>한줄평</p>
+              <textarea name="w_memo" id="w_memo" cols="30" rows="10" required></textarea>
             </div>
             <div>
               <p>비밀번호</p>
-              <input type="password" required name="w_pwd" id="w_pwd" th:value="${w_pwd}"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="숫자를 입력하세요."/>
+              <input type="password" required
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                placeholder="숫자를 입력하세요." name="w_pwd" id="w_pwd" />
               <hr>
             </div>
             <div class="local">
               <p>나눔지역</p>
-              <select name="w_area" id="w_area" th:value="${w_area}">
+              <select name="w_area" id="w_area">
                 <option value="seo">서울 서대문구</option>
                 <option value="ma">서울 마포구</option>
                 <option value="jong">서울 종로구</option>
@@ -86,6 +85,9 @@
                 <option value="yeong">서울 영등포구</option>
                 <option value="jung">서울 중구</option>
               </select>
+            </div>
+            <div class="w_date">
+              <input type="date">
             </div>
           </div>
           <input type="submit" value="신청">
@@ -117,7 +119,7 @@
             <!-- 신청하기 -->
             <div class="side_join">
               <p>책첵과 함께하기</p>
-              <a href="/user/join">신청</a>
+              <a href="u_join.html">신청</a>
             </div>
           </div>
           <div id="side_footer">
