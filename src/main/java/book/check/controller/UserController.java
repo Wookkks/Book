@@ -2,7 +2,6 @@ package book.check.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import book.check.domain.Member;
 import book.check.domain.Noti;
 import book.check.domain.Review;
+import book.check.domain.WithBook;
 import book.check.service.ApplyService;
 import book.check.service.MemberService;
 import book.check.service.NotiService;
@@ -110,8 +110,9 @@ public class UserController {
 	
 	// 책 나눔 등록
 	@PostMapping("/share/add")
-	public String postWithAdd() {
+	public String postWithAdd(WithBook withBook) {
 		log.info("[GET] postWithAdd 실행");
+		withBookService.saveWithBook(withBook);
 		return "redirect:/user/u_share_book";
 	}
 	
