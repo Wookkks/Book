@@ -139,16 +139,48 @@ body {
 }
 
 /* index */
-#wrap .container .about {
-  /* display: grid;
-  grid-template-columns: repeat(); */
+#wrap {
+  width: 100%;
+  height: 100vh;
+}
+
+#wrap .index_container .contant {
+  display: table;
+  float: left;
+  width: 70%;
+  height: 100vh;
+  padding: 0 20%;
+  text-align: left;
+  background-color: #F7ECE6;
+}
+
+#wrap .index_container .contant h1 {
+  font-size: 75px;
+  font-weight: bolder;
+}
+
+#wrap .index_container .contant p {
+  font-size: 35px;
+}
+
+#wrap .index_container .contant div {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+#wrap .index_logo {
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100vh;
 }
 
 /* main */
 .grid-container {
   display: grid;
   grid-template-columns: 20rem auto 20rem;
-  /* gap: 1.5rem; */
 }
 
 #side_header,
@@ -193,40 +225,16 @@ body {
   font-size: large;
 }
 
+#side_header .gnb>ul li:focus,
+.gnb>p:focus {
+  font-weight: bold;
+  border-radius: 22px;
+  background-color: rgb(231, 214, 176);
+  font-size: large;
+}
+
 #side_header .gnb hr {
   margin: 1rem 0;
-}
-
-/* container */
-#container #main_banner {
-  position: relative;
-  width: 100%;
-}
-
-#container #content .section {
-  padding: 5rem 3rem;
-  text-align: center;
-}
-
-#container #content .section .intro {
-  padding: 5rem 1.5rem;
-}
-
-#container #content .section h2 {
-  padding-bottom: 5rem;
-}
-
-#container #content .section p {
-  text-align: justify;
-  font-size: 16px;
-}
-
-#container #content .section .sub_line {
-  padding-bottom: 2rem;
-}
-
-#container #content .section hr {
-  width: 200px;
 }
 
 /* aside_right */
@@ -237,7 +245,7 @@ body {
 
 #aside .aside_content {
   position: sticky;
-  top: 1rem;
+  top: 0;
 }
 
 #aside .noties .simple_noti {
@@ -245,7 +253,7 @@ body {
   border-radius: 5px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   padding: 15px 10px;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   height: 5rem;
 }
 
@@ -273,15 +281,15 @@ body {
   background-color: #4c4c4c;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   border-radius: 5px;
-  /* width: 10rem; */
+  height: 5rem;
   padding: 12px;
   text-align: center;
   color: #eee;
+  transform: all .2s linear;
 }
 
 #aside .side_join a:hover {
   background-color: #FDEFC8;
-
 }
 
 #aside .side_join p {
@@ -290,31 +298,35 @@ body {
 }
 
 #aside .side_join a {
-  padding: 5px 15px;
+  display: block;
+  padding: 7px 15px;
+  margin-top: 10px;
   border-radius: 5px;
   background-color: #F7ECE6;
   font-size: 14px;
   color: #333;
+  transform: all .2s linear;
 }
 
 #aside .side_join a:hover {
-  font-weight: 900;
+  font-weight: bold;
 }
 
 /* footer */
 #aside .aside_content .noties {
-  height: 100%;
+  height: 90vh;
 }
 
 #aside #side_footer {
-  width: fit-content;
-  height: fit-content;
+  position: sticky;
   text-align: center;
+  bottom: 0;
 }
 
 #aside #side_footer .footer {
-  margin-left: 14px;
-  padding: 1rem 0;
+  display: grid;
+  justify-content: center;
+  padding: 1rem 0 0;
 }
 
 #aside #side_footer ul {
@@ -329,15 +341,88 @@ body {
 }
 
 #aside #side_footer li:hover {
-  font-weight: bold;
+  background-color: #FDEFC8;
 }
 
 #aside #side_footer ul li:nth-child(2) {
-  padding: 0 1rem;
+  margin: 0 1rem;
 }
 
 #aside #side_footer p {
   margin: 10px 0;
   display: block;
   font-size: 10px;
+}
+
+/* modal 비밀번호 폼 */
+.modal {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+  background-color: #FDEFC8;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  padding: 1rem;
+  z-index: 100;
+  display: none;
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal .modal_wrap::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.modal .modal_wrap p {
+  font-size: 14px;
+  text-align: left;
+}
+
+.modal .modal_wrap p:nth-child(2) {
+  display: none;
+}
+
+.btn_close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: transparent;
+  font-size: 20px;
+  color: #333;
+}
+
+.btn_close:hover {
+  cursor: pointer;
+}
+
+.modal .modal_wrap form {
+  padding: 1rem 0 0;
+}
+
+.modal .modal_wrap input {
+  float: left;
+  line-height: 2rem;
+  border-radius: 5px;
+}
+
+/* .modal .modal_wrap input:invalid {
+  border: 1px solid red;
+} */
+
+.modal .modal_wrap form>button {
+  float: right;
+  background-color: #4c4c4c;
+  width: 4rem;
+  color: #eee;
+  line-height: 2.2rem;
+  border-radius: 5px;
+}
+
+.modal .modal_wrap form>button:hover {
+  background-color: #ffd1d1;
+  color: #333;
 }
