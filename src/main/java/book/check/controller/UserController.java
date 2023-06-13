@@ -86,38 +86,38 @@ public class UserController {
 	}
 	
 	// 책 나눔
-	@GetMapping("/with")
+	@GetMapping("/share")
 	public String with() {
 		
-		return "user/u_with_book";
+		return "user/u_share_book";
 	}
 	
 	// 책 나눔 등록 폼
-	@GetMapping("/add/with")
+	@GetMapping("/share/add")
 	public String getAddWith() {
 		
-		return "user/u_with_book_addForm";
+		return "user/u_share_addForm";
 	}
 	
 	// 책 나눔 등록
-	@PostMapping("/add/with")
+	@PostMapping("/share/add")
 	public String postAddWith() {
 		
-		return "redirect:/user/u_with_book";
+		return "redirect:/user/u_share_book";
 	}
 	
 	// 책 나눔 수정 폼 
-	@GetMapping("/edit/with{w_no}")
+	@GetMapping("/share/edit{w_no}")
 	public String getWithEdit() {
 		
-		return "user/u_with_book_editForm";
+		return "user/u_share_editForm";
 	}
 	
 	// 책 나눔 수정
-	@PostMapping("/edit/with{w_no}")
+	@PostMapping("/share/edit{w_no}")
 	public String postWithEdit() {
 		
-		return "redirect:/user/u_with_book";
+		return "redirect:/user/u_share_book";
 	}
 	
 	// 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)
