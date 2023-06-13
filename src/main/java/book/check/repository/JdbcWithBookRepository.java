@@ -46,18 +46,19 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	}
 	
 	@Override
-	public WithBook saveWithBook(WithBook withbook) {
+	public WithBook saveWithBook(WithBook withBook) {
 		log.info("save() 실행");
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("w_no");
 		Map<String, Object> parameters = new HashMap<>();
-		parameters.put("w_title", withbook.getW_title());
-		parameters.put("w_memo", withbook.getW_memo());
-		parameters.put("w_area", withbook.getW_area());
-		parameters.put("w_pwd", withbook.getW_pwd());
+		parameters.put("w_title", withBook.getW_title());
+		parameters.put("w_memo", withBook.getW_memo());
+		parameters.put("w_area", withBook.getW_area());
+		parameters.put("w_date", withBook.getW_date());
+		parameters.put("w_pwd", withBook.getW_pwd());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
-		withbook.setW_no(key.longValue());
-		return withbook;
+		withBook.setW_no(key.longValue());
+		return withBook;
 	}
 
 	@Override
