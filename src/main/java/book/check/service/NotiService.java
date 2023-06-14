@@ -41,7 +41,7 @@ public class NotiService {
 	}
 
 	// 공지삭제
-	void deleteNoti(Long n_no) {
+	public void deleteNoti(Long n_no) {
 		notiRepository.deleteNoti(n_no);
 	}
 }

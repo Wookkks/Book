@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,51 +35,47 @@ public class ManagerController {
 		return "manager/m_noti";
 	}
 		
-	//공지사항 상세 X
-	//공지사항 페이지에 목록들 전체 뜨고 각각 수정/삭제버튼 있음
-	
 	//공지사항 등록 폼
-	@GetMapping("add/noti")
+	@GetMapping("/noti/add")
 	public String notiForm() {
 		log.info("[GET] notiForm 실행");
 		return "manager/m_noti_addForm";
 	}
 	
-	//공지사항 등록
-	@PostMapping("add/noti")
-	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirectAttributes) {
-		
+	//공지사항 등록  	
+	//에러발생 Column 'n_name' cannot be null
+	//공지사항 등록에서 n_name은 어떻게?
+	@PostMapping("/noti/add")
+	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
+		log.info("[GET] notiCreate 실행");
+		notiService.saveNoti(noti);
+		redirect.addAttribute("n_no", noti.getN_no());
 		return "redirect:/manager/m_noti";
 	}
-	
-//	// 공지사항 글 작성 후 저장 // 삭제예정
-//	@PostMapping("/create")
-//	public String createNoti(@ModelAttribute Noti noti,
-//			RedirectAttributes redirectAttributes, Model model) {
-//
-//		notiService.create(noti);
-//		redirectAttributes.addAttribute("notiId", noti.getNotiId());
-//		return "redirect:/noti/{notiId}";
-//	}
-	
+
 	//공지사항 수정 폼
-	@GetMapping("edit/noti{n_no}")
-	public String notiEditForm() {
-		
+	@GetMapping("/noti/edit{n_no}")
+	public String notiEditForm(@PathVariable Long n_no, Model model) {
+		log.info("[GET] notiEditForm() 실행");
+		model.addAttribute("notiEdit", notiService.findByNo(n_no).get());
 		return "manager/m_noti_editForm";
 	}
 	
 	//공지사항 수정
-	@PostMapping("/edit/noti{n_no}")
-	public String notiEdit() {
-		
+	@PostMapping("/noti/edit{n_no}")
+	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
+		log.info("[POST] notiEdit() 실행");
+		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
+		redirect.addAttribute("noti", n_no);
 		return "redirect:/manager/m_noti";
 	}
+
 	
 	//공지사항 삭제
-	@PostMapping("noti")
-	public String notiDelete() {
-	
+	@PostMapping("/noti")
+	public String notiDelete(Long n_no) {
+		log.info("[POST] notiDelete 실행");
+		notiService.deleteNoti(n_no);
 		return "manager/m_noti";
 	}
 	
