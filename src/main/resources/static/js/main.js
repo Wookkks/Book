@@ -4,7 +4,7 @@ const btn_modal = document.querySelector('.btn_modal');
 
 // 공지삭제버튼 모달
 const remove_modal = document.querySelector('.remove_modal');
-const btn_remove = document.querySelector('.btn_remove');
+const btn_remove = document.querySelectorAll('.btn_remove');
 
 // 닫기 버튼
 const pw_btn_close = document.querySelector('.pw_btn_close');
@@ -19,21 +19,22 @@ btn_modal.addEventListener('click', () => {
     pw_btn_close.classList.add('active');
 });
 
-btn_remove.addEventListener('click', () => {
-    remove_modal.classList.add('active');
-    remove_btn_close.classList.add('active');
-});
-
 pw_btn_close.addEventListener('click', () => {
     pw_modal.classList.remove('active');
     pw_btn_close.classList.remove('active');
 });
 
-remove_btn_close.addEventListener('click', () => {
-    remove_modal.classList.remove('active');
-    remove_btn_close.classList.remove('active');
+btn_remove.forEach(btn_remove => {
+    btn_remove.addEventListener('click', () => {
+        remove_modal.classList.add('active');
+        remove_btn_close.classList.add('active');
+    })
 });
-remove_cancel_btn.addEventListener('click', () => {
-    remove_modal.classList.remove('active');
-    remove_btn_close.classList.remove('active');
+
+remove_close_arr = [remove_btn_close, remove_cancel_btn];
+remove_close_arr.forEach(close => {
+    close.addEventListener('click', () => {
+        remove_modal.classList.remove('active');
+        remove_btn_close.classList.remove('active');
+    })
 });
