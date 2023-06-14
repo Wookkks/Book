@@ -6,9 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/m_noti.css">
-  <link rel="stylesheet" href="/css/m_style.css">
-  <title>BookCheck_m_noti</title>
+  <link rel="stylesheet" href="/css/u_noti.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>BookCheck_noti</title>
 </head>
 
 <body>
@@ -24,24 +24,6 @@
   </dl>
   <!-- START -->
   <div class="whole_page">
-    <!-- remove 모달 -->
-    <div id="modal" class="remove_modal">
-      <div class="modal_wrap">
-        <div class="modal_header">
-          <p class="pw_text">게시물을 삭제하시겠습니까?</p>
-        </div>
-        <div class="modal_content">
-          <div class="description_head">
-            <!-- x 버튼 -->
-            <button class="remove_btn_close">&times;</button>
-          </div>
-          <div class="remove_btns">
-            <button class="remove_cancel_btn">취소</button>
-            <button type="submit">확인</button>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="wrap" class="grid-container">
       <div id="side_header" class="grid-item1">
         <div class="header_content">
@@ -56,37 +38,34 @@
               <li><a href="u_how.html">어때책첵</a></li>
               <li><a href="u_chart.html">분석책첵</a></li>
               <li><a href="u_share_book.html">나눔책첵</a></li>
-              <hr>
-              <li><a href="u_noti.html">공지사항</a></li>
             </ul>
+            <hr>
+            <p><a href="u_noti.html">공지사항</a></p>
           </div>
         </div>
       </div>
 
       <!-- START container -->
       <div id="container" class="grid-item2">
-        <!-- <div id="main_banner">
+        <div id="main_banner">
           <img src="img/pexels-hailey-galloway-4825139.jpg" alt="메인배너" width="100%">
-        </div> -->
+        </div>
         <!-- content -->
         <div id="content">
           <div class="wrap_section">
             <div id="noti">
               <div class="title">
-                <a href="m_noti_addform.html">공지사항 쓰기</a>
+                <h2>공지사항</h2>
               </div>
               <div class="noti_list">
                 <div class="notice">
-                  <a href="u_noti_detail4.html">
+                  <a href="u_noti_detail.html">
                     <p></p>
                     <p></p>
+                    <div>
+                      <span>책첵지기<img src="/img/round_logo.png" alt=""></span>
+                    </div>
                   </a>
-                  <div class="btns">
-                    <span>
-                      <button class="btn_remove">삭제</button>
-                      <a href="m_noti_editForm.html" class="modify">수정</a>
-                    </span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -104,6 +83,11 @@
                 <h3></h3>
                 <p></p>
               </a>
+            </div>
+            <!-- 신청하기 -->
+            <div class="side_join">
+              <p>책첵과 함께하기</p>
+              <a href="#join">신청</a>
             </div>
           </div>
           <!-- footer -->
@@ -145,14 +129,6 @@
     </div>
   </div>
   <script src="/js/main.js"></script>
-  <!-- 창 닫으면 자동 관리자 로그아웃 -->
-  <!-- <script>
-    window.addEventListener("beforeunload", e => {
-      if (close_window) {
-        toDoWhenClosing();
-      }
-    });
-  </script> -->
 </body>
 
 </html>
