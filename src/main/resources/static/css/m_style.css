@@ -185,7 +185,7 @@ body {
 
 #side_header,
 #aside {
-  background-color: rgb(247, 236, 230);
+  background-color: rgb(70, 70, 70);
   padding: 2rem;
   width: 100%;
   height: 100%;
@@ -212,29 +212,38 @@ body {
 
 #side_header .gnb>ul li,
 .gnb>p {
+  width: 100%;
   line-height: 2.5rem;
   font-weight: bold;
+}
+
+#side_header .gnb>ul li a {
+  width: 100%;
+  color: rgb(255, 236, 196);
   padding-left: 1rem;
 }
 
-#side_header .gnb>ul li:hover,
+#side_header .gnb>ul li a:hover,
 .gnb>p:hover {
   font-weight: bold;
   border-radius: 22px;
   background-color: rgb(231, 214, 176);
   font-size: large;
+  color: #565656;
 }
 
-#side_header .gnb>ul li:focus,
+/* #side_header .gnb>ul li:focus,
 .gnb>p:focus {
   font-weight: bold;
   border-radius: 22px;
   background-color: rgb(231, 214, 176);
   font-size: large;
-}
+} */
 
 #side_header .gnb hr {
   margin: 1rem 0;
+  border: 1px solid rgb(231, 214, 176);
+  ;
 }
 
 /* aside_right */
@@ -341,8 +350,14 @@ button {
   display: inline-block;
 }
 
-#aside #side_footer li:hover {
-  background-color: #FDEFC8;
+#aside #side_footer ul li a,
+button {
+  color: #ffffff;
+}
+
+#aside #side_footer li:hover,
+button:hover {
+  font-weight: bolder;
 }
 
 #aside #side_footer ul li:nth-child(2) {
@@ -353,6 +368,7 @@ button {
   margin: 10px 0;
   display: block;
   font-size: 10px;
+  color: #FDEFC8;
 }
 
 /* modal*/
@@ -399,7 +415,8 @@ button {
 
 .remove_modal .modal_content .remove_btns>button:hover {
   font-weight: bold;
-  background-color: #dddddd;
+  background-color: #FDEFC8;
+  color: #565656;
 }
 
 
