@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -56,16 +56,16 @@
               </div>
               <div class="title">
                 <p>공지사항 쓰기</p>
-                <form action="">
+                <form action="/manager/noti/add" method="post">
                   <table class="noti_form_table">
                     <tr>
-                      <td><input type=text placeholder=" [공지]"></td>
+                      <td><input type=text placeholder="[공지]"></td>
                     </tr>
                     <tr>
-                      <td><input type=text placeholder=" 제목을 입력하세요."></td>
+                      <td><input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요."></td>
                     </tr>
                     <tr>
-                      <td><textarea name=content placeholder="내용을 입력하세요."></textarea></td>
+                      <td><textarea name="n_content" id="n_content" th:value="${n_content}" placeholder="내용을 입력하세요."></textarea></td>
                     </tr>
                   </table>
                   <div class="btn_upload">

@@ -43,11 +43,11 @@ public class ManagerController {
 	}
 	
 	//공지사항 등록  	
-	//에러발생 Column 'n_name' cannot be null
-	//공지사항 등록에서 n_name은 어떻게?
 	@PostMapping("/noti/add")
 	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
 		log.info("[GET] notiCreate 실행");
+		noti.setN_name("책첵지기");
+		System.out.println(noti.toString());
 		notiService.saveNoti(noti);
 		redirect.addAttribute("n_no", noti.getN_no());
 		return "redirect:/manager/m_noti";
@@ -70,7 +70,6 @@ public class ManagerController {
 		return "redirect:/manager/m_noti";
 	}
 
-	
 	//공지사항 삭제
 	@PostMapping("/noti")
 	public String notiDelete(Long n_no) {

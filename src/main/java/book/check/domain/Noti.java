@@ -3,9 +3,11 @@ package book.check.domain;
 import java.sql.Date;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter @Setter 
+@Getter @Setter @ToString
 public class Noti {
 	private Long n_no;
 	private String n_name;
