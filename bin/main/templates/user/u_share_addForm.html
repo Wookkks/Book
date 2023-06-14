@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -48,7 +48,7 @@
 
       <!-- 나눔 도서등록 시작 -->
       <div class="container join_check">
-        <a><img src="img/arrow_back.png" alt="뒤로가기" onclick="javascript:window.history.back();"></a>
+        <a><img src="img/arrow_back.png" alt="뒤로가기" onclick="history.back();"></a>
         <div class="explain">
           <b>책첵 나눔도서 등록</b>
           <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
@@ -67,13 +67,14 @@
               <hr>
             </div>
             <div>
-                <p>한줄평</p>
-                <textarea name="w_memo" id="w_memo" th:value="${w_memo}" cols="30" rows="10" required></textarea>
+              <p>한줄평</p>
+              <textarea name="w_memo" id="w_memo" th:value="${w_memo}" cols="30" rows="10" required></textarea>
             </div>
             <div>
               <p>비밀번호</p>
               <input type="password" required name="w_pwd" id="w_pwd" th:value="${w_pwd}"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="숫자를 입력하세요."/>
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                placeholder="숫자를 입력하세요."  />
               <hr>
             </div>
             <div class="local">
@@ -86,6 +87,9 @@
                 <option value="yeong">서울 영등포구</option>
                 <option value="jung">서울 중구</option>
               </select>
+            </div>
+            <div class="w_date">
+              <input type="date" th:value="${w_date}">
             </div>
           </div>
           <input type="submit" value="신청">

@@ -55,8 +55,8 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		parameters.put("w_title", withBook.getW_title());
 		parameters.put("w_memo", withBook.getW_memo());
 		parameters.put("w_area", withBook.getW_area());
-		parameters.put("w_date", withBook .getW_date());
 		parameters.put("w_pwd", withBook.getW_pwd());
+		parameters.put("w_date", withBook.getW_date());
 		parameters.put("w_yn", withBook.getW_yn());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		withBook.setW_no(key.longValue());
@@ -99,6 +99,5 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		String sql = "DELETE FROM WITHBOOK WHERE W_NO = ?";
 		jdbcTemplate.update(sql, w_no);
 	}
-
 	
 }
