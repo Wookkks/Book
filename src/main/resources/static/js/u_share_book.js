@@ -29,6 +29,14 @@ btn_close_2.addEventListener('click', () => {
   pw_modal.classList.remove('active');
 });
 
+function checkPwd() {
+  var pwd = document.getElementById("pwd").value;
+  if (pwd != 1111){
+    alert("패스워드가 일치하지 않습니다");
+    return false;
+  }
+  return true;
+}
 // // 모달창 밖의 영역 누르면 닫기
 // window.onclick = function (event) {
 //   if (event.target.className == "modal_1") {
