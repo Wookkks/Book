@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -8,7 +8,7 @@
   <title>신청하기</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="css/u_join.css" />
+  <link rel="stylesheet" href="/css/u_join.css" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -54,27 +54,27 @@
           <span>책첵은 나이와 성별 그 무엇도 필요하지 않습니다. <br>
             오로지 책을 사랑하는 사람들이 모여 서로의 이야기를 공유하고<br>서로의 책첵 체크리스트를 만들어 보세요.</span>
         </div>
-        <form action="">
+        <form action="/user/join" method="post">
           <div>
-            <img src="img/배경없는로고.png" alt="신청하기_로고">
+            <img src="/img/배경없는로고.png" alt="신청하기_로고">
           </div>
           <div>
             <div>
               <p>이름</p>
-              <input type="text" name="name" id="name" placeholder="이름을 입력해주세요." autofocus required>
+              <input type="text" name="m_name" id="m_name" th:value="${m_name}" placeholder="이름을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
               <p>연락처</p>
               <div class="tel">
-                <input type="tel" name="m_phone" id="m_phone" required placeholder="-를 제외한 전화번호를 입력하세요."
+                <input type="tel" name="m_phone" id="m_phone" th:value="${m_phone}" required placeholder="-를 제외한 전화번호를 입력하세요."
                   oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
               </div>
               <hr>
             </div>
             <div>
               <p>생년월일</p>
-              <input type="date" required>
+              <input type="date" name="m_birth" id="m_birth" th:value="${m_birth}" required>
               <hr>
             </div>
             <div class="agree">

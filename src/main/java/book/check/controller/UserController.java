@@ -116,10 +116,11 @@ public class UserController {
 	// 책 나눔 등록
 	@PostMapping("/share/add")
 	public String postWithAdd(WithBook withBook) {
-		log.info("[GET] postWithAdd 실행");
+		log.info("[POST] postWithAdd 실행");
 		withBookService.saveWithBook(withBook);
-		return "redirect:/user/u_share_book";
+		return "redirect:/user/share";
 	}
+	
 	// 신청 현황 및 완료여부 폼
 	@GetMapping("/share/cur")
 	public String getCur(Model model) {
