@@ -44,13 +44,17 @@ public class ManagerController {
 	
 	//공지사항 등록  	
 	@PostMapping("/noti/add")
-	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
-		System.out.println(noti.toString());
+	public String notiCreate(@ModelAttribute Noti noti, Model model) { //RedirectAttributes redirect
+		log.info("[POST] notiCreate() 실행");
 		notiService.saveNoti(noti);
-		redirect.addAttribute("n_no", noti.getN_no());
-		return "redirect:/manager/m_noti";
+		//공지상세 페이지로 이동하는 것이 아니므로 uri에 공지사항 n_no가 필요 없음. 
+		//새로고침 시 중복작성이 발생할 가능성 없음
+		//return에서 redirect: 도 뺌. redirect하지 않고 사용자에게 단순히 뷰(/manager/noti)만 보여줌
+//		redirect.addAttribute("n_no", noti.getN_no());
+//		return "redirect:/manager/noti";
+		return "/manager/noti";
 	}
-
+	
 	//공지사항 수정 폼
 	@GetMapping("/noti/edit{n_no}")
 	public String notiEditForm(@PathVariable Long n_no, Model model) {
