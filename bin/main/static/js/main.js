@@ -40,3 +40,13 @@ remove_close_arr.forEach(close => {
         remove_btn_close.classList.remove('active');
     })
 });
+
+// 관리자 비밀번호 체크
+function checkPwd() {
+  var pwd = document.getElementById("pwd").value;
+  if (pwd != 1111){
+    alert("패스워드가 일치하지 않습니다");
+    return false;
+  }
+  return true;
+}
