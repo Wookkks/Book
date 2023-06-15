@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/m_noti_addfrom.css">
+  <link rel="stylesheet" href="/css/m_style.css">
+  <title>BookCheck_m_noti_addform</title>
+</head>
+
+<body>
+  <dl class="skip-nav">
+    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dd><a href="main">skip to main</a></dd>
+    <dd><a href="#how">skip to how</a></dd>
+    <dd><a href="#chart">skip to chart</a></dd>
+    <dd><a href="#with">skip to with</a></dd>
+    <dd><a href="#noti">skip to noti</a></dd>
+    <dd><a href="#join">skip to join</a></dd>
+    <dd><a href="#footer">skip to footer</a></dd>
+  </dl>
+  <!-- START -->
+  <div class="whole_page">
+    <div id="wrap" class="grid-container">
+      <div id="side_header" class="grid-item1">
+        <div class="header_content">
+          <div class="logo">
+            <h1>
+              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+            </h1>
+          </div>
+          <div class="gnb">
+            <ul>
+              <li><a href="main.html">홈</a></li>
+              <li><a href="u_how.html">어때책첵</a></li>
+              <li><a href="u_chart.html">분석책첵</a></li>
+              <li><a href="u_share_book.html">나눔책첵</a></li>
+              <hr>
+              <li><a href="u_noti.html">공지사항</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- START container -->
+      <div id="container" class="grid-item2">
+        <!-- content -->
+        <div id="content">
+          <div class="wrap_section">
+            <div id="noti">
+              <div class="icon_back">
+                <a href="m_noti.html"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
+              </div>
+              <div class="title">
+                <p>공지사항 쓰기</p>
+                <form action="/manager/noti/add" method="post">
+                  <table class="noti_form_table">
+                    <tr>
+                      <td><input type=text placeholder="[공지]"></td>
+                    </tr>
+                    <tr>
+                      <td><input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요."></td>
+                    </tr>
+                    <tr>
+                      <td><textarea name="n_content" id="n_content" th:value="${n_content}" placeholder="내용을 입력하세요."></textarea></td>
+                    </tr>
+                  </table>
+                  <div class="btn_upload">
+                    <button type="submit" required>글쓰기</button>
+                  </div>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- START aside -->
+      <div id="aside" class="grid-item3">
+        <div class="aside_content">
+          <div class="noties">
+            <div class="simple_noti">
+              <a href="u_noti_detail1.html">
+                <h3>공지 하나</h3>
+                <p>[어때책첵] 책첵의 월간 모임 기록</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="u_noti_detail2.html">
+                <h3>공지 둘</h3>
+                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="u_noti_detail3.html">
+                <h3>공지 셋</h3>
+                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="u_noti_detail4.html">
+                <h3>공지 넷</h3>
+                <p>개인정보이용약관 변경 안내</p>
+              </a>
+            </div>
+            <!-- 신청하기 -->
+            <!-- <div class="side_join">
+              <p>책첵과 함께하기</p>
+              <a href="#join">신청</a>
+            </div> -->
+          </div>
+          <!-- footer -->
+          <div id="side_footer">
+            <div class="footer">
+              <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><button class="btn_modal">관리자페이지</button></li>
+              </ul>
+              <div>
+                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+              </div>
+            </div>
+          </div>
+          <!-- modal -->
+          <div id="modal" class="pw_modal">
+            <div class="modal_wrap">
+              <div class="modal_header">
+                <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
+              </div>
+              <div class="modal_content">
+                <!-- x 버튼 -->
+                <div class="description_head">
+                  <button class="pw_btn_close">&times;</button>
+                </div>
+                <!-- m_noti.html 연결 -->
+                <form action="m_noti.html" name="maneger_pw_form" class="description_header">
+                  <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
+                    required>
+                  <button type="submit" minlength="4">확인</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>
