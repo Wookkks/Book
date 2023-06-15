@@ -2,9 +2,6 @@
 const pw_modal = document.querySelector('.pw_modal');
 const btn_modal = document.querySelector('.btn_modal');
 
-// 공지삭제버튼 모달
-const remove_modal = document.querySelector('.remove_modal');
-const btn_remove = document.querySelectorAll('.btn_remove');
 
 // 닫기 버튼
 const pw_btn_close = document.querySelector('.pw_btn_close');
@@ -23,6 +20,11 @@ pw_btn_close.addEventListener('click', () => {
     pw_modal.classList.remove('active');
     pw_btn_close.classList.remove('active');
 });
+
+
+// 공지삭제버튼 모달
+const remove_modal = document.querySelector('.remove_modal');
+const btn_remove = document.querySelectorAll('.btn_remove');
 
 btn_remove.forEach(btn_remove => {
     btn_remove.addEventListener('click', () => {

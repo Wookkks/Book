@@ -15,12 +15,12 @@
 <body id="wrap">
   <dl class="skip-nav">
     <dt class="blind"><strong>skip naviation</strong></dt>
-    <dd><a href="#main">skip to main</a></dd>
-    <dd><a href="#how">skip to how</a></dd>
-    <dd><a href="#chart">skip to chart</a></dd>
-    <dd><a href="#with">skip to with</a></dd>
-    <dd><a href="#noti">skip to noti</a></dd>
-    <dd><a href="#join">skip to join</a></dd>
+    <dd><a href="/user/main">skip to main</a></dd>
+    <dd><a href="/user/how">skip to how</a></dd>
+    <dd><a href="/user/chart">skip to chart</a></dd>
+    <dd><a href="/user/share">skip to share</a></dd>
+    <dd><a href="/user/noti">skip to noti</a></dd>
+    <dd><a href="/user/join">skip to join</a></dd>
     <dd><a href="#footer">skip to footer</a></dd>
   </dl>
   <!-- START -->
@@ -30,18 +30,18 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="main.html">홈</a></li>
-              <li><a href="u_how.html">어때책첵</a></li>
-              <li><a href="u_chart.html">분석책첵</a></li>
-              <li><a href="u_with_book.html">나눔책첵</a></li>
+              <li><a href="/user/main">홈</a></li>
+              <li><a href="/user/how">어때책첵</a></li>
+              <li><a href="/user/chart">분석책첵</a></li>
+              <li><a href="/user/share">나눔책첵</a></li>
             </ul>
             <hr>
-            <p><a href="#noti">공지사항</a></p>
+            <p><a href="/user/noti">공지사항</a></p>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
           </ul>
-          <img src="img/책1.jpg" alt="책1">
+          <img src="/img/책1.jpg" alt="책1">
         </div>
         <div class="month_record">
           <p>둘째주</p>
@@ -69,7 +69,7 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 자유를 얻으려고 시도했던 에피소드를 이야기 해봐요.</li>
           </ul>
-          <img src="img/책2.jpg" alt="책2">
+          <img src="/img/책2.jpg" alt="책2">
         </div>
         <div class="month_record">
           <p>셋째주</p>
@@ -79,26 +79,24 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 삶이 힘들 때 이겨내는 방법을 이야기 해봐요.</li>
           </ul>
-          <img src="img/책3.jpg" alt="책3">
+          <img src="/img/책3.jpg" alt="책3">
         </div>
         <div class="month_record">
           <p>넷째주</p>
           <ul>
             <li><b>코드612 누가 어린왕자를 죽였는가</b>를 읽고 함께 이야기 나눠요.</li>
             <li>종로구 더숲 초소책방에서 23명이 모였어요.</li>
-            <li>가장 기억에 남는 구절</li>
+            <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>범인이 누구라고 예상했는지 같이 이야기 해봐요.</li>
           </ul>
-          <img src="img/책4.jpg" alt="책4">
+          <img src="/img/책4.jpg" alt="책4">
         </div>
         <hr>
         <h3>책첵 이용자 솔직담백한 후기 모음</h3>
-        <form action="/user/how" method="post">
+        <form action="">
           <div>
-            <input type="text" name="r_name" id="r_name" th:text="${r_name}" placeholder="이름을 입력해주세요." required>
-            <!-- <textarea name="review_write" id="review_write" cols="113" rows="7" placeholder="내용을 입력해주세요." -->
-            <textarea name="r_content" id="r_content" th:text="${r_content}" cols="113" rows="7" placeholder="내용을 입력해주세요."
-              required></textarea>
+            <input type="text" name="r_name" id="r_name" placeholder="이름을 입력해주세요." required>
+            <textarea name="r_content" id="r_content" cols="113" rows="7" placeholder="내용을 입력해주세요." required></textarea>
             <div class="btn_review">
               <input type="submit" id="btn_sub" value="작성">
               <input type="reset" id="btn_del" value="삭제">
@@ -107,19 +105,9 @@
         </form>
 
         <div class="review">
-          <div class="first_reviwer"  th:each="review:${review}">
+          <div class="first_reviwer" th:each="review:${review}">
             <b th:text="${review.r_name}">김혜수</b>
             <p th:text="${review.r_content}">너무 좋았어요 최고에요! 앞으로 정기모임에 계속 참석할 예정이에요.</p>
-          </div>
-          <div>
-            <b>최민식</b>
-            <p>인생을 주제로 한 독서모임으로 하루하루 똑같이 흐르는 일상을 되돌아보는 시간이 되었어요. <br> 사람들과 어울려 그동안 혼자서만 생각하던 이야기들을 밖으로 꺼내니까 힐링되는 기분이었어요.
-            </p>
-          </div>
-          <div>
-            <b>이영희</b>
-            <p>그동안 몰랐던 정보들도 알게 되고 좋은 사람들과 유의미한 시간을 보낼 수 있어서 너무 좋은 시간이었습니다. <br>
-              다양한 나이대의 사람들과 함께 어울릴 수 있어서 더욱 좋았어요^^</p>
           </div>
         </div>
       </div>
@@ -128,34 +116,16 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="noti:${noti}">
-              <a href="#noti">
-                <h3 th:text="${noti.n_title}">공지 하나</h3>
-                <p th:text="${noti.n_content}">[어때책첵] 책첵의 월간 모임 기록</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
+            <div class="simple_noti" th:each=noti:${noti}>
+              <a href="/user/noti">
+                <h3 th:text=${noti.n_title}>공지 하나</h3>
+                <p th:text=${noti.n_content}>[어때책첵] 책첵의 월간 모임 기록</p>
               </a>
             </div>
             <!-- 신청하기 -->
             <div class="side_join">
               <p>책첵과 함께하기</p>
-              <a href="u_join.html">신청</a>
+              <a href="/user/join">신청</a>
             </div>
           </div>
           <!-- footer -->
@@ -191,7 +161,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

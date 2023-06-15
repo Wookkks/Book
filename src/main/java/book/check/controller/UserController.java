@@ -97,8 +97,12 @@ public class UserController {
 	
 	// 책 나눔
 	@GetMapping("/share")
-	public String with() {
+	public String with(Model model) {
 		log.info("[GET] with 실행");
+		List<WithBook> withBook = withBookService.findAll();
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("withBook", withBook);
+		model.addAttribute("noti", noti);
 		return "user/u_share_book";
 	}
 	

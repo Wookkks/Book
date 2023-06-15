@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -15,12 +15,12 @@
 <body id="wrap">
   <dl class="skip-nav">
     <dt class="blind"><strong>skip naviation</strong></dt>
-    <dd><a href="#main">skip to main</a></dd>
-    <dd><a href="#how">skip to how</a></dd>
-    <dd><a href="#chart">skip to chart</a></dd>
-    <dd><a href="#with">skip to with</a></dd>
-    <dd><a href="#noti">skip to noti</a></dd>
-    <dd><a href="#join">skip to join</a></dd>
+    <dd><a href="/user/main">skip to main</a></dd>
+    <dd><a href="/user/how">skip to how</a></dd>
+    <dd><a href="/user/chart">skip to chart</a></dd>
+    <dd><a href="/user/share">skip to share</a></dd>
+    <dd><a href="/user/noti">skip to noti</a></dd>
+    <dd><a href="/user/join">skip to join</a></dd>
     <dd><a href="#footer">skip to footer</a></dd>
   </dl>
   <!-- START -->
@@ -30,18 +30,18 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="#" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="main.html">홈</a></li>
-              <li><a href="u_how.html">어때책첵</a></li>
-              <li><a href="u_chart.html">분석책첵</a></li>
-              <li><a href="u_share_book.html">나눔책첵</a></li>
+              <li><a href="/user/main">홈</a></li>
+              <li><a href="/user/how">어때책첵</a></li>
+              <li><a href="/user/chart">분석책첵</a></li>
+              <li><a href="/user/share">나눔책첵</a></li>
             </ul>
             <hr>
-            <p><a href="#noti">공지사항</a></p>
+            <p><a href="/user/noti">공지사항</a></p>
           </div>
         </div>
       </div>
@@ -51,107 +51,44 @@
         <img src="/img/나눔배너.jpg" alt="나눔배너">
         <a href="/user/share/add">나눔 책첵</a>
         <section>
-          <div>
+          <div th:each="with:${withBook}">
             <button id="btn-modal_2" class="btn-modal_2">
               <img src="/img/ico_board.png" alt="신청현황">
             </button>
-            <b>이토록 평범한 미래</b>
-            <p>김연수 작가님의 이토록 평범한 미래를 혼자만 볼 수 없어요~!</p>
+            <b th:text=${with.w_title}>이토록 평범한 미래</b>
+            <p th:text=${with.w_memo}>김연수 작가님의 이토록 평범한 미래를 혼자만 볼 수 없어요~!</p>
             <ul>
               <li>
                 <p>등록자 : </p>
-                <p>곽두철</p>
+                <p th:text=${with.w_name}>곽두철</p>
               </li>
               <li>
                 <p>나눔지역 : </p>
-                <p>서울시 마포구</p>
+                <p th:text=${with.w_area}>서울시 마포구</p>
               </li>
               <li>
                 <p>등록일자 : </p>
-                <p>2023.05.18</p>
-              </li>
-            </ul>
-            <button id="btn-modal" class="btn-modal">신청</button>
-          </div>
-          <div>
-            <button id="btn-modal_2" class="btn-modal_2">
-              <img src="/img/ico_board.png" alt="신청현황">
-            </button>
-            <b>나미야 잡화점의 기적</b>
-            <p>펼치자마자 앉은 자리에서 다 읽어버린 몽글몽글한 감성의 소설책 같이 읽어요^^</p>
-            <ul>
-              <li>
-                <p>등록자 : </p>
-                <p>염미정</p>
-              </li>
-              <li>
-                <p>나눔지역 : </p>
-                <p>서울시 영등포구</p>
-              </li>
-              <li>
-                <p>등록일자 : </p>
-                <p>2023.05.30</p>
-              </li>
-            </ul>
-            <button id="btn-modal" class="btn-modal">신청</button>
-          </div>
-          <div>
-            <button id="btn-modal_2" class="btn-modal_2">
-              <img src="/img/ico_board.png" alt="신청현황">
-            </button>
-            <b>나를 위한 가벼운 집밥책</b>
-            <p>요린이가 집밥 마스터해서 나눔해요! 건강하게 만들어 먹어요~~</p>
-            <ul>
-              <li>
-                <p>등록자 : </p>
-                <p>홍윤미</p>
-              </li>
-              <li>
-                <p>나눔지역 : </p>
-                <p>서울시 종로구</p>
-              </li>
-              <li>
-                <p>등록일자 : </p>
-                <p>2023.06.10</p>
+                <p th:text="${with.w_date}">2023.05.18</p>
               </li>
             </ul>
             <button id="btn-modal" class="btn-modal">신청</button>
           </div>
         </section>
       </div>
-
       <!-- START aside -->
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 하나</h3>
-                <p>[어때책첵] 책첵의 월간 모임 기록</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
+            <div class="simple_noti" th:each="noti:${noti}">
+              <a href="/user/noti">
+                <h3 th:text="${noti.n_title}">공지 하나</h3>
+                <p th:text="${noti.n_content}">[어때책첵] 책첵의 월간 모임 기록</p>
               </a>
             </div>
             <!-- 신청하기 -->
             <div class="side_join">
               <p>책첵과 함께하기</p>
-              <a href="join.html">신청</a>
+              <a href="/user/join">신청</a>
             </div>
           </div>
           <!-- footer -->
@@ -182,7 +119,7 @@
                 <!-- m_noti.html 연결 -->
                 <form action="#" name="maneger_pw_form" class="description_header">
                   <input type="password" maxlength="6" placeholder="비밀번호를 입력하세요" title="비밀번호">
-                  <button type="submit" minlength="4" disabled id="btn-modal3" class="btn-modal3">확인</button>
+                  <button type="submit" minlength="4" disabled>확인</button>
                 </form>
               </div>
             </div>
@@ -210,7 +147,7 @@
     </div>
 
     <!-- 신청자 비밀번호 모달 -->
-    <div class="pw_modal">
+    <div class="share_pw_modal">
       <div class="modal_wrap">
         <div class="btn_header">
           <h3>신청자 현황</h3>
@@ -219,7 +156,7 @@
         <div class="description_content_2">
           <input type="tel" placeholder="비밀번호를 입력하세요."
             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
-          <form action="u_share_current.html" class="btn_pop_2">
+          <form action="/user/cur" class="btn_pop_2">
             <input class="btn-modal_3" id="btn-modal_3" type="submit" value="확인">
           </form>
         </div>

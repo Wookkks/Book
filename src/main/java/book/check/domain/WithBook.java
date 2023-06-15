@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter @Setter
 public class WithBook {
 	private Long w_no;
+	private String w_name;
 	private String w_title;
 	private String w_memo;
 	private String w_area;
@@ -17,7 +18,8 @@ public class WithBook {
 	
 	public WithBook() {}
 	
-	public WithBook(String w_title, String w_memo, String w_area, String w_pwd) {
+	public WithBook(String w_name, String w_title, String w_memo, String w_area, String w_pwd) {
+		this.w_name = w_name;
 		this.w_title = w_title;
 		this.w_memo = w_memo;
 		this.w_area = w_area;
