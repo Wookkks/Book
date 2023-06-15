@@ -32,6 +32,7 @@ public class JdbcApplyRepository implements ApplyRepository{
 			@Override
 			public Apply mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Apply apply = new Apply();
+				apply.setA_no(rs.getLong("a_no"));
 				apply.setA_name(rs.getString("a_name"));
 				apply.setA_phone(rs.getString("a_phone"));
 				return apply;

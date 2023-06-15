@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -52,20 +52,22 @@
           <h2>공유 책첵</h2>
           <hr>
           <h3>신청자 리스트에서 선택 후 나눔을 완료해주세요</h3>
-          <form action="">
+          <form action="/user/share" method="post">
             <table>
               <thead>
                 <th>번호</th>
                 <th>이름</th>
+                <th>전화번호</th>
                 <th>선택</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>홍서범</td>
+                <tr th:each="apply:${apply}">
+                  <td th:text="${apply.a_no}">1</td>
+                  <td th:text="${apply.a_name}">홍서범</td>
+                  <td th:text="${apply.a_phone}"></td>
                   <td><input type="radio" name="selector" required></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td>2</td>
                   <td>김수미</td>
                   <td><input type="radio" name="selector"></td>
@@ -84,7 +86,7 @@
                   <td>5</td>
                   <td>천서진</td>
                   <td><input type="radio" name="selector"></td>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
             <div>

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import book.check.domain.Apply;
 import book.check.domain.Member;
 import book.check.domain.Noti;
 import book.check.domain.Review;
@@ -115,7 +116,20 @@ public class UserController {
 		withBookService.saveWithBook(withBook);
 		return "redirect:/user/u_share_book";
 	}
-	
+	// 신청 현황 및 완료여부 폼
+	@GetMapping("/share/cur")
+	public String getCur(Model model) {
+		log.info("[GET] Cur 실행");
+		List<Apply> apply = applyService.findAll();
+		model.addAttribute("apply", apply);
+		return "/user/u_share_current";
+	}
+	// 신청 현황 및 완료여부
+	@PostMapping("/share/cur")
+	public String postCur() {
+		
+		return "user/u_share_book";
+	}
 	// 분석
 	@GetMapping("/chart")
 	public String chart() {
