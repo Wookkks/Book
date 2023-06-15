@@ -35,6 +35,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 				log.info("withRowMapper() 실행");
 				WithBook withBook = new WithBook();
 				withBook.setW_no(rs.getLong("w_no"));
+				withBook.setW_name(rs.getString("w_name"));
 				withBook.setW_title(rs.getString("w_title"));
 				withBook.setW_memo(rs.getString("w_memo"));
 				withBook.setW_area(rs.getString("w_area"));
@@ -52,6 +53,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("w_no");
 		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("w_name", withBook.getW_name());
 		parameters.put("w_title", withBook.getW_title());
 		parameters.put("w_memo", withBook.getW_memo());
 		parameters.put("w_area", withBook.getW_area());
@@ -73,8 +75,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	@Override
 	public List<WithBook> findAll() {
 		String sql = "SELECT * FROM WITHBOOK";
-		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper());
-		return result;
+		return jdbcTemplate.query(sql, withRowMapper());
 	}
 
 	@Override

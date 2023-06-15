@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 
 <head>
   <meta charset="UTF-8">
@@ -8,19 +8,19 @@
   <title>나눔책첵 신청하기</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/u_share_addForm.css" />
+  <link rel="stylesheet" href="css/u_share_addForm.css" />
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body id="wrap">
   <dl class="skip-nav">
     <dt class="blind"><strong>skip naviation</strong></dt>
-    <dd><a href="#main">skip to main</a></dd>
-    <dd><a href="#how">skip to how</a></dd>
-    <dd><a href="#chart">skip to chart</a></dd>
-    <dd><a href="#with">skip to with</a></dd>
-    <dd><a href="#noti">skip to noti</a></dd>
-    <dd><a href="#join">skip to join</a></dd>
+    <dd><a href="/user/main">skip to main</a></dd>
+    <dd><a href="/user/how">skip to how</a></dd>
+    <dd><a href="/user/chart">skip to chart</a></dd>
+    <dd><a href="/user/share">skip to share</a></dd>
+    <dd><a href="/user/noti">skip to noti</a></dd>
+    <dd><a href="/user/join">skip to join</a></dd>
     <dd><a href="#footer">skip to footer</a></dd>
   </dl>
   <!-- START -->
@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -48,38 +48,41 @@
 
       <!-- 나눔 도서등록 시작 -->
       <div class="container join_check">
-        <a><img src="img/arrow_back.png" alt="뒤로가기" onclick="history.back();"></a>
+        <a href="/user/share"><img src="img/arrow_back.png" alt="뒤로가기"></a>
         <div class="explain">
           <b>책첵 나눔도서 등록</b>
           <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
             함께 나누고 싶은 도서를 등록하시고,<br>직접 신청자를 선택해 공유하실 수 있습니다.</span>
         </div>
-        <form action="/user/share/add" method="post">
-          <a href="/user/share/add">
-            <div>
-              <img src="img/배경없는로고.png" alt="신청하기_로고">
-            </div>
-          </a>
+        <form action="">
+          <div>
+            <img src="img/배경없는로고.png" alt="신청하기_로고">
+          </div>
           <div>
             <div>
+              <p>등록자</p>
+              <input type="text" name="w_name" id="w_name" placeholder="이름을 입력해주세요." autofocus required>
+              <hr>
+            </div>
+            <div>
               <p>도서명</p>
-              <input type="text" name="w_title" id="w_title" th:value="${w_title}" placeholder="도서명을 입력해주세요." autofocus required>
+              <input type="text" name="w_title" id="w_title" placeholder="도서명을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
               <p>한줄평</p>
-              <textarea name="w_memo" id="w_memo" th:value="${w_memo}" cols="30" rows="10" required></textarea>
+              <textarea name="w_memo" id="w_memo" cols="30" rows="10" required></textarea>
             </div>
             <div>
               <p>비밀번호</p>
-              <input type="password" required name="w_pwd" id="w_pwd" th:value="${w_pwd}"
+              <input type="password" required
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                placeholder="숫자를 입력하세요."  />
+                placeholder="숫자를 입력하세요." name="w_pwd" id="w_pwd" />
               <hr>
             </div>
             <div class="local">
               <p>나눔지역</p>
-              <select name="w_area" id="w_area" th:value="${w_area}">
+              <select name="w_area" id="w_area">
                 <option value="seo">서울 서대문구</option>
                 <option value="ma">서울 마포구</option>
                 <option value="jong">서울 종로구</option>
@@ -89,7 +92,7 @@
               </select>
             </div>
             <div class="w_date">
-              <input type="date" th:value="${w_date}">
+              <input type="date">
             </div>
           </div>
           <input type="submit" value="신청">
@@ -101,20 +104,26 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="#noti">
+              <a href="/user/noti">
                 <h3>공지 하나</h3>
+                <p>[어때책첵] 책첵의 월간 모임 기록</p>
+              </a>
+            </div>
+            <div class="simple_noti">
+              <a href="/user/noti">
+                <h3>공지 둘</h3>
                 <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
               </a>
             </div>
             <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 둘</h3>
+              <a href="/user/noti">
+                <h3>공지 셋</h3>
                 <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
               </a>
             </div>
             <div class="simple_noti">
-              <a href="#noti">
-                <h3>공지 셋</h3>
+              <a href="/user/noti">
+                <h3>공지 넷</h3>
                 <p>개인정보이용약관 변경 안내</p>
               </a>
             </div>
@@ -124,18 +133,40 @@
               <a href="/user/join">신청</a>
             </div>
           </div>
+          <!-- footer -->
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">공지사항</a></li>
+                <li><a href="#">이용약관</a></li>
                 <li><a href="#">개인정보처리방침</a></li>
-                <li><a href="#">관리자페이지</a></li>
+                <li><button id="form_show">관리자페이지</li>
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
               </div>
             </div>
           </div>
+          <!-- modal -->
+          <div id="pw_content" class="modal">
+            <div class="form_password modal_wrap">
+              <div class="modal_header">
+                <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
+                <p class="caution">비밀번호를 확인해주세요</p>
+              </div>
+              <div class="modal_content">
+                <div class="description_head">
+                  <!-- x 버튼 -->
+                  <button class="btn_close">&times;</button>
+                </div>
+                <!-- m_noti.html 연결 -->
+                <form action="#" name="maneger_pw_form" class="description_header">
+                  <input type="password" maxlength="6" placeholder="비밀번호를 입력하세요" title="비밀번호">
+                  <button type="submit" minlength="4" disabled>확인</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
