@@ -35,7 +35,6 @@ public class JdbcNotiRepository implements NotiRepository {
 			public Noti mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Noti noti = new Noti();
 				noti.setN_no(rs.getLong("n_no"));
-				noti.setN_name(rs.getString("n_name"));
 				noti.setN_title(rs.getString("n_title"));
 				noti.setN_content(rs.getString("n_content"));
 				noti.setN_date(rs.getDate("n_date"));
@@ -49,7 +48,6 @@ public class JdbcNotiRepository implements NotiRepository {
 		SimpleJdbcInsert jdbcinsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcinsert.withTableName("noti").usingGeneratedKeyColumns("n_no");
 		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("n_name", noti.getN_name());
 		parameters.put("n_title", noti.getN_title());
 		parameters.put("n_content", noti.getN_content());
 		Number key = jdbcinsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
