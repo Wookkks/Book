@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -54,45 +54,59 @@
           <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
             함께 나누고 싶은 도서를 등록하시고,<br>직접 신청자를 선택해 공유하실 수 있습니다.</span>
         </div>
-        <form action="">
+        <form action="/user/share/add" method="post">
           <div>
-            <img src="img/배경없는로고.png" alt="신청하기_로고">
+            <img src="/img/배경없는로고.png" alt="신청하기_로고">
           </div>
           <div>
             <div>
               <p>등록자</p>
-              <input type="text" name="w_name" id="w_name" placeholder="이름을 입력해주세요." autofocus required>
+              <input type="text" name="w_name" id="w_name" th:value="${w_name}" placeholder="이름을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
               <p>도서명</p>
-              <input type="text" name="w_title" id="w_title" placeholder="도서명을 입력해주세요." autofocus required>
+              <input type="text" name="w_title" id="w_title" th:value="${w_title}" placeholder="도서명을 입력해주세요." autofocus required>
               <hr>
             </div>
             <div>
               <p>한줄평</p>
-              <textarea name="w_memo" id="w_memo" cols="30" rows="10" required></textarea>
+              <textarea name="w_memo" id="w_memo" th:value="${w_memo}" cols="30" rows="10" required></textarea>
             </div>
             <div>
               <p>비밀번호</p>
               <input type="password" required
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
-                placeholder="숫자를 입력하세요." name="w_pwd" id="w_pwd" />
+                placeholder="숫자를 입력하세요." name="w_pwd" id="w_pwd" th:value="${w_pwd}"/>
               <hr>
             </div>
             <div class="local">
               <p>나눔지역</p>
-              <select name="w_area" id="w_area">
-                <option value="seo">서울 서대문구</option>
-                <option value="ma">서울 마포구</option>
-                <option value="jong">서울 종로구</option>
-                <option value="gang">서울 강남구</option>
-                <option value="yeong">서울 영등포구</option>
-                <option value="jung">서울 중구</option>
+              <select name="w_area" id="w_area" th:value="${w_area}">
+                <option value="서울 서대문구">서울 서대문구</option>
+                <option value="서울 마포구">서울 마포구</option>
+                <option value="서울 종로구">서울 종로구</option>
+                <option value="서울 강남구">서울 강남구</option>
+                <option value="서울 영등포구">서울 영등포구</option>
+                <option value="서울 중구">서울 중구</option>
               </select>
             </div>
             <div class="w_date">
-              <input type="date">
+      		  <input type="date" name="w_date" id="w_date" th:value=${w_date}>
+              <script type="text/javascript">
+              	var currentDate = new Date();
+              	var year = currentDate.getFullYear(); // 연도 가져오기
+              	var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
+              	var day = currentDate.getDate(); // 일 가져오기
+              	if (month < 10) {
+              	  month = '0' + month;
+              	}
+              	if (day < 10) {
+              	  day = '0' + day;
+              	}
+              	var formattedDate = year + '-' + month + '-' + day;
+              	document.getElementById("w_date").value = formattedDate; 
+              </script>
             </div>
           </div>
           <input type="submit" value="신청">

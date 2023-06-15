@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="icon" href="icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/m_noti_addfrom.css">
   <link rel="stylesheet" href="/css/m_style.css">
   <title>BookCheck_m_noti_addform</title>
@@ -29,11 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-<<<<<<< HEAD
               <a href="/manager/noti" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
-=======
-              <a href="#" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
->>>>>>> 7852008643a2a726742b0b84a005cb1e6a3e52cd
             </h1>
           </div>
           <div class="gnb">
@@ -51,11 +48,7 @@
           <div class="wrap_section">
             <div id="noti">
               <div class="icon_back">
-<<<<<<< HEAD
                 <a href="/manager/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
-=======
-                <a><img src="/img/arrow_back.png" alt="뒤로" onclick="history.back();" width="27px"></a>
->>>>>>> 7852008643a2a726742b0b84a005cb1e6a3e52cd
               </div>
               <div class="title">
                 <p>공지사항 쓰기</p>
@@ -65,14 +58,16 @@
                       <td><input type=text placeholder="[공지]"></td>
                     </tr>
                     <tr>
-                      <td><input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요."></td>
+                      <td><input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요.">
+                      </td>
                     </tr>
                     <tr>
-                      <td><textarea name="n_content" id="n_content" th:value="${n_content}" placeholder="내용을 입력하세요."></textarea></td>
+                      <td><textarea name="n_content" id="n_content" th:value="${n_content}"
+                          placeholder="내용을 입력하세요."></textarea></td>
                     </tr>
                   </table>
                   <div class="btn_upload">
-                      <button type="submit" required>글쓰기</button>
+                    <button type="submit" required>글쓰기</button>
                   </div>
                   </table>
                 </form>
@@ -93,34 +88,6 @@
                 <p></p>
               </a>
             </div>
-<<<<<<< HEAD
-=======
-            
-            <!-- <div class="simple_noti">
-              <a href="u_noti_detail2.html">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti_detail3.html">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti_detail4.html">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
-              </a>
-            </div> -->
-            
-            <!-- 신청하기 -->
-            <!-- <div class="side_join">
-              <p>책첵과 함께하기</p>
-              <a href="#join">신청</a>
-            </div> -->
->>>>>>> 7852008643a2a726742b0b84a005cb1e6a3e52cd
           </div>
           <!-- footer -->
           <div id="side_footer">
@@ -128,30 +95,11 @@
               <ul>
                 <li><a href="#">이용약관</a></li>
                 <li><a href="#">개인정보처리방침</a></li>
-                <li><button class="btn_modal">페이지나가기</button></li>
+                <li><a href="/user/main">관리자나가기</a></li>
+                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
-              </div>
-            </div>
-          </div>
-          <!-- modal -->
-          <div id="modal" class="pw_modal">
-            <div class="modal_wrap">
-              <div class="modal_header">
-                <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
-              </div>
-              <div class="modal_content">
-                <!-- x 버튼 -->
-                <div class="description_head">
-                  <button class="pw_btn_close">&times;</button>
-                </div>
-                <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" name="maneger_pw_form" class="description_header">
-                  <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
-                    required>
-                  <button type="submit" minlength="4">확인</button>
-                </form>
               </div>
             </div>
           </div>
@@ -160,7 +108,7 @@
       </div>
     </div>
   </div>
-  <script src="/js/main.js"></script>
+  <script src="/js/m_noti.js"></script>
 </body>
 
 </html>

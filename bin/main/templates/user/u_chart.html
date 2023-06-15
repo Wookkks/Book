@@ -8,7 +8,7 @@
   <title>분석책첵</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/u_chart.css" />
+  <link rel="stylesheet" href="/css/u_chart.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -52,7 +52,7 @@
         <hr>
         <h3>책첵이 대신해서 도서 트렌드를 분석해봤어요!</h3>
         <div class="visual">
-          <img src="/img/작가시각화.png" alt="시각화1">
+          <img src="img/작가시각화.png" alt="시각화1">
           <div>
             <b>분야별 인기작가 순위</b>
             <p>책첵이 생각한 가장 인기 많은 작가는<br>헤르만 헤세였습니다.<br><br>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="visual">
-          <img src="/img/분야시각화.png" alt="시각화2">
+          <img src="img/분야시각화.png" alt="시각화2">
           <div>
             <b>분야별 인기장르 순위</b>
             <p>책첵이 생각한 가장 인기 많은 장르는<br> 소설이었습니다.<br><br>
@@ -82,12 +82,12 @@
           <b class="writer_area">국내편</b>
           <ul>
             <li>
-              <img src="/img/작가1.jpg" alt="작가1">
+              <img src="img/작가1.jpg" alt="작가1">
               <b>Top 1</b>
               <p>김난도</p>
             </li>
             <li>
-              <img src="/img/작가2.jpg" alt="작가2">
+              <img src="img/작가2.jpg" alt="작가2">
               <b>Top 2</b>
               <p>유시민</p>
             </li>
@@ -97,12 +97,12 @@
           <b class="writer_area">국외편</b>
           <ul>
             <li>
-              <img src="/img/작가3.jpg" alt="작가3">
+              <img src="img/작가3.jpg" alt="작가3">
               <b>Top 1</b>
               <p>히가시노 게이고</p>
             </li>
             <li>
-              <img src="/img/작가4.jpg" alt="작가4">
+              <img src="img/작가4.jpg" alt="작가4">
               <b>Top 2</b>
               <p>기욤 뮈소</p>
             </li>
@@ -137,27 +137,9 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="/user/noti">
-                <h3>공지 하나</h3>
-                <p>[어때책첵] 책첵의 월간 모임 기록</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="/user/noti">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="/user/noti">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="/user/noti">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
+              <a href="/user/noti/{n_no}">
+                <h3></h3>
+                <p></p>
               </a>
             </div>
             <!-- 신청하기 -->
@@ -170,9 +152,9 @@
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인정보처리방침</a></li>
-                <li><button id="form_show">관리자페이지</li>
+                <li><a href="/terms">이용약관</a></li>
+                <li><a href="/privacy">개인정보처리방침</a></li>
+                <li><button class="btn_modal">관리자페이지</button></li>
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
@@ -180,21 +162,21 @@
             </div>
           </div>
           <!-- modal -->
-          <div id="pw_content" class="modal">
-            <div class="form_password modal_wrap">
+          <div id="modal" class="pw_modal">
+            <div class="modal_wrap">
               <div class="modal_header">
                 <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
-                <p class="caution">비밀번호를 확인해주세요</p>
               </div>
               <div class="modal_content">
+                <!-- x 버튼 -->
                 <div class="description_head">
-                  <!-- x 버튼 -->
-                  <button class="btn_close">&times;</button>
+                  <button class="pw_btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="#" name="maneger_pw_form" class="description_header">
-                  <input type="password" maxlength="6" placeholder="비밀번호를 입력하세요" title="비밀번호">
-                  <button type="submit" minlength="4" disabled>확인</button>
+                <form action="/manager/noti" name="maneger_pw_form" class="description_header" target="_blank">
+                  <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
+                    required>
+                  <button type="submit" minlength="4">확인</button>
                 </form>
               </div>
             </div>
@@ -203,7 +185,8 @@
         </div>
       </div>
     </div>
-
+  </div>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

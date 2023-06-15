@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="icon" href="icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/u_index_main.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>BookCheck_main</title>
@@ -29,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="#" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="#" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -55,7 +56,7 @@
         <div id="content">
           <div class="wrap_section">
             <div class="section">
-              <img src="img/logo_what.png" alt="로고" width="45rem">
+              <img src="/img/logo_what.png" alt="로고" width="45rem">
               <div class="intro">
                 <h2>책첵은 뭐하는 공간인가요?</h2>
                 <p class="main_line">책첵은 책을 사랑하고 독서를 즐기는 사람들이 함께 모여 책을 읽고 나누는 공간입니다.</p>
@@ -89,41 +90,23 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="u_noti.detail1.html">
-                <h3>공지 하나</h3>
-                <p>[어때책첵] 책첵의 월간 모임 기록</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail2.html">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail3.html">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail4.html">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
+              <a href="/user/noti/{n_no}">
+                <h3></h3>
+                <p></p>
               </a>
             </div>
             <!-- 신청하기 -->
             <div class="side_join">
               <p>책첵과 함께하기</p>
-              <a href="u_join.html">신청</a>
+              <a href="/user/join">신청</a>
             </div>
           </div>
           <!-- footer -->
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="/terms">이용약관</a></li>
+                <li><a href="/privacy">개인정보처리방침</a></li>
                 <li><button class="btn_modal">관리자페이지</button></li>
               </ul>
               <div>
@@ -143,10 +126,10 @@
                   <button class="pw_btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" method="post" name="maneger_pw_form"  class="description_header" target="_blank">
-                  <input type="password" id="pwd" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
+                <form action="/manager/noti" name="maneger_pw_form" class="description_header" target="_blank">
+                  <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
                     required>
-                  <button type="submit" minlength="4" onclick="return checkPwd()">확인</button>
+                  <button type="submit" minlength="4">확인</button>
                 </form>
               </div>
             </div>
