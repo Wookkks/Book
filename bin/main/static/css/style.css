@@ -335,7 +335,8 @@ body {
   text-align: center;
 }
 
-#aside #side_footer ul li {
+#aside #side_footer ul li,
+button {
   font-size: 12px;
   display: inline-block;
 }
@@ -354,8 +355,8 @@ body {
   font-size: 10px;
 }
 
-/* modal 비밀번호 폼 */
-.modal {
+/* modal*/
+.pw_modal {
   position: absolute;
   bottom: 10%;
   width: 100%;
@@ -367,26 +368,59 @@ body {
   display: none;
 }
 
-.modal.active {
+#modal.active {
   display: block;
 }
 
-.modal .modal_wrap::after {
+/* 관리자mode 공지사항 삭제 */
+.remove_modal {
+  position: fixed;
+  width: 20rem;
+  line-height: 4em;
+  top: 50%;
+  left: 50%;
+  background-color: #565656;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  z-index: 100;
+  display: none;
+}
+
+.remove_modal .modal_content .remove_btns>button {
+  font-size: 18px;
+  padding: 10px 20px;
+  margin: 0 1rem;
+  background-color: #dddddd;
+  border-radius: 5px;
+}
+
+.remove_modal .modal_content .remove_btns>button:hover {
+  font-weight: bold;
+  background-color: #dddddd;
+}
+
+
+/* 관리자 pw */
+.pw_modal .modal_wrap::after {
   content: '';
   display: block;
   clear: both;
 }
 
-.modal .modal_wrap p {
+.pw_modal .modal_wrap p {
   font-size: 14px;
   text-align: left;
 }
 
-.modal .modal_wrap p:nth-child(2) {
+.pw_modal .modal_wrap p:nth-child(2) {
   display: none;
 }
 
-.btn_close {
+.remove_btn_close,
+.pw_btn_close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -395,25 +429,30 @@ body {
   color: #333;
 }
 
+.remove_btn_close {
+  color: #eee;
+}
+
+.remove_btn_close:hover,
 .btn_close:hover {
   cursor: pointer;
 }
 
-.modal .modal_wrap form {
+.pw_modal .modal_wrap form {
   padding: 1rem 0 0;
 }
 
-.modal .modal_wrap input {
+.pw_modal .modal_wrap input {
   float: left;
   line-height: 2rem;
   border-radius: 5px;
 }
 
-/* .modal .modal_wrap input:invalid {
+/* .pw_modal .modal_wrap input:invalid {
   border: 1px solid red;
 } */
 
-.modal .modal_wrap form>button {
+.pw_modal .modal_wrap form>button {
   float: right;
   background-color: #4c4c4c;
   width: 4rem;
@@ -422,7 +461,7 @@ body {
   border-radius: 5px;
 }
 
-.modal .modal_wrap form>button:hover {
+.pw_modal .modal_wrap form>button:hover {
   background-color: #ffd1d1;
   color: #333;
 }
