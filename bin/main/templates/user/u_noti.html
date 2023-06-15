@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -49,7 +49,7 @@
       <!-- START container -->
       <div id="container" class="grid-item2">
         <div id="main_banner">
-          <img src="img/pexels-hailey-galloway-4825139.jpg" alt="메인배너" width="100%">
+          <img src="/img/pexels-hailey-galloway-4825139.jpg" alt="메인배너" width="100%">
         </div>
         <!-- content -->
         <div id="content">
@@ -60,9 +60,10 @@
               </div>
               <div class="noti_list">
                 <div class="notice">
-                  <a href="/user/noti/{n_no}">
-                    <p></p>
-                    <p></p>
+                  <a th:href="@{/user/noti/} + ${noti.n_no}" th:each="noti:${noti}">
+                    <p th:text="${noti.n_title}"></p>
+                    <p th:text="${noti.n_no}"></p>
+                    <p th:text="${noti.n_content}"></p>
                     <div>
                       <span>책첵지기<img src="/img/round_logo.png" alt=""></span>
                     </div>
@@ -80,9 +81,9 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="/user/noti/{n_no}">
-                <h3></h3>
-                <p></p>
+              <a th:href="@{/user/noti/} + ${noti.n_no}" th:each="noti:${noti}">
+                <h3 th:text="${noti.n_title}"></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->

@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -48,7 +48,7 @@
 
       <!-- 나눔 도서등록 시작 -->
       <div class="container join_check">
-        <a href="/user/share"><img src="img/arrow_back.png" alt="뒤로가기"></a>
+        <a href="/user/share"><img src="/img/arrow_back.png" alt="뒤로가기"></a>
         <div class="explain">
           <b>책첵 나눔도서 등록</b>
           <span>함께 책첵 체크리스트를 공유하고 싶다면 신청해주세요. <br>
@@ -118,9 +118,9 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="/user/noti/{n_no}">
-                <h3></h3>
-                <p></p>
+              <a href="/user/noti/{n_no}" th:each="noti:${noti}">
+                <h3 th:text="${noti.n_title}"></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->
@@ -162,7 +162,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

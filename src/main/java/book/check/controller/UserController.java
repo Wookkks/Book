@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -42,29 +43,37 @@ public class UserController {
 	
 	// 메인
 	@GetMapping("/main")
-	public String main() {
+	public String main(Model model) {
 		log.info("[GET] main 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		return "user/main";
 	}
 	
 	// 공지 
 	@GetMapping("/noti")
-	public String noti(){
+	public String noti(Model model){
 		log.info("[GET] noti 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		return "user/u_noti";
 	}
 	
 	// 공지 상세
-	@GetMapping("/noti/deatil/{n_no}")
-	public String notiDetail() {
+	@GetMapping("/noti/{n_no}")
+	public String notiDetail(@PathVariable Long n_no, Model model) {
 		log.info("[GET] notiDetail 실행");
+		Noti noti = notiService.findByNo(n_no).get();
+		model.addAttribute("noti", noti);
 		return "user/u_noti_detail";
 	}
 	
 	// 가입신청 폼
 	@GetMapping("/join")
-	public String getJoin() {
+	public String getJoin(Model model) {
 		log.info("[GET] getJoin 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		return "user/u_join";
 	}
 	
@@ -108,8 +117,10 @@ public class UserController {
 	
 	// 책 나눔 등록 폼
 	@GetMapping("/share/add")
-	public String getWithAdd() {
+	public String getWithAdd(Model model) {
 		log.info("[GET] getWithAdd 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		return "user/u_share_addForm";
 	}
 	
@@ -126,7 +137,9 @@ public class UserController {
 	public String getCur(Model model) {
 		log.info("[GET] Cur 실행");
 		List<Apply> apply = applyService.findAll();
+		List<Noti> noti = notiService.findAll();
 		model.addAttribute("apply", apply);
+		model.addAttribute("noti", noti);
 		return "/user/u_share_current";
 	}
 	// 신청 현황 및 완료여부
@@ -137,8 +150,10 @@ public class UserController {
 	}
 	// 분석
 	@GetMapping("/chart")
-	public String chart() {
+	public String chart(Model model) {
 		log.info("[GET] chart 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		return "/user/u_chart";
 	}
 	/*

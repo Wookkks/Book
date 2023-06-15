@@ -43,6 +43,7 @@ public class JdbcMemberRepository implements MemberRepository {
 
 	@Override
 	public Member saveMember(Member member) {
+		log.info("saveMember 실행");
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("MEMBER").usingGeneratedKeyColumns("m_no");
 		Map<String, Object> parameters = new HashMap<String, Object>();

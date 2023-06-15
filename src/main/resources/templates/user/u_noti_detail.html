@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -56,18 +56,18 @@
             </div>
             <div class="full_content">
               <div class="noti_head">
-                <span class="date">2023/06/02</span>
-                <h2>[공지 셋] 나눔책첵</h2>
+                <h2 name="n_no" id="n_no" th:field="${noti.n_no}">[공지 셋] 나눔책첵</h2>
+                <span class="date" th:text="${noti.n_date}">2023/06/02</span>
               </div>
               <div class="noti_body">
                 <div>
-                  <div class="noti_title">
+                  <div class="noti_title" id="n_title" name="n_title" th:value="${noti.n_title}">
                     <h3>같은 책을 읽고 나눌 수 있도록 확대합니다.</h3>
                     <div class="mini_benner">
                       <img src="/img/logo.png" alt="공지이미지" width="10%">
                     </div>
                     <div class="main">
-                      <p>[같은 책을 읽고 나눌 수 있도록 확대합니다.]</p>
+                      <p name="n_content" id="n_content" th:text="${noti.n_content}">[같은 책을 읽고 나눌 수 있도록 확대합니다.]</p>
                       <p>
                         우리 서로 구입한 책을 나눠 읽고, 바꿔 읽으면 어떨까요?
                         </br>
@@ -88,9 +88,9 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti">
-              <a href="/user/noti/{n_no}">
-                <h3></h3>
-                <p></p>
+              <a href="/user/noti/{n_no}" th:each="noti:${noti}">
+                <h3 th:text="${noti.n_title}"></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->
