@@ -96,8 +96,10 @@ public class UserController {
 	
 	// 책 나눔
 	@GetMapping("/share")
-	public String with() {
+	public String with(Model model) {
 		log.info("[GET] with 실행");
+		List<WithBook> withBook = withBookService.findAll();
+		model.addAttribute("withBook", withBook);
 		return "user/u_share_book";
 	}
 	
@@ -113,7 +115,7 @@ public class UserController {
 	public String postWithAdd(WithBook withBook) {
 		log.info("[GET] postWithAdd 실행");
 		withBookService.saveWithBook(withBook);
-		return "redirect:/user/u_share_book";
+		return "redirect:/user/share";
 	}
 	
 	// 분석

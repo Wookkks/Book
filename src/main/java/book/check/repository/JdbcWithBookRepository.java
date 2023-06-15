@@ -73,8 +73,7 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	@Override
 	public List<WithBook> findAll() {
 		String sql = "SELECT * FROM WITHBOOK";
-		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper());
-		return result;
+		return jdbcTemplate.query(sql, withRowMapper());
 	}
 
 	@Override
