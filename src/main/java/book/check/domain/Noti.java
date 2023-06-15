@@ -3,7 +3,6 @@ package book.check.domain;
 import java.sql.Date;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -17,8 +16,7 @@ public class Noti {
 	
 	public Noti () {};
 	
-	public Noti(String n_name, String n_title, String n_content) {
-		this.n_name = n_name;
+	public Noti(String n_title, String n_content) {
 		this.n_title = n_title;
 		this.n_content = n_content;
 	}
