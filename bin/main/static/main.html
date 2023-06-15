@@ -6,10 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-  <link rel="stylesheet" href="/css/u_noti_detail.css">
+  <link rel="stylesheet" href="/css/u_index_main.css">
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" type="image/x-icon" href="/img/favicon2.ico">
-  <title>BookCheck_noti_detail</title>
+  <title>BookCheck_main</title>
 </head>
 
 <body>
@@ -48,36 +47,38 @@
 
       <!-- START container -->
       <div id="container" class="grid-item2">
+        <div id="main_banner">
+          <!-- <img src="img/pexels-hailey-galloway-4825139.jpg" alt="메인배너" width="100%"> -->
+          <video src="img/pexels-cottonbro-studio-4861110-2048x1080-25fps.mp4" width="100%" autoplay loop></video>
+        </div>
         <!-- content -->
         <div id="content">
           <div class="wrap_section">
-            <div class="icon_back">
-              <a href="/user/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
-            </div>
-            <div class="full_content">
-              <div class="noti_head">
-                <span class="date">2023/06/02</span>
-                <h2>[공지 셋] 나눔책첵</h2>
+            <div class="section">
+              <img src="img/logo_what.png" alt="로고" width="45rem">
+              <div class="intro">
+                <h2>책첵은 뭐하는 공간인가요?</h2>
+                <p class="main_line">책첵은 책을 사랑하고 독서를 즐기는 사람들이 함께 모여 책을 읽고 나누는 공간입니다.</p>
+                <p class="sub_line">독서는 우리에게 지식과 상상력을 키워주는 소중한 활동이며, 이를 함께 나누는 책첵에서는 책으로부터 영감을 받아 서로의 이야기를 듣고 나누는 소중한
+                  시간을
+                  가지고 있습니다.</p>
+                <p class="main_line">책첵은 다양한 주제의 책을 선택하여 읽고 토론합니다.</p>
+                <p class="sub_line">독서 후에는 각자의 생각과 감상을 공유하며, 책에 대한 깊이 있는 대화를 나누고 서로의 시각을 넓히는 것을 목표로 합니다.
+                </p>
+                <p class="main_line">책첵은 독서를 좋아하는 모든 분들을 환영합니다.</p>
+                <p class="sub_line">독서에 대한 열정과 관심을 가진 분들은 누구나 참여할 수 있으며, 책에 대한 지식을 공유하고 함께 성장하는 동료들과의 만남을 기대할 수 있습니다. 함께
+                  읽고, 생각하고, 나누며 우리의 독서 여정을 함께해요!</p>
               </div>
-              <div class="noti_body">
-                <div>
-                  <div class="noti_title">
-                    <h3>같은 책을 읽고 나눌 수 있도록 확대합니다.</h3>
-                    <div class="mini_benner">
-                      <img src="/img/logo.png" alt="공지이미지" width="10%">
-                    </div>
-                    <div class="main">
-                      <p>[같은 책을 읽고 나눌 수 있도록 확대합니다.]</p>
-                      <p>
-                        우리 서로 구입한 책을 나눠 읽고, 바꿔 읽으면 어떨까요?
-                        </br>
-                        책을 받았을 때는 다른 사람이 읽은 흔적이나 메모를 존중하며 읽어야 합니다. 다른 사람이 남긴 생각이나 감상을 공유하고 이해하는 것이 독서 모임의 중요한 부분입니다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+              <hr>
+              <div class="intro">
+                <h2>어때/분석/나눔 책첵은 뭔가요?</h2>
+                <p class="sub_line">어때 책첵은 모임주제 및 이력을 확인할 수 있습니다. 또한 아직 책첵이 낯선 여러분을 위해 동료들의 생생한 후기가 남겨져있으니 확인해보세요.
+                </p>
+                <p class="sub_line">분석책첵은 10년간의 책 데이터를 모아 책첵이 직접 분석해서, 어쩌고 저쩌고 이러고 저러고 하여 추천하는 책 리스트입니다. 도무지 어떤 책을 읽어야
+                  할지 몰라 고민인 여러분을 위해 준비했어요.</p>
+                <p class="sub_line">나눔책첵은 더이상 읽지 않고, 먼지가 쌓여가는 책들이 있나요? 그렇다면 책첵멤버들과 나눠보세요! 서로 책들을 바꾸고, 나눠 읽고 우리 다시 모여서
+                  이야기 나눠봐요.</p>
               </div>
-
             </div>
           </div>
         </div>
@@ -103,7 +104,7 @@
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">공지사항</a></li>
+                <li><a href="#">이용약관</a></li>
                 <li><a href="#">개인정보처리방침</a></li>
                 <li><button class="btn_modal">관리자페이지</button></li>
               </ul>
@@ -113,7 +114,7 @@
             </div>
           </div>
           <!-- modal -->
-          <div class="modal">
+          <div id="modal" class="pw_modal">
             <div class="modal_wrap">
               <div class="modal_header">
                 <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
@@ -124,7 +125,7 @@
                   <button class="btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" name="maneger_pw_form" class="description_header">
+                <form action="m_noti.html" name="maneger_pw_form" class="description_header">
                   <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
                     required>
                   <button type="submit" minlength="4">확인</button>

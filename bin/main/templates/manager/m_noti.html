@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/m_noti.css">
+  <link rel="stylesheet" href="/css/m_style.css">
+  <title>BookCheck_m_noti</title>
+</head>
+
+<body>
+  <dl class="skip-nav">
+    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dd><a href="/user/main">skip to main</a></dd>
+    <dd><a href="/user/how">skip to how</a></dd>
+    <dd><a href="/user/chart">skip to chart</a></dd>
+    <dd><a href="/user/share">skip to with</a></dd>
+    <dd><a href="/user/noti">skip to noti</a></dd>
+    <dd><a href="/user/join">skip to join</a></dd>
+    <dd><a href="#footer">skip to footer</a></dd>
+  </dl>
+  <!-- START -->
+  <div class="whole_page">
+    <!-- remove 모달 -->
+    <div id="modal" class="remove_modal">
+      <div class="modal_wrap">
+        <div class="modal_header">
+          <p class="pw_text">게시물을 삭제하시겠습니까?</p>
+        </div>
+        <div class="modal_content">
+          <div class="description_head">
+            <!-- x 버튼 -->
+            <button class="remove_btn_close">&times;</button>
+          </div>
+          <div class="remove_btns">
+            <button class="remove_cancel_btn">취소</button>
+            <button type="submit">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="wrap" class="grid-container">
+      <div id="side_header" class="grid-item1">
+        <div class="header_content">
+          <div class="logo">
+            <h1>
+              <a href="/manager/noti" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+            </h1>
+          </div>
+          <div class="gnb">
+            <ul>
+              <li><a href="/manager/noti">공지사항</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- START container -->
+      <div id="container" class="grid-item2">
+        <div id="content">
+          <div class="wrap_section">
+            <div id="noti">
+              <div class="title">
+                <a href="/manager/noti/add">공지사항 쓰기</a>
+              </div>
+              <div class="noti_list">
+                <div class="notice">
+                  <a href="/manager/noti/detail{n_no}">
+                    <p>[공지 넷]
+                      <!-- th:text="${noti.notiTitle}" -->
+                      개인정보이용약관 변경 안내
+                    </p>
+                    <p>책첵은 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을
+                      수립·공개합니다.</p>
+                  </a>
+                  <div class="btns">
+                    <span>
+                      <button class="btn_remove">삭제</button>
+                      <a href="/maneger/noti/edit{n_no}" class="modify">수정</a>
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- START aside -->
+      <div id="aside" class="grid-item3">
+        <div class="aside_content">
+          <div class="noties">
+            <div class="simple_noti">
+              <a href="/manager/noti/detail{n_no}">
+                <h3></h3>
+                <p></p>
+              </a>
+            </div>
+          </div>
+          <!-- footer -->
+          <div id="side_footer">
+            <div class="footer">
+              <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="/user/main">관리자나가기</a></li>
+                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
+              </ul>
+              <div>
+                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/m_noti_addfrom.css">
+  <link rel="stylesheet" href="/css/m_style.css">
+  <title>BookCheck_m_noti_addform</title>
+</head>
+
+<body>
+  <dl class="skip-nav">
+    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dd><a href="/user/main">skip to main</a></dd>
+    <dd><a href="/user/how">skip to how</a></dd>
+    <dd><a href="/user/chart">skip to chart</a></dd>
+    <dd><a href="/user/share">skip to with</a></dd>
+    <dd><a href="/user/noti">skip to noti</a></dd>
+    <dd><a href="/user/join">skip to join</a></dd>
+    <dd><a href="#footer">skip to footer</a></dd>
+  </dl>
+  <!-- START -->
+  <div class="whole_page">
+    <div id="wrap" class="grid-container">
+      <div id="side_header" class="grid-item1">
+        <div class="header_content">
+          <div class="logo">
+            <h1>
+              <a href="/manager/noti" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+            </h1>
+          </div>
+          <div class="gnb">
+            <ul>
+              <li><a href="/manager/noti">공지사항</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- START container -->
+      <div id="container" class="grid-item2">
+        <!-- content -->
+        <div id="content">
+          <div class="wrap_section">
+            <div id="noti">
+              <div class="icon_back">
+                <a href="/manager/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
+              </div>
+              <div class="title">
+                <p>공지사항 수정</p>
+                <form action="">
+                  <table class="noti_form_table">
+                    <tr>
+                      <td><input type=text placeholder=" [공지]"></td>
+                    </tr>
+                    <tr>
+                      <td><input type=text placeholder=" 제목을 입력하세요."></td>
+                    </tr>
+                    <tr>
+                      <td><textarea name=content placeholder="내용을 입력하세요."></textarea></td>
+                    </tr>
+                  </table>
+                  <div class="btn_upload">
+                    <button type="submit" required>글쓰기</button>
+                  </div>
+                  </table>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- START aside -->
+      <div id="aside" class="grid-item3">
+        <div class="aside_content">
+          <div class="noties">
+            <div class="simple_noti">
+              <a href="/manager/noti/detail{n_no}">
+                <h3></h3>
+                <p></p>
+              </a>
+            </div>
+          </div>
+          <!-- footer -->
+          <div id="side_footer">
+            <div class="footer">
+              <ul>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+                <li><a href="/user/main">관리자나가기</a></li>
+                <li><button class="btn_modal">관리자페이지</button></li>
+              </ul>
+              <div>
+                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

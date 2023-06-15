@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+* {
+  font-family: 'NanumSquare';
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'NanumSquareExtraBold';
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 50px 0;
+}
+
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+tr,
+th,
+td {
+  font-size: 14px;
+}
+
+.grid-container {
+  justify-content: space-between;
+}
+
+/* terms.css */
+
+.terms_check {
+  position: relative;
+  margin: 50px 50px;
+}
+
+.terms_check img {
+  width: 30px;
+}
+
+.terms_check h3 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.terms_check ul {
+  display: block;
+}
+
+.terms_check b {
+  font-size: 18px;
+}

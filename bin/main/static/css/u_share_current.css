@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+* {
+  font-family: 'NanumSquare';
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'NanumSquareExtraBold';
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 50px 0;
+}
+
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+tr,
+th,
+td {
+  font-size: 14px;
+  list-style: none;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
+
+.grid-container {
+  justify-content: space-between;
+}
+
+/* u_share_current.html */
+.share_current {
+  margin: 50px 40px;
+}
+
+.share_current h3 {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.share_current table {
+  width: 100%;
+  border-top: 1px solid #999;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.share_current table tbody {
+  text-align: center;
+}
+
+.share_current th {
+  background-color: #eee;
+}
+
+.share_current th,
+td {
+  border-bottom: 1px solid #999;
+  line-height: 80px;
+  font-size: 18px;
+}
+
+.share_current form div {
+  width: 100%;
+  text-align: center;
+}
+
+.share_current .share_complete {
+  display: flex;
+}
+
+.share_current .share_complete b {
+  line-height: 80px;
+  font-size: 18px;
+}
+
+.share_current input[type="checkbox"] {
+  width: 20px;
+}
+
+.share_current input[type="submit"] {
+  width: 600px;
+  height: 60px;
+  border-radius: 10px;
+  border-style: none;
+  background-color: rgb(244, 237, 206);
+  font-size: 18px;
+}
+
+.share_current input[type="submit"]:hover {
+  background-color: #4c4c4c;
+  color: #fff;
+}

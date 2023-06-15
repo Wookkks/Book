@@ -1,0 +1,260 @@
+@charset "utf-8";
+
+
+* {
+  font-family: 'NanumSquare';
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'NanumSquareExtraBold';
+  font-weight: 700;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p,
+ul,
+li,
+dl,
+dt,
+dd,
+tr,
+th,
+td {
+  /* font-size: 14px; */
+  list-style: none;
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 0px;
+}
+
+.grid-container {
+  justify-content: space-between;
+}
+
+/* u_with_book.css */
+
+.share_check {
+  margin: 0 50px;
+}
+
+.share_check>img {
+  width: 100%;
+}
+
+.share_check ul {
+  list-style: none;
+}
+
+.share_check a:nth-child(2) {
+  display: block;
+  line-height: 80px;
+  background-color: rgb(64, 64, 64);
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  margin-top: 50px;
+}
+
+.share_check a:nth-child(2):hover {
+  background-color: rgb(244, 237, 206);
+  color: #000;
+}
+
+.share_check div {
+  position: relative;
+  height: 250px;
+  background-color: rgb(250, 250, 250);
+  clear: both;
+  margin: 30px 0;
+  padding: 30px;
+  box-shadow: 3px 3px 5px #999;
+}
+
+.share_check div p {
+  margin-left: 5px;
+}
+
+.share_check section button img {
+  display: inline-block;
+  width: 30px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.share_check ul {
+  margin-top: 20px;
+  display: block;
+}
+
+.share_check ul li {
+  line-height: 30px;
+}
+
+.share_check .btn-modal, .share_check .btn-modal1, .share_check .btn-modal2 {
+  float: right;
+  width: 150px;
+  height: 50px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.share_check .btn-modal:hover, .share_check .btn-modal1:hover, .share_check .btn-modal2:hover {
+  background-color: rgb(244, 237, 206);
+}
+
+.share_check .btn_open {
+  float: right;
+  width: 150px;
+  height: 50px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #fff;
+  z-index: -1;
+}
+
+.share_check .btn_open {
+  float: right;
+  width: 150px;
+  height: 50px;
+  border-style: none;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.share_check .pop_inner {
+  background-color: rgb(244, 237, 206);
+  width: 400px;
+}
+
+/* 나눔책첵 모달 css 시작 */
+/* 신청하기 모달 */
+.register_modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #222;
+  font-size: 15px;
+  line-height: 1.6em;
+}
+
+.register_modal.active {
+  display: block;
+}
+
+.register_modal .modal_wrap {
+  border-style: none;
+  width: 300px;
+  height: 200px;
+  background-color: rgb(253, 246, 217);
+  border-radius: 3px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.btn-close, .btn-close_2 {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background-color: transparent;
+  font-size: 30px;
+  color: #999;
+}
+
+.btn-close:hover, .btn-close_2:hover {
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.description_content input[type='text'], .description_content input[type='tel'] {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.description_content input::placeholder {
+  padding-left: 5px;
+}
+
+.btn_pop input {
+  margin: 10px 5px 0;
+  border-style: none;
+  width: 150px;
+  height: 40px;
+  color: #fff;
+  background-color: rgb(190, 190, 190);
+}
+
+.btn_pop input[type='submit'], .btn_pop_2  input[type='submit'], .btn_pop_3 input[type='submit'] {
+  background-color: rgb(250, 192, 186);
+}
+
+
+/* 신청자 모달 */
+.pw_modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #222;
+  font-size: 15px;
+  line-height: 1.6em;
+  padding: 25px;
+  width: 355px;
+  height: 180px;
+  background-color: rgb(253, 246, 217);
+  border-radius: 5px;
+}
+
+.pw_modal.active {
+  display: block;
+}
+
+.pw_modal .btn_header {
+  position: relative;
+}
+
+.pw_modal h3 {
+  margin-bottom: 10px;
+}
+
+.pw_modal .btn-close_2 {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+}
+
+.description_content_2 {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.btn_pop_2 [type='submit'] {
+  border-style: none;
+  width: 50px;
+  height: 35px;
+  color: #fff;
+  margin-left: 20px;
+}

@@ -34,7 +34,11 @@ public class ManagerController {
 		model.addAttribute(noti);
 		return "manager/m_noti";
 	}
-		
+	@PostMapping("/noti")
+	public String postNoti() {
+		log.info("[POST] noti 실행");
+		return "manager/m_noti";
+	}
 	//공지사항 등록 폼
 	@GetMapping("/noti/add")
 	public String notiForm() {
@@ -71,12 +75,12 @@ public class ManagerController {
 	}
 
 	
-	//공지사항 삭제
-	@PostMapping("/noti")
-	public String notiDelete(Long n_no) {
-		log.info("[POST] notiDelete 실행");
-		notiService.deleteNoti(n_no);
-		return "manager/m_noti";
-	}
+//	//공지사항 삭제
+//	@PostMapping("/noti")
+//	public String notiDelete(Long n_no) {
+//		log.info("[POST] notiDelete 실행");
+//		notiService.deleteNoti(n_no);
+//		return "manager/m_noti";
+//	}
 	
 }
