@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter @Setter @ToString
 public class Noti {
 	private Long n_no;
-	private String n_name;
+	private String n_name = "책첵지기";
 	private String n_title;
 	private String n_content;
 	private Date n_date;
