@@ -45,8 +45,6 @@ public class ManagerController {
 	//공지사항 등록  	
 	@PostMapping("/noti/add")
 	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
-		log.info("[GET] notiCreate 실행");
-		noti.setN_name("책첵지기");
 		System.out.println(noti.toString());
 		notiService.saveNoti(noti);
 		redirect.addAttribute("n_no", noti.getN_no());
