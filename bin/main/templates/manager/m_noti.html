@@ -66,8 +66,8 @@
               <div class="title">
                 <a href="/manager/noti/add">공지사항 쓰기</a>
               </div>
-              <div class="noti_list" th:each="noti:${noti}">
-                <div class="notice">
+              <div class="noti_list">
+                <div class="notice" th:each="noti:${noti}">
                   <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
                     <p th:text="${noti.n_title}">제목</p>
                     <p th:text="${noti.n_content}">내용</p>
