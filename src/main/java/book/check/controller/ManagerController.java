@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import book.check.domain.Noti;
 import book.check.service.NotiService;
@@ -31,51 +30,12 @@ public class ManagerController {
 	public String noti (Model model) {
 		log.info("[GET] noti 실행");
 		List<Noti> noti = notiService.findAll();
-		model.addAttribute(noti);
+		model.addAttribute("noti", noti);
 		return "manager/m_noti";
 	}
-	@PostMapping("/noti")
-	public String postNoti() {
-		log.info("[POST] noti 실행");
-		return "manager/m_noti";
-	}
-	//공지사항 등록 폼
-	@GetMapping("/noti/add")
-	public String notiForm() {
-		log.info("[GET] notiForm 실행");
-		return "manager/m_noti_addForm";
-	}
 	
-	//공지사항 등록  	
-	//에러발생 Column 'n_name' cannot be null
-	//공지사항 등록에서 n_name은 어떻게?
-	@PostMapping("/noti/add")
-	public String notiCreate(@ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
-		log.info("[GET] notiCreate 실행");
-		notiService.saveNoti(noti);
-		redirect.addAttribute("n_no", noti.getN_no());
-		return "redirect:/manager/m_noti";
-	}
-
-	//공지사항 수정 폼
-	@GetMapping("/noti/edit{n_no}")
-	public String notiEditForm(@PathVariable Long n_no, Model model) {
-		log.info("[GET] notiEditForm() 실행");
-		model.addAttribute("notiEdit", notiService.findByNo(n_no).get());
-		return "manager/m_noti_editForm";
-	}
-	
-	//공지사항 수정
-	@PostMapping("/noti/edit{n_no}")
-	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model, RedirectAttributes redirect) {
-		log.info("[POST] notiEdit() 실행");
-		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
-		redirect.addAttribute("noti", n_no);
-		return "redirect:/manager/m_noti";
-	}
-
-	
-//	//공지사항 삭제
+	// 비번치고 관리자페이지들어갈 때 @PostMapping("/noti")인데 delete와 겹침-> delete주석처리
+	//공지사항 삭제
 //	@PostMapping("/noti")
 //	public String notiDelete(Long n_no) {
 //		log.info("[POST] notiDelete 실행");
@@ -83,4 +43,45 @@ public class ManagerController {
 //		return "manager/m_noti";
 //	}
 	
+	//공지사항 등록 폼
+	@GetMapping("/noti/add")
+	public String notiForm(Model model) {
+		log.info("[GET] notiForm 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("notiAdd", noti);
+		return "manager/m_noti_addForm";
+	}
+	
+	//공지사항 등록 	
+	@PostMapping("/noti/add")
+	public String notiCreate(@ModelAttribute Noti noti, Model model) {
+		log.info("[POST] notiCreate() 실행");
+		notiService.saveNoti(noti);
+		return "redirect:/manager/noti";
+	}
+
+	// 공지사항 상세 //💎오른쪽 aside공지 반복이 안 됨. 해당 공지만 뜸💎
+	@GetMapping("/noti/detail{n_no}")
+	public String notiDetail(@PathVariable Long n_no, Model model) {
+		log.info("[GET] notiDetail() 실행");
+		model.addAttribute("noti", notiService.findByNo(n_no).get());
+		return "manager/m_noti_detail";
+	}
+	
+	//공지사항 수정 폼 //💎오른쪽 aside공지 반복이 안 됨. 해당 공지만 뜸💎
+	@GetMapping("/noti/edit{n_no}")
+	public String notiEditForm(@PathVariable Long n_no, Model model) {
+		log.info("[GET] notiEditForm() 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", notiService.findByNo(n_no).get());
+		return "manager/m_noti_editForm";
+	}
+	
+	//공지사항 수정  
+	@PostMapping("/noti/edit{n_no}")
+	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model) {//, RedirectAttributes redirect
+		log.info("[POST] notiEdit() 실행");
+		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
+		return "redirect:/manager/noti";
+	}
 }
