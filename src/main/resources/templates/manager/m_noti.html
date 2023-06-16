@@ -47,7 +47,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/manager/noti" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/manager/noti" title="메인페이지"><img src="/img/logo_m_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -71,14 +71,18 @@
                   <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
                     <p th:text="${noti.n_title}">제목</p>
                     <p th:text="${noti.n_content}">내용</p>
-                    <!-- <p th:text="${noti.n_name}">작성자</p> -->
                     <div>
                       <span>책첵지기<img src="/img/round_logo.png" alt=""></span>
                     </div>
                   </a>
                   <div class="btns">
                     <span>
-                      <button class="btn_remove">삭제</button>
+                      <!-- onclick="removeCheck(); return false;" -->
+                    
+                      <!-- <button class="btn_remove" type="button" value="삭제" onclick="removeCheck()" id="del-btn">삭제</button> -->
+                      
+                      <!-- <button type="button" onclick="removeCheck()" value="삭제" id="del-btn">삭제</button> -->
+                      <button type="submit" onclick="delCheck()" value="삭제" id="del-btn">삭제</button>
                       <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                     </span>
                   </div>
@@ -99,7 +103,6 @@
               <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
                 <h3 th:text="${noti.n_title}">제목</h3>
                 <p th:text="${noti.n_content}">내용</p>
-                <!-- <p th:text="${noti.n_name}">작성자</p> -->
               </a>
             </div>
           </div>
