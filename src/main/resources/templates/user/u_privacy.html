@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/privacy.css">
+  <link rel="stylesheet" href="/css/u_privacy.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>개인정보처리방침</title>
 </head>
@@ -192,9 +192,9 @@
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="#">이용약관</a></li>
-                <li><a href="#">개인정보처리방침</a></li>
-                <li><button class="btn_modal">관리자페이지</button></li>
+                <li><a href="/user/terms">이용약관</a></li>
+                <li><a href="/user/privacy">개인정보처리방침</a></li>
+               <li><button class="btn_modal">관리자페이지</button></li>
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
@@ -202,21 +202,21 @@
             </div>
           </div>
           <!-- modal -->
-          <div class="modal">
+          <div id="modal" class="pw_modal">
             <div class="modal_wrap">
               <div class="modal_header">
                 <p class="pw_text">관리자 비밀번호를 입력하세요.</p>
               </div>
               <div class="modal_content">
+                <!-- x 버튼 -->
                 <div class="description_head">
-                  <!-- x 버튼 -->
-                  <button class="btn_close">&times;</button>
+                  <button class="pw_btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header">
+                <form action="/manager/noti" name="maneger_pw_form" class="description_header" target="_blank">
                   <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
-                    id="managePwd" name="managePwd" required>
-                  <button type="submit" minlength="4" th:onclick="return checkPwd()">확인</button>
+                    required>
+                  <button type="submit" minlength="4">확인</button>
                 </form>
               </div>
             </div>
