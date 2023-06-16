@@ -57,32 +57,38 @@
               <thead>
                 <th>번호</th>
                 <th>이름</th>
+                <th>전화번호</th>
                 <th>선택</th>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
+                <tr th:each="apply:${apply}">
+                  <td th:text="${apply.a_no}">1</td>
                   <td>홍서범</td>
+                  <td>1111</td>
                   <td><input type="radio" name="selector" required></td>
                 </tr>
                 <tr>
                   <td>2</td>
                   <td>김수미</td>
+                  <td>2222</td>
                   <td><input type="radio" name="selector"></td>
                 </tr>
                 <tr>
                   <td>3</td>
                   <td>라미란</td>
+                  <td>3333</td>
                   <td><input type="radio" name="selector"></td>
                 </tr>
                 <tr>
                   <td>4</td>
                   <td>김철용</td>
+                  <td>4444</td>
                   <td><input type="radio" name="selector"></td>
                 </tr>
                 <tr>
                   <td>5</td>
                   <td>천서진</td>
+                  <td>5555</td>
                   <td><input type="radio" name="selector"></td>
                 </tr>
               </tbody>

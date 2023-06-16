@@ -2,7 +2,7 @@ const register_modal = document.querySelector('.register_modal');
 const btn_modal = document.querySelectorAll('.btn-modal');
 const btn_close = document.querySelector('.btn-close');
 
-const pw_modal = document.querySelector('.pw_modal');
+const pw_modal = document.querySelector('.share_pw_modal');
 const btn_modal_2 = document.querySelectorAll('.btn-modal_2');
 const btn_close_2 = document.querySelector('.btn-close_2');
 
@@ -21,12 +21,12 @@ btn_close.addEventListener('click', () => {
 // 신청자 비밀번호 모달
 btn_modal_2.forEach(open => {
   open.addEventListener('click', () => {
-    pw_modal.classList.add('active');
+    share_pw_modal.classList.add('active');
   });
 });
 
 btn_close_2.addEventListener('click', () => {
-  pw_modal.classList.remove('active');
+  share_pw_modal.classList.remove('active');
 });
 
 // // 모달창 밖의 영역 누르면 닫기
