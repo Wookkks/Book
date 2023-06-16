@@ -41,7 +41,7 @@ td {
   justify-content: space-between;
 }
 
-/* join.html */
+/* addForm.html */
 
 .join_check {
   margin: 50px 0;
@@ -69,7 +69,7 @@ td {
 
 .join_check form {
   width: 450px;
-  height: 800px;
+  height: 900px;
   background-color: rgb(244, 237, 206);
   border-radius: 10px;
   padding: 50px;
@@ -130,7 +130,7 @@ input[type="local"] {
   color: #fff;
   font-size: 18px;
   border-radius: 15px;
-  margin: 30px 0 0 25px;
+  margin: 35px 0 0 25px;
 }
 
 .join_check input[type="submit"]:hover {
