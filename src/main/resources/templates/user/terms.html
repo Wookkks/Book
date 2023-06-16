@@ -47,7 +47,7 @@
 
       <!-- 이용약관 -->
       <div class="container terms_check">
-        <a href="/user/main"><img src="img/arrow_back.png" alt="뒤로가기"></a>
+        <a href="/user/main"><img src="/img/arrow_back.png" alt="뒤로가기"></a>
         <h3>책첵 이용약관</h3>
         <div>
           <b>제1조 (목적)</b>
@@ -149,28 +149,10 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti">
-              <a href="u_noti.detail1.html">
-                <h3>공지 하나</h3>
-                <p>[어때책첵] 책첵의 월간 모임 기록</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail2.html">
-                <h3>공지 둘</h3>
-                <p>[분석책첵] 책첵이 분석한 좋은 책들을 소개</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail3.html">
-                <h3>공지 셋</h3>
-                <p>[나눔책첵] 같은 책을 읽고 나눌 수 있도록 확대</p>
-              </a>
-            </div>
-            <div class="simple_noti">
-              <a href="u_noti.detail4.html">
-                <h3>공지 넷</h3>
-                <p>개인정보이용약관 변경 안내</p>
+            <div class="simple_noti" th:each="noti:${noti}">
+              <a th:href="@{/user/noti/} + ${noti.n_no}">
+                <h3 th:text=${noti.n_title}></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->

@@ -50,7 +50,20 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "user/main";
 	}
-	
+	// 개인정보처리방침
+	@GetMapping("/privacy")
+	public String privacy(Model model) {
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
+		return "user/privacy";
+	}
+	// 이용약관
+	@GetMapping("/terms")
+	public String terms(Model model) {
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
+		return "user/terms";
+	}
 	// 공지 
 	@GetMapping("/noti")
 	public String noti(Model model){
