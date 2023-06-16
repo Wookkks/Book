@@ -117,7 +117,7 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti" th:each="noti:${noti}">
-              <a href="/user/noti/{n_no}">
+              <a th:href="@{/user/noti/} + ${noti.n_no}" >
                 <h3 th:text=${noti.n_title}></h3>
                 <p th:text=${noti.n_content}></p>
               </a>

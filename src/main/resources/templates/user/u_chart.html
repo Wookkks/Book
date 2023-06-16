@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
@@ -30,7 +30,7 @@
         <div class="header_content">
           <div class="logo">
             <h1>
-              <a href="/user/main" title="메인페이지"><img src="img/logo_fin.png" alt="책첵logo" width="90rem"></a>
+              <a href="/user/main" title="메인페이지"><img src="/img/logo_fin.png" alt="책첵logo" width="90rem"></a>
             </h1>
           </div>
           <div class="gnb">
@@ -52,7 +52,7 @@
         <hr>
         <h3>책첵이 대신해서 도서 트렌드를 분석해봤어요!</h3>
         <div class="visual">
-          <img src="img/작가시각화.png" alt="시각화1">
+          <img src="/img/작가시각화.png" alt="시각화1">
           <div>
             <b>분야별 인기작가 순위</b>
             <p>책첵이 생각한 가장 인기 많은 작가는<br>헤르만 헤세였습니다.<br><br>
@@ -64,7 +64,7 @@
           </div>
         </div>
         <div class="visual">
-          <img src="img/분야시각화.png" alt="시각화2">
+          <img src="/img/분야시각화.png" alt="시각화2">
           <div>
             <b>분야별 인기장르 순위</b>
             <p>책첵이 생각한 가장 인기 많은 장르는<br> 소설이었습니다.<br><br>
@@ -82,27 +82,27 @@
           <b class="writer_area">국내편</b>
           <ul>
             <li>
-              <img src="img/작가1.jpg" alt="작가1">
+              <img src="/img/작가1.jpg" alt="작가1">
               <b>Top 1</b>
               <p>김난도</p>
             </li>
             <li>
-              <img src="img/작가2.jpg" alt="작가2">
+              <img src="/img/작가2.jpg" alt="작가2">
               <b>Top 2</b>
               <p>유시민</p>
             </li>
           </ul>
         </div>
         <div class="recommend_1">
-          <b class="writer_area">국외편</b>
+          <b class="/writer_area">국외편</b>
           <ul>
             <li>
-              <img src="img/작가3.jpg" alt="작가3">
+              <img src="/img/작가3.jpg" alt="작가3">
               <b>Top 1</b>
               <p>히가시노 게이고</p>
             </li>
             <li>
-              <img src="img/작가4.jpg" alt="작가4">
+              <img src="/img/작가4.jpg" alt="작가4">
               <b>Top 2</b>
               <p>기욤 뮈소</p>
             </li>
@@ -136,10 +136,10 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti">
-              <a href="/user/noti/{n_no}">
-                <h3></h3>
-                <p></p>
+            <div class="simple_noti" th:each="noti:${noti}">
+              <a th:href="@{/user/noti/} + ${noti.n_no}">
+                <h3 th:text=${noti.n_title}></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->
