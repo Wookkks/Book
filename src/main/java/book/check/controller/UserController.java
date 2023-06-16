@@ -64,7 +64,9 @@ public class UserController {
 	public String notiDetail(@PathVariable Long n_no, Model model) {
 		log.info("[GET] notiDetail 실행");
 		Noti noti = notiService.findByNo(n_no).get();
+		List<Noti> notiAll = notiService.findAll(); 
 		model.addAttribute("noti", noti);
+		model.addAttribute("notiAll", notiAll);
 		return "user/u_noti_detail";
 	}
 	
