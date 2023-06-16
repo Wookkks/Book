@@ -15,3 +15,12 @@ pw_btn_close.addEventListener('click', () => {
     pw_modal.classList.remove('active');
     pw_btn_close.classList.remove('active');
 });
+
+function checkPwd() {
+  var pwd = document.getElementById("pwd").value;
+  if (pwd != 1111){
+    alert("패스워드가 일치하지 않습니다");
+    return false;
+  }
+  return true;
+}
