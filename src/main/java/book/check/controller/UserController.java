@@ -55,14 +55,14 @@ public class UserController {
 	public String privacy(Model model) {
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
-		return "user/privacy";
+		return "user/u_privacy";
 	}
 	// 이용약관
 	@GetMapping("/terms")
 	public String terms(Model model) {
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
-		return "user/terms";
+		return "user/u_terms";
 	}
 	// 공지 
 	@GetMapping("/noti")
