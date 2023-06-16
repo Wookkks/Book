@@ -2,7 +2,7 @@ const register_modal = document.querySelector('.register_modal');
 const btn_modal = document.querySelectorAll('.btn-modal');
 const btn_close = document.querySelector('.btn-close');
 
-const pw_modal = document.querySelector('.share_pw_modal');
+const share_pw_modal = document.querySelector('.share_pw_modal');
 const btn_modal_2 = document.querySelectorAll('.btn-modal_2');
 const btn_close_2 = document.querySelector('.btn-close_2');
 
