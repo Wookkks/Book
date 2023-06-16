@@ -60,19 +60,22 @@ public class ManagerController {
 		return "redirect:/manager/noti";
 	}
 
-	// 공지사항 상세 //💎오른쪽 aside공지 반복이 안 됨. 해당 공지만 뜸💎
+	// 공지사항 상세
 	@GetMapping("/noti/detail{n_no}")
 	public String notiDetail(@PathVariable Long n_no, Model model) {
 		log.info("[GET] notiDetail() 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("notiDetail", noti);
 		model.addAttribute("noti", notiService.findByNo(n_no).get());
 		return "manager/m_noti_detail";
 	}
 	
-	//공지사항 수정 폼 //💎오른쪽 aside공지 반복이 안 됨. 해당 공지만 뜸💎
+	//공지사항 수정 폼
 	@GetMapping("/noti/edit{n_no}")
 	public String notiEditForm(@PathVariable Long n_no, Model model) {
 		log.info("[GET] notiEditForm() 실행");
 		List<Noti> noti = notiService.findAll();
+		model.addAttribute("notiEdit", noti);
 		model.addAttribute("noti", notiService.findByNo(n_no).get());
 		return "manager/m_noti_editForm";
 	}
