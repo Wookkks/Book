@@ -49,7 +49,7 @@
       <!-- START container -->
       <div id="container" class="grid-item2">
         <div id="main_banner">
-          <img src="/img/pexels-hailey-galloway-4825139.jpg" alt="메인배너" width="100%">
+          <img src="/img/공지배너1.jpg" alt="메인배너" width="100%">
         </div>
         <!-- content -->
         <div id="content">
@@ -62,7 +62,7 @@
                 <div class="notice">
                   <a th:href="@{/user/noti/} + ${noti.n_no}" th:each="noti:${noti}">
                     <p th:text="${noti.n_title}"></p>
-                    <!-- <p th:text="${noti.n_no}"></p> -->
+                    <p th:text="${noti.n_no}"></p>
                     <p th:text="${noti.n_content}"></p>
                     <div>
                       <span>책첵지기<img src="/img/round_logo.png" alt=""></span>
