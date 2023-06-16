@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import book.check.domain.Apply;
 import book.check.domain.Member;
@@ -144,10 +145,14 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "/user/u_share_current";
 	}
+	
 	// 신청 현황 및 완료여부
 	@PostMapping("/share/cur")
-	public String postCur() {
-		
+	public String postCur(@RequestParam String pwd, Long w_no) {
+		String userPwd = withBookService.findPwd(w_no).getW_pwd();
+		if(userPwd == pwd) {
+			return "user/u_share_current";
+		}
 		return "user/u_share_book";
 	}
 	// 분석
