@@ -78,7 +78,6 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public Noti updateNoti(Long n_no, Noti updateNoti) {
-//		String sql = "UPDATE NOTI SET N_TITLE, N_CONTENT, WHERE N_NO = ?";
 		String sql = "UPDATE NOTI SET N_TITLE = ?, N_CONTENT = ? WHERE N_NO = ?";
 		jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), n_no);
 		updateNoti.setN_no(n_no);

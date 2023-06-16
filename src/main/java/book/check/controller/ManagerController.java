@@ -48,7 +48,7 @@ public class ManagerController {
 	public String notiForm(Model model) {
 		log.info("[GET] notiForm 실행");
 		List<Noti> noti = notiService.findAll();
-		model.addAttribute("notiAdd", noti);
+		model.addAttribute("noti", noti);
 		return "manager/m_noti_addForm";
 	}
 	
