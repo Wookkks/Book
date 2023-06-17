@@ -54,8 +54,7 @@
                 <form th:action="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" method="post">
                   <table class="noti_form_table">
                     <tr>
-                      <!-- 추 후 작 업 : 공지 카테고리 -->
-                      <td><input type=text placeholder="[카테고리]"></td>
+                      <td><input type=text placeholder="[공지]"></td>
                     </tr>
                     <tr>
                       <td><input type=text name="n_title" id="n_title" th:value="${noti.n_title}" placeholder=" 제목을 입력하세요."></td>

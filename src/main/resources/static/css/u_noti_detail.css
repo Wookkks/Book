@@ -4,6 +4,12 @@
   gap: 5rem;
 }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}
+
 /* container */
 #container #content .wrap_section {
   width: 100%;
@@ -30,6 +36,10 @@
   left: 0;
   font-size: 12px;
   vertical-align: middle;
+}
+
+#container #content .full_content .noti_head>input {
+  border: none;
 }
 
 #container #content .full_content .noti_head>h2 {

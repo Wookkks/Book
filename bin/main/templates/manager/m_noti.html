@@ -77,12 +77,7 @@
                   </a>
                   <div class="btns">
                     <span>
-                      <!-- onclick="removeCheck(); return false;" -->
-                    
-                      <!-- <button class="btn_remove" type="button" value="삭제" onclick="removeCheck()" id="del-btn">삭제</button> -->
-                      
-                      <!-- <button type="button" onclick="removeCheck()" value="삭제" id="del-btn">삭제</button> -->
-                      <button type="submit" onclick="delCheck()" value="삭제" id="del-btn">삭제</button>
+                       <button class="btn_remove">삭제</button>
                       <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                     </span>
                   </div>
@@ -125,7 +120,7 @@
       </div>
     </div>
   </div>
-  <script src="/js/main.js"></script>
+  <script src="/js/m_noti.js"></script>
 </body>
 
 </html>
