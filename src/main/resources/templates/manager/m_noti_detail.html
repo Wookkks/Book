@@ -14,7 +14,7 @@
 
 <body>
   <dl class="skip-nav">
-    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dt class="blind"><strong>skip navigation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
@@ -25,6 +25,24 @@
   </dl>
   <!-- START -->
   <div class="whole_page">
+    <!-- remove 모달 -->
+    <div id="modal" class="remove_modal">
+      <div class="modal_wrap">
+        <div class="modal_header">
+          <p class="pw_text">게시물을 삭제하시겠습니까?</p>
+        </div>
+        <div class="modal_content">
+          <div class="description_head">
+            <!-- x 버튼 -->
+            <button class="remove_btn_close">&times;</button>
+          </div>
+          <div class="remove_btns">
+            <button class="remove_cancel_btn">취소</button>
+            <button type="submit">확인</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="wrap" class="grid-container">
       <div id="side_header" class="grid-item1">
         <div class="header_content">
@@ -51,21 +69,21 @@
             </div>
             <div class="full_content">
               <div class="noti_head">
-				<input type="date" name="n_date" id="n_date" th:value=${n_date}>
-	              <script type="text/javascript">
-	              	var currentDate = new Date();
-	              	var year = currentDate.getFullYear(); // 연도 가져오기
-	              	var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
-	              	var day = currentDate.getDate(); // 일 가져오기
-	              	if (month < 10) {
-	              	  month = '0' + month;
-	              	}
-	              	if (day < 10) {
-	              	  day = '0' + day;
-	              	}
-	              	var formattedDate = year + '-' + month + '-' + day;
-	              	document.getElementById("n_date").value = formattedDate; 
-	              </script>
+                <input type="date" name="n_date" id="n_date" th:value=${n_date}>
+                <script type="text/javascript">
+                  var currentDate = new Date();
+                  var year = currentDate.getFullYear(); // 연도 가져오기
+                  var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
+                  var day = currentDate.getDate(); // 일 가져오기
+                  if (month < 10) {
+                    month = '0' + month;
+                  }
+                  if (day < 10) {
+                    day = '0' + day;
+                  }
+                  var formattedDate = year + '-' + month + '-' + day;
+                  document.getElementById("n_date").value = formattedDate; 
+                </script>
                 <!-- <h2> 어때책첵(카테고리) -- 추 후 작 업 </h2> -->
               </div>
               <div class="noti_body">
@@ -79,18 +97,16 @@
                       <p th:text="${noti.n_content}">내용!!!!</p>
                     </div>
                   </div>
-                  
+
                   <!-- 수정 삭제버튼이 있어야 할 듯? -->
-<!--              <div class="btns"> 
+                  <div class="btns">
                     <span>
-                      <button class="btn_remove">삭제</button>  
-                      삭제는 아직 미구현
-                      삭제 버튼은 글씨 흰색이라 블록잡아야 보임
+                      <button class="btn_remove">삭제</button>
                       <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                     </span>
                   </div>
- -->                
- 				</div>
+
+                </div>
               </div>
 
             </div>
@@ -116,7 +132,6 @@
                 <li><a href="/user/terms">이용약관</a></li>
                 <li><a href="/user/privacy">개인정보처리방침</a></li>
                 <li><a href="/user/main">관리자나가기</a></li>
-                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
@@ -128,7 +143,7 @@
       </div>
     </div>
   </div>
-  <script src="/js/main.js"></script>
+  <script src="/js/m_noti.js"></script>
 </body>
 
 </html>
