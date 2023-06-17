@@ -4,12 +4,6 @@
   gap: 5rem;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-	display: none;
-	-webkit-appearance: none;
-}
-
 /* container */
 #container #content .wrap_section {
   width: 100%;
@@ -36,10 +30,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   left: 0;
   font-size: 12px;
   vertical-align: middle;
-}
-
-#container #content .full_content .noti_head>input {
-  border: none;
 }
 
 #container #content .full_content .noti_head>h2 {
@@ -71,4 +61,36 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   font-size: 18px;
   padding-bottom: 1rem;
   line-height: 27px;
+}
+
+/* 수정, 삭제버튼 */
+#container #content .noti_body .btns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: fit-content;
+  text-align: center;
+  z-index: 1;
+}
+
+#container #content .noti_body .btns span>button,
+.modify {
+  display: inline-block;
+  width: 3.8rem;
+  line-height: 2rem;
+  font-size: 15px;
+  background-color: #7a7a7a;
+  color: white;
+  border-radius: 5px;
+}
+
+#container #content .noti_body .btns span>button {
+  margin-right: 15px;
+  background-color: #9b9b9b;
+}
+
+#container #content .noti_body .btns span>button:hover,
+.modify:hover {
+  background-color: #545454;
+  font-weight: 900;
 }
