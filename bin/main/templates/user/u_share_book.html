@@ -82,7 +82,7 @@
               </li>
             </ul>
             <!-- <button id="btn-modal" class="btn-modal"> -->
-              <a href="/user/apply/{w_no}" class="accept">
+              <a th:href="@{/user/apply/} + ${with.w_no}" class="accept">
               신청하기
             </a>
             <!-- </button> -->
