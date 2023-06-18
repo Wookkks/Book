@@ -49,18 +49,20 @@
       <!-- 나눔책첵 시작 -->
       <div class="share_check">
         <img src="/img/나눔배너1.jpg" alt="나눔배너">
-        <a href="/user/share/add">나눔 책첵</a>
+        <a href="/user/share/add" class="divide">나눔 책첵</a>
         <section>
           <div th:each="with:${withBook}">
-            <button id="btn-modal_2" class="btn-modal_2">
+            <!-- <button id="btn-modal_2" class="btn-modal_2"> -->
+            <a href="/user/share/curIn">
               <img src="/img/ico_board.png" alt="신청현황">
-            </button>
+            </a>
+            <!-- </button> -->
             <b th:text="${with.w_title}">이토록 평범한 미래</b>
             <p th:text="${with.w_memo}">김연수 작가님의 이토록 평범한 미래를 혼자만 볼 수 없어요~!</p>
-            <a th:href="@{/user/apply/} + ${with.w_no}" class="apply_btn">신청하기</a>
-            <a th:href="@{/user/share/cur/} + ${with.w_no}" id="a-modal">신청현황</a>
+            <!-- <a th:href="@{/user/apply/} + ${with.w_no}" class="apply_btn">신청하기</a> -->
+            <!-- <a th:href="@{/user/share/cur/} + ${with.w_no}" id="a-modal">신청현황</a> -->
             <!-- <a href="#" class="a-modal" id="a-modal" data-w-no="{w_no}" data-password="{w_pwd}">신청현황</a> -->
-            <input type="checkbox" th:checked="${with.w_yn}" id=w_yn name=w_yn disabled><label>마감여부</label>
+            <!-- <input type="checkbox" th:checked="${with.w_yn}" id=w_yn name=w_yn disabled><label>마감여부</label> -->
             <ul>
               <li>
                 <p>등록자 : </p>
@@ -74,8 +76,16 @@
                 <p>등록일자 : </p>
                 <p th:text=${with.w_date}>2023.05.18</p>
               </li>
+              <li>
+                <p>마감여부 : </p>
+                <input type="checkbox" th:checked="${with.w_yn}" id=w_yn name=w_yn disabled>
+              </li>
             </ul>
-            <button id="btn-modal" class="btn-modal">신청</button>
+            <!-- <button id="btn-modal" class="btn-modal"> -->
+              <a href="u_apply_addForm.html" class="accept">
+              신청하기
+            </a>
+            <!-- </button> -->
           </div>
         </section>
       </div>
@@ -136,7 +146,7 @@
 
     <!-- 나눔책첵 모달 시작 -->
     <!-- 신청하기 모달 -->
-    <div class="register_modal">
+    <!-- <div class="register_modal">
       <div class="modal_wrap">
         <div class="btn_header">
           <button class="btn-close">&times;</button>
@@ -151,10 +161,10 @@
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- 신청자 비밀번호 모달 -->
-    <div class="share_pw_modal">
+    <!-- <div class="share_pw_modal">
       <div class="modal_wrap">
         <div class="btn_header">
           <h3>신청자 현황</h3>
@@ -169,10 +179,10 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <script src="/js/u_share_book.js"></script>
-  <script src="/js/main.js"></script>
+    <!-- <script src="/js/u_share_book.js"></script> -->
+    <script src="/js/main.js"></script>
 
 </body>
 

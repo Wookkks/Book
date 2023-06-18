@@ -55,14 +55,12 @@
           <form action="/user/share/{w_no}" method="post" th:object="${withBook}">
             <table>
               <thead>
-                <th>번호</th>
                 <th>이름</th>
                 <th>전화번호</th>
                 <th>선택</th>
               </thead>
               <tbody>
                 <tr th:each="apply:${apply}">
-                  <td th:text="${apply.a_no}">1</td>
                   <td th:text="${apply.a_name}">홍서범</td>
                   <td th:text="${apply.a_phone}">1111</td>
                   <td><input type="radio" name="selector" required></td>
