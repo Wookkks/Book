@@ -60,7 +60,7 @@ td {
   list-style: none;
 }
 
-.share_check a:nth-child(2) {
+.share_check .divide {
   display: block;
   line-height: 4rem;
   background-color: rgb(64, 64, 64);
@@ -72,14 +72,14 @@ td {
   margin-top: 2rem;
 }
 
-.share_check a:nth-child(2):hover {
+.share_check .divide:hover {
   background-color: rgb(244, 237, 206);
   color: #000;
 }
 
 .share_check div {
   position: relative;
-  height: 250px;
+  height: 280px;
   background-color: rgb(250, 250, 250);
   clear: both;
   margin: 30px 0;
@@ -91,7 +91,7 @@ td {
   margin-left: 5px;
 }
 
-.share_check section button img {
+.share_check section a img {
   display: inline-block;
   width: 30px;
   position: absolute;
@@ -108,7 +108,7 @@ td {
   line-height: 30px;
 }
 
-.share_check .btn-modal, .share_check .btn-modal1, .share_check .btn-modal2 {
+.share_check .accept {
   float: right;
   width: 150px;
   height: 50px;
@@ -117,37 +117,30 @@ td {
   background-color: #fff;
 }
 
-.share_check .btn-modal:hover, .share_check .btn-modal1:hover, .share_check .btn-modal2:hover {
+.share_check .accept:hover {
   background-color: rgb(244, 237, 206);
 }
 
-.share_check .btn_open {
+.share_check .accept {
   float: right;
   width: 150px;
-  height: 50px;
+  line-height: 50px;
+  text-align: center;
   border-style: none;
   border-radius: 5px;
   background-color: #fff;
   z-index: -1;
+  font-size: 18px;
 }
 
-.share_check .btn_open {
-  float: right;
-  width: 150px;
-  height: 50px;
-  border-style: none;
-  border-radius: 5px;
-  z-index: -1;
-}
-
-.share_check .pop_inner {
+/* .share_check .pop_inner {
   background-color: rgb(244, 237, 206);
   width: 400px;
-}
+} */
 
 /* 나눔책첵 모달 css 시작 */
 /* 신청하기 모달 */
-.register_modal {
+/* .register_modal {
   display: none;
   position: fixed;
   top: 50%;
