@@ -1,10 +1,12 @@
 package book.check.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -122,13 +124,20 @@ public class UserController {
 	
 	// 책 나눔
 	@GetMapping("/share")
-	public String with(Model model) {
+	public String getWith(Model model) {
 		log.info("[GET] with 실행");
 		List<WithBook> withBook = withBookService.findAll();
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("withBook", withBook);
 		model.addAttribute("noti", noti);
 		return "user/u_share_book";
+	}
+	
+	@PostMapping("/share/{w_no}")
+	public String postWith(@ModelAttribute WithBook withBook) {
+		log.info("[POST] with 실행");
+		withBookService.updateYN(withBook.getW_no(), withBook);
+		return "redirect:/user/share";
 	}
 	
 	// 책 나눔 등록 폼
@@ -149,21 +158,24 @@ public class UserController {
 	}
 	
 	// 신청 현황 및 완료여부 폼
-	@GetMapping("/share/cur")
-	public String getCur(Model model) {
+	@GetMapping("/share/cur/{w_no}")
+	public String getCur(Model model, @PathVariable Long w_no) {
 		log.info("[GET] Cur 실행");
-		List<Apply> apply = applyService.findAll();
+		List<Apply> apply = applyService.findAll(w_no);
 		List<Noti> noti = notiService.findAll();
+		WithBook withBook = withBookService.findByNo(w_no).get();
 		model.addAttribute("apply", apply);
 		model.addAttribute("noti", noti);
+		model.addAttribute("withBook", withBook);
 		return "/user/u_share_current";
 	}
 	
 	// 신청 현황 및 완료여부
-	@PostMapping("/share/cur")
-	public String postCur(@RequestParam String pwd, Long w_no) {
-		String userPwd = withBookService.findPwd(w_no).getW_pwd();
-		if(userPwd == pwd) {
+	@PostMapping("/share/cur/")
+	public String postCur(@RequestParam String w_pwd, Long w_no) {
+		log.info("[POST] cur 실행");
+		String userPwd = withBookService.pwd(w_pwd).get().getW_pwd();
+		if(userPwd == w_pwd) {
 			return "user/u_share_current";
 		}
 		return "user/u_share_book";
@@ -176,31 +188,36 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "/user/u_chart";
 	}
-	/*
-	 * // 책 나눔 수정 폼
-	 * 
-	 * @GetMapping("/share/edit{w_no}") public String getWithEdit() {
-	 * 
-	 * return "user/u_share_editForm"; }
-	 * 
-	 * // 책 나눔 수정
-	 * 
-	 * @PostMapping("/share/edit{w_no}") public String postWithEdit() {
-	 * 
-	 * return "redirect:/user/u_share_book"; }
-	 * 
-	 * // 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)
-	 * 
-	 * @GetMapping("/apply") public String getApply() {
-	 * 
-	 * return "user/u_share_addForm"; }
-	 * 
-	 * // 책 나눔 신청
-	 * 
-	 * @PostMapping("/apply") public String postApply() {
-	 * 
-	 * return "redirect:/user/u_share"; }
-	 */
+	
+	  // 책 나눔 수정 폼	  
+	  @GetMapping("/share/edit{w_no}") 
+	  public String getWithEdit() {
+	  
+	  return "user/u_share_editForm";
+	  }
+	  
+	  // 책 나눔 수정	  
+	  @PostMapping("/share/edit{w_no}")
+	  public String postWithEdit() {
+	  
+	  return "redirect:/user/u_share_book";
+	  }
+	  
+	  // 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)	  
+	  @GetMapping("/apply/{w_no}")
+	  public String getApply() {
+	  log.info("[GET] apply 실행");
+	  return "user/u_apply_addForm";
+	  }
+	  
+	  // 책 나눔 신청
+	  @PostMapping("/apply")
+	  public String postApply(Apply apply) {
+	  log.info("[POST] apply 실행");
+	  applyService.saveApply(apply);
+	  return "redirect:/user/share";
+	  }
+	 
 	
 	
 }

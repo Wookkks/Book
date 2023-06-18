@@ -33,6 +33,7 @@ public class JdbcApplyRepository implements ApplyRepository{
 			public Apply mapRow(ResultSet rs, int rowNum) throws SQLException {
 				Apply apply = new Apply();
 				apply.setA_no(rs.getLong("a_no"));
+				apply.setW_no(rs.getLong("w_no"));
 				apply.setA_name(rs.getString("a_name"));
 				apply.setA_phone(rs.getString("a_phone"));
 				return apply;
@@ -46,6 +47,7 @@ public class JdbcApplyRepository implements ApplyRepository{
 		jdbcInsert.withTableName("APPLY").usingGeneratedKeyColumns("a_no");
 		Map<String, Object> parameters = new HashMap<>();
 		parameters.put("a_name", apply.getA_name());
+		parameters.put("w_no", apply.getW_no());
 		parameters.put("a_phone", apply.getA_phone());
 		Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		apply.setA_no(key.longValue());
@@ -53,9 +55,9 @@ public class JdbcApplyRepository implements ApplyRepository{
 	}
 
 	@Override
-	public List<Apply> findAll() {
-		String sql = "SELECT * FROM APPLY";
-		List<Apply> result = jdbcTemplate.query(sql, applyRowMapper());
+	public List<Apply> findAll(Long w_no) {
+		String sql = "SELECT * FROM APPLY WHERE W_NO = ?";
+		List<Apply> result = jdbcTemplate.query(sql, applyRowMapper(), w_no);
 		return result;
 	}
 

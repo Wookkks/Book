@@ -22,8 +22,12 @@ public interface WithBookRepository {
 	// 나눔글 수정
 	WithBook updateWithBook(Long w_no, WithBook withBook);
 	
+	WithBook updateYN(Long w_no, WithBook withBook);
+	
 	// 나눔글 비밀번호 
 	WithBook findPwd(Long w_no);
+	
+	Optional<WithBook> pwd(String w_pwd); 
 	
 	// 나눔글 삭제
 	void deleteWithBook(Long w_no);

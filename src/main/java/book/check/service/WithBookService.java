@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.expression.spel.ast.OpInc;
 import org.springframework.stereotype.Service;
 
 import book.check.domain.WithBook;
@@ -37,5 +38,13 @@ public class WithBookService {
 	
 	public WithBook findPwd(Long w_no) {
 		return withBookRepository.findPwd(w_no);
+	}
+	
+	public Optional<WithBook> pwd(String w_pwd){
+		return withBookRepository.pwd(w_pwd);
+	}
+	
+	public WithBook updateYN(Long w_no, WithBook withBook) {
+		return withBookRepository.updateYN(w_no, withBook);
 	}
 }

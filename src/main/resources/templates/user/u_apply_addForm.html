@@ -5,20 +5,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>신청하기</title>
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/u_noti_detail.css">
+  <link rel="stylesheet" href="/css/u_join.css">
   <link rel="stylesheet" href="/css/style.css">
-  <title>BookCheck_noti_detail</title>
 </head>
 
-<body>
+<body id="wrap">
   <dl class="skip-nav">
     <dt class="blind"><strong>skip naviation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
-    <dd><a href="/user/share">skip to with</a></dd>
+    <dd><a href="/user/share">skip to share</a></dd>
     <dd><a href="/user/noti">skip to noti</a></dd>
     <dd><a href="/user/join">skip to join</a></dd>
     <dd><a href="#footer">skip to footer</a></dd>
@@ -46,51 +46,47 @@
         </div>
       </div>
 
-      <!-- START container -->
-      <div id="container" class="grid-item2">
-        <!-- content -->
-        <div id="content">
-          <div class="wrap_section">
-            <div class="icon_back">
-              <a href="/user/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
-            </div>
-            <div class="full_content">
-              <div class="noti_head">
-                <h2 name="n_no" id="n_no" th:field="${noti.n_no}">[공지 셋] 나눔책첵</h2>
-                <span class="date" th:text="${noti.n_date}">2023/06/02</span>
-              </div>
-              <div class="noti_body">
-                <div>
-                  <div class="noti_title">
-                    <h3 id="n_title" name="n_title" th:text="${noti.n_title}">같은 책을 읽고 나눌 수 있도록 확대합니다.</h3>
-                    <div class="mini_benner">
-                      <img src="/img/logo.png" alt="공지이미지" width="10%">
-                    </div>
-                    <div class="main">
-                      <p name="n_content" id="n_content" th:text="${noti.n_content}">[같은 책을 읽고 나눌 수 있도록 확대합니다.]</p>
-                      <p>
-                        우리 서로 구입한 책을 나눠 읽고, 바꿔 읽으면 어떨까요?
-                        </br>
-                        책을 받았을 때는 다른 사람이 읽은 흔적이나 메모를 존중하며 읽어야 합니다. 다른 사람이 남긴 생각이나 감상을 공유하고 이해하는 것이 독서 모임의 중요한 부분입니다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+      <!-- 신청하기 시작 -->
+      <div class="container join_check">
+        <a href="/user/main"><img src="/img/arrow_back.png" alt="뒤로가기"></a>
+        <div class="explain">
+          <b>책첵 나눔신청</b>
+          <span>책첵은 나이와 성별 그 무엇도 필요하지 않습니다. <br>
+            오로지 책을 사랑하는 사람들이 모여 서로의 이야기를 공유하고<br>서로의 책첵 체크리스트를 만들어 보세요.</span>
         </div>
+        <form action="/user/apply" method="post">
+          <div>
+            <img src="/img/배경없는로고.png" alt="신청하기_로고">
+          </div>
+          <div>
+            <div>
+              <input type="hidden" name="w_no" id="w_no" th:value="${w_no}">
+              <p>이름</p>
+              <input type="text" name="a_name" id="a_name" th:value="${a_name}" placeholder="이름을 입력해주세요." autofocus required>
+              <hr>
+            </div>
+            <div>
+              <p>번호 4자리</p>
+              <div class="tel">
+                <input type="tel" name="a_phone" id="a_phone" th:value="${a_phone}" required placeholder="핸드폰 가운데 번호 4자리를 입력하세요"
+                  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+              </div>
+              <hr>
+            </div>
+
+          </div>
+          <input type="submit" value="신청">
+        </form>
       </div>
 
       <!-- START aside -->
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="notiAll:${notiAll}">
-              <a th:href="@{/user/noti/} + ${notiAll.n_no}">
-                <h3 th:text="${notiAll.n_title}"></h3>
-                <p th:text="${notiAll.n_content}"></p>
+            <div class="simple_noti" th:each="noti:${noti}">
+              <a th:href="@{/user/noti/} + ${noti.n_no}">
+                <h3 th:text="${noti.n_title}"></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->
@@ -138,6 +134,15 @@
     </div>
   </div>
   <script src="/js/main.js"></script>
+  <script type="text/javascript">
+  	var url = window.location.href;
+  	console.log(url);
+  	var with_id = url.substring(url.lastIndexOf("/") + 1);
+  	console.log(with_id);
+  	var applyId = document.getElementById("w_no");
+  	applyId.value = with_id;
+  	console.log(applyId);
+  </script>
 </body>
 
 </html>

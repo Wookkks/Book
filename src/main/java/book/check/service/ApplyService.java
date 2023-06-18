@@ -20,7 +20,7 @@ public class ApplyService {
 	}
 	
 	// 신청목록
-	public List<Apply> findAll(){
-		return applyRepository.findAll();
+	public List<Apply> findAll(Long w_no){
+		return applyRepository.findAll(w_no);
 	}
 }

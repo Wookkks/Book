@@ -10,5 +10,5 @@ public interface ApplyRepository {
 	Apply saveApply(Apply apply);
 	
 	// 요청글 목록
-	List<Apply> findAll();
+	List<Apply> findAll(Long w_no);
 }

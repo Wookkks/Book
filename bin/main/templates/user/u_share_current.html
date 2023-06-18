@@ -52,7 +52,7 @@
           <h2>공유 책첵</h2>
           <hr>
           <h3>신청자 리스트에서 선택 후 나눔을 완료해주세요</h3>
-          <form action="">
+          <form action="/user/share/{w_no}" method="post" th:object="${withBook}">
             <table>
               <thead>
                 <th>번호</th>
@@ -63,40 +63,17 @@
               <tbody>
                 <tr th:each="apply:${apply}">
                   <td th:text="${apply.a_no}">1</td>
-                  <td>홍서범</td>
-                  <td>1111</td>
+                  <td th:text="${apply.a_name}">홍서범</td>
+                  <td th:text="${apply.a_phone}">1111</td>
                   <td><input type="radio" name="selector" required></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>김수미</td>
-                  <td>2222</td>
-                  <td><input type="radio" name="selector"></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>라미란</td>
-                  <td>3333</td>
-                  <td><input type="radio" name="selector"></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>김철용</td>
-                  <td>4444</td>
-                  <td><input type="radio" name="selector"></td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>천서진</td>
-                  <td>5555</td>
-                  <td><input type="radio" name="selector"></td>
                 </tr>
               </tbody>
             </table>
             <div>
               <div class="share_complete">
                 <b>신청자 선택을 다시 한번 확인하세요!</b>
-                <input type="checkbox" checked required>
+                <input type="checkbox" th:checked="${withBook.w_yn}" id="w_yn" name="w_yn" checked required>
+                <input type="hidden" id="w_no" name="w_no" th:value="${withBook.w_no}">
               </div>
               <input type="submit" class="btn_complete" value="나눔 완료">
             </div>
@@ -158,6 +135,7 @@
       </div>
     </div>
     <script src="/js/main.js"></script>
+
 </body>
 
 </html>

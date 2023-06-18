@@ -97,6 +97,14 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	}
 	
 	@Override
+	public WithBook updateYN(Long w_no, WithBook withBook) {
+		String sql = "UPDATE WITHBOOK SET W_YN = ? WHERE W_NO = ?";
+		jdbcTemplate.update(sql, withBook.getW_yn(), w_no);
+		withBook.setW_no(w_no);
+		return findByNo(w_no).get();
+	}
+	
+	@Override
 	public void deleteWithBook(Long w_no) {
 		String sql = "DELETE FROM WITHBOOK WHERE W_NO = ?";
 		jdbcTemplate.update(sql, w_no);
@@ -107,5 +115,12 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		String sql = "SELECT W_PWD FROM WITHBOOK WHERE W_NO = ?";
 		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper(), w_no);
 		return result.stream().findAny().get();
+	}
+
+	@Override
+	public Optional<WithBook> pwd(String w_pwd) {
+		String sql = "SELECT * FROM WITHBOOK WHERE W_PWD = ?";
+		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper(), w_pwd);
+		return result.stream().findAny();
 	}
 }
