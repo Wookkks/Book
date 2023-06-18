@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import book.check.domain.Noti;
 import book.check.service.NotiService;
@@ -34,14 +35,13 @@ public class ManagerController {
 		return "manager/m_noti";
 	}
 	
-	// 비번치고 관리자페이지들어갈 때 @PostMapping("/noti")인데 delete와 겹침-> delete주석처리
 	//공지사항 삭제
-//	@PostMapping("/noti")
-//	public String notiDelete(Long n_no) {
-//		log.info("[POST] notiDelete 실행");
-//		notiService.deleteNoti(n_no);
-//		return "manager/m_noti";
-//	}
+	@PostMapping("/noti/del")
+	public String notiDelete(@RequestParam("n_no") Long n_no) {
+	    log.info("[POST] notiDelete 실행");
+	    notiService.deleteNoti(n_no);
+	    return "redirect:/manager/noti";
+	}
 	
 	//공지사항 등록 폼
 	@GetMapping("/noti/add")
@@ -82,9 +82,9 @@ public class ManagerController {
 	
 	//공지사항 수정  
 	@PostMapping("/noti/edit{n_no}")
-	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model) {//, RedirectAttributes redirect
+	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model) {
 		log.info("[POST] notiEdit() 실행");
 		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
-		return "redirect:/manager/noti";
+		return "redirect:/manager/noti/detail{n_no}"; 
 	}
 }

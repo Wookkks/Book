@@ -24,7 +24,7 @@ public class NotiService {
 	public Optional<Noti> findByNo(Long n_no) {
 		return notiRepository.findByNo(n_no);
 	}
-
+	
 	// 공지 제목으로 조회
 	public Optional<Noti> findByTitle(String n_title) {
 		return notiRepository.findByTitle(n_title);
