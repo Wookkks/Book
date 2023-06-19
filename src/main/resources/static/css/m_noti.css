@@ -98,13 +98,24 @@ span {
   height: fit-content;
 }
 
-#container #content #noti .notice .btn_remove,
-.modify {
+#container #content #noti .notice .modify {
+  display: inline-block;
   font-size: 15px;
+  text-align: center;
+  width: 3.8rem;
+  line-height: 2rem;
+  background-color: rgb(149 149 149);
+  border-radius: 5px;
+  color:#fff;
 }
 
-#container #content #noti .notice .btn_remove {
-  padding-right: 15px;
+#container #content #noti .notice .modify:nth-child(2) {
+	background-color: #7a7a7a;
+}
+
+#container #content #noti .notice .modify:hover {
+	background: #545454;
+	font-weight: bold;
 }
 
 #container #content #noti .notice span>img {
