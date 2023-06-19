@@ -23,7 +23,7 @@
     <dd><a href="/user/join">skip to join</a></dd>
     <dd><a href="#footer">skip to footer</a></dd>
   </dl>
-    <!-- START -->
+  <!-- START -->
   <div class="whole_page">
     <!-- remove 모달 -->
     <div id="modal" class="remove_modal">
@@ -34,15 +34,15 @@
         <div class="modal_content">
           <div class="description_head">
             <!-- x 버튼 -->
-            <button class="remove_btn_close">×</button>
+            <button class="remove_btn_close">&times;</button>
           </div>
-	  	  <div class="remove_btns">
-		    <form th:action="@{/manager/noti/del}" method="post" class="remove_btns">
-		      <input type="hidden" th:name="n_no" th:value="${noti.n_no}">
-		      <button type="button" class="remove_cancel_btn">취소</button>
-		      <button type="submit">확인</button>
-		    </form>
-		  </div>
+          <div class="remove_btns">
+            <form th:action="@{/manager/noti/del}" method="post" class="remove_btns">
+              <input type="hidden" th:name="n_no" th:value="${noti.n_no}">
+              <button type="button" class="remove_cancel_btn">취소</button>
+              <button type="submit">확인</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -72,21 +72,8 @@
             </div>
             <div class="full_content">
               <div class="noti_head">
-				<input type="date" name="n_date" id="n_date" th:value=${n_date}>
-	              <script type="text/javascript">
-	              	var currentDate = new Date();
-	              	var year = currentDate.getFullYear(); // 연도 가져오기
-	              	var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
-	              	var day = currentDate.getDate(); // 일 가져오기
-	              	if (month < 10) {
-	              	  month = '0' + month;
-	              	}
-	              	if (day < 10) {
-	              	  day = '0' + day;
-	              	}
-	              	var formattedDate = year + '-' + month + '-' + day;
-	              	document.getElementById("n_date").value = formattedDate; 
-	              </script>
+                <input type="date" name="n_date" id="n_date" th:value=${n_date}>
+
                 <!-- <h2> 어때책첵(카테고리) -- 추 후 작 업 </h2> -->
               </div>
               <div class="noti_body">
@@ -97,10 +84,15 @@
                       <img src="/img/logo.png" alt="공지이미지" width="10%">
                     </div>
                     <div class="main">
-                      <p th:text="${noti.n_content}">내용</p>
+                      <p th:text="${noti.n_content}">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Accusamus, quibusdam voluptas, vero hic nostrum sed alias excepturi odit voluptates neque earum
+                        corporis molestiae commodi. Neque tempora quidem at aperiam architecto! Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit. Dolor odit dolores perferendis illo modi reprehenderit
+                        consequatur delectus nemo vel, qui aspernatur sequi neque expedita reiciendis saepe provident
+                        minus commodi quisquam! </p>
                     </div>
                   </div>
-                  
+
                   <!-- 수정 삭제버튼 -->
                   <div class="btns">
                     <span>
@@ -108,8 +100,8 @@
                       <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                     </span>
                   </div>
-                
- 				</div>
+
+                </div>
               </div>
 
             </div>
@@ -135,7 +127,6 @@
                 <li><a href="/user/terms">이용약관</a></li>
                 <li><a href="/user/privacy">개인정보처리방침</a></li>
                 <li><a href="/user/main">관리자나가기</a></li>
-                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
@@ -147,6 +138,20 @@
       </div>
     </div>
   </div>
+  <script type="text/javascript">
+    var currentDate = new Date();
+    var year = currentDate.getFullYear(); // 연도 가져오기
+    var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
+    var day = currentDate.getDate(); // 일 가져오기
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    var formattedDate = year + '-' + month + '-' + day;
+    document.getElementById("n_date").value = formattedDate; 
+  </script>
   <script src="/js/m_noti.js"></script>
 </body>
 
