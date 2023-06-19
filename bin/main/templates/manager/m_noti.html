@@ -25,112 +25,100 @@
   <!-- START -->
   <div class="whole_page">
     <!-- remove 모달 -->
-    <div id="modal" class="remove_modal">
+    <!-- <div id="modal" class="remove_modal">
       <div class="modal_wrap">
         <div class="modal_header">
           <p class="pw_text">게시물을 삭제하시겠습니까?</p>
         </div>
         <div class="modal_content">
           <div class="description_head">
-            <!-- x 버튼 -->
-            <button class="remove_btn_close">×</button>
+            <button class="remove_btn_close">&times;</button>
           </div>
-  	  	  <div class="remove_btns">
-		      <button type="button" class="remove_cancel_btn">취소</button>
-		      <button type="submit">확인</button>
-		  </div>
+          <div class="remove_btns">
+            <button type="button" class="remove_cancel_btn">취소</button>
+            <button type="submit">확인</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
 
- <!--     	   <div class="remove_btns">
-		      <button type="button" class="remove_cancel_btn">취소</button>
- 		    <form th:action="@{/manager/noti/del}" method="post" class="remove_btns">
-			  <div th:each="noti : ${notiList}">
-		      <input th:name="n_no" th:value="${noti.n_no}">
-		      	<button type="submit">확인</button>
- 		      </div>
-		    </form>
- 		  </div> -->
- 		  
-          </div>
+  </div>
+  <div id="wrap" class="grid-container">
+    <div id="side_header" class="grid-item1">
+      <div class="header_content">
+        <div class="logo">
+          <h1>
+            <a href="/manager/noti" title="메인페이지"><img src="/img/logo_m_fin.png" alt="책첵logo" width="90rem"></a>
+          </h1>
+        </div>
+        <div class="gnb">
+          <ul>
+            <li><a href="/manager/noti">공지사항</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div id="wrap" class="grid-container">
-      <div id="side_header" class="grid-item1">
-        <div class="header_content">
-          <div class="logo">
-            <h1>
-              <a href="/manager/noti" title="메인페이지"><img src="/img/logo_m_fin.png" alt="책첵logo" width="90rem"></a>
-            </h1>
-          </div>
-          <div class="gnb">
-            <ul>
-              <li><a href="/manager/noti">공지사항</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
-       <!-- START container -->
-      <div id="container" class="grid-item2">
-        <div id="content">
-          <div class="wrap_section">
-            <div id="noti">
-              <div class="title">
-                <a href="/manager/noti/add">공지사항 쓰기</a>
-              </div>
-              <div class="noti_list">
-                <div class="notice" th:each="noti:${noti}">
-                  <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
-                    <p th:text="${noti.n_no}" style="display: none;">관리번호</p>
-                    <p th:text="${noti.n_title}">제목</p>
-                    <p th:text="${noti.n_content}">내용</p>
-                  </a>
-                  <div class="btns">
-                    <span>
-                       <button class="btn_remove" id="">삭제</button>
-                      <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
-                    </span>
-                  </div>
+    <!-- START container -->
+    <div id="container" class="grid-item2">
+      <div id="content">
+        <div class="wrap_section">
+          <div id="noti">
+            <div class="title">
+              <a href="/manager/noti/add">공지사항 쓰기</a>
+            </div>
+            <div class="noti_list">
+              <div class="notice" th:each="noti:${noti}">
+                <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+                  <p th:text="${noti.n_title}">제목</p>
+                  <p th:text="${noti.n_content}">내용</p>
+                </a>
+                <div class="btns">
+                  <span>
+                    <!-- <button class="btn_remove" id="">삭제</button> -->
+                    <a th:href="@{/manager/noti/list/delprocess(n_no=${noti.n_no})}" class="modify">삭제</a>
+                    <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
+                  </span>
                 </div>
-
               </div>
+
             </div>
           </div>
-
         </div>
+
       </div>
+    </div>
 
-      <!-- START aside -->
-      <div id="aside" class="grid-item3">
-        <div class="aside_content">
-          <div class="noties">
-            <div class="simple_noti" th:each="noti : ${noti}" >
-              <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
-                <h3 th:text="${noti.n_title}">제목</h3>
-                <p th:text="${noti.n_content}">내용</p>
-              </a>
-            </div>
+    <!-- START aside -->
+    <div id="aside" class="grid-item3">
+      <div class="aside_content">
+        <div class="noties">
+          <div class="simple_noti" th:each="noti : ${noti}">
+            <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+              <h3 th:text="${noti.n_title}">제목</h3>
+              <p th:text="${noti.n_content}">내용</p>
+            </a>
           </div>
-          <!-- footer -->
-          <div id="side_footer">
-            <div class="footer">
-              <ul>
-                <li><a href="/user/terms">이용약관</a></li>
-                <li><a href="/user/privacy">개인정보처리방침</a></li>
-                <li><a href="/user/main">관리자나가기</a></li>
-                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
-              </ul>
-              <div>
-                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
-              </div>
-            </div>
-          </div>
-
         </div>
+        <!-- footer -->
+        <div id="side_footer">
+          <div class="footer">
+            <ul>
+              <li><a href="/user/terms">이용약관</a></li>
+              <li><a href="/user/privacy">개인정보처리방침</a></li>
+              <li><a href="/user/main">관리자나가기</a></li>
+            </ul>
+            <div>
+              <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-  <script src="/js/m_noti.js"></script>
+  </div>
+  <!-- <script src="/js/m_noti.js"></script> -->
 </body>
 
 </html>
