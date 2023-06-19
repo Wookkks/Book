@@ -90,7 +90,7 @@ public class ManagerController {
 	
 	//공지사항 삭제(공지상세에서 삭제)
 	@PostMapping("/noti/del")
-	public String notiDelete(@RequestParam("n_no") Long n_no) {//,Model model
+	public String notiDelete(@RequestParam("n_no") Long n_no) {
 	    log.info("[POST] notiDelete 실행");
 	    notiService.deleteNoti(n_no);
 	    return "redirect:/manager/noti";
