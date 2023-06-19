@@ -133,7 +133,7 @@ public class UserController {
 		return "user/u_share_book";
 	}
 	
-	@PostMapping("/share/{w_no}")
+	@PostMapping("/share")
 	public String postWith(@ModelAttribute WithBook withBook) {
 		log.info("[POST] with 실행");
 		withBookService.updateYN(withBook.getW_no(), withBook);
