@@ -13,7 +13,7 @@
 
 <body>
   <dl class="skip-nav">
-    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dt class="blind"><strong>skip navigation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
@@ -65,8 +65,7 @@
                           placeholder="내용을 입력하세요."></textarea></td>
                     </tr>
                   </table>
-                  <!-- 관리자라고 해도 작성날짜를 수정할 수 있는게 좀 찜찜해서 readonly를 넣어봤습니다.-->
-                  <input type="date" name="n_date" id="n_date" th:value=${n_date} readonly>
+                  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
 		            <script type="text/javascript">
 		           	  var currentDate = new Date();
 		              var year = currentDate.getFullYear(); // 연도 가져오기
@@ -85,8 +84,8 @@
                     <button type="submit" required>글쓰기</button>
                    </form>
                   </div>
-                  </table>
-                </form>
+                  <!-- </table> -->
+                <!-- </form> -->
               </div>
             </div>
           </div>
@@ -98,8 +97,8 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-             <div class="simple_noti" th:each="notiAdd, repeat : ${notiAdd}" th:if="${repeat.count} <= 8">
-              <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
+             <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
+               <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
                 <h3 th:text="${notiAdd.n_title}">제목</h3>
                 <p th:text="${notiAdd.n_content}">내용</p>
               </a>

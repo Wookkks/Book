@@ -13,7 +13,7 @@
 
 <body>
   <dl class="skip-nav">
-    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dt class="blind"><strong>skip navigation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
@@ -33,23 +33,23 @@
         <div class="modal_content">
           <div class="description_head">
             <!-- x 버튼 -->
-            <button class="remove_btn_close">&times;</button>
+            <button class="remove_btn_close">×</button>
           </div>
-          <div class="remove_btns">
-            <button class="remove_cancel_btn">취소</button>
-            <!-- 버튼모양 망가져서 확인버튼이 사라져버림 <- 수정필요 -->
-<!-- 			<form th:action="@{/manager/noti/del}" method="post">
-    		  <input th:name="n_no" th:value="${noti.n_no}">
-    		  <button type="submit">확인</button>
-			</form> -->
-			
-			<div th:each="noti : ${notiList}">
-			    <form th:action="@{/manager/noti/del}" method="post">
-			        <input type="hidden" name="n_no" th:value="${noti.n_no}">
-			        <button type="submit">확인</button>
-			    </form>
-			</div>
-			
+  	  	  <div class="remove_btns">
+		      <button type="button" class="remove_cancel_btn">취소</button>
+		      <button type="submit">확인</button>
+		  </div>
+
+ <!--     	   <div class="remove_btns">
+		      <button type="button" class="remove_cancel_btn">취소</button>
+ 		    <form th:action="@{/manager/noti/del}" method="post" class="remove_btns">
+			  <div th:each="noti : ${notiList}">
+		      <input th:name="n_no" th:value="${noti.n_no}">
+		      	<button type="submit">확인</button>
+ 		      </div>
+		    </form>
+ 		  </div> -->
+ 		  
           </div>
         </div>
       </div>
@@ -81,11 +81,9 @@
               <div class="noti_list">
                 <div class="notice" th:each="noti:${noti}">
                   <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+                    <p th:text="${noti.n_no}" style="display: none;">관리번호</p>
                     <p th:text="${noti.n_title}">제목</p>
                     <p th:text="${noti.n_content}">내용</p>
-                    <div>
-                      <span>책첵지기<img src="/img/round_logo.png" alt=""></span>
-                    </div>
                   </a>
                   <div class="btns">
                     <span>
@@ -106,7 +104,7 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="noti, repeat : ${noti}" th:if="${repeat.count} <= 8">
+            <div class="simple_noti" th:each="noti : ${noti}" >
               <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
                 <h3 th:text="${noti.n_title}">제목</h3>
                 <p th:text="${noti.n_content}">내용</p>

@@ -13,7 +13,7 @@
 
 <body>
   <dl class="skip-nav">
-    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dt class="blind"><strong>skip navigation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
@@ -47,9 +47,6 @@
           <div class="wrap_section">
             <div id="noti">
               <div class="icon_back">
-              <!-- <a href="/manager/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a> -->
-              <!-- 뒤로가기 버튼을 '공지목록으로 이동'이 아닌 '뒤로가기'로 수정했습니다. -->
-              <!-- a태그가 아닌 button으로 수정할 경우 css적용이 돼서 모양이 바뀌는데 이부분 문의 -->
               <a onclick="history.back();"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
               </div>
               <div class="title">
@@ -68,7 +65,7 @@
                     </tr>
                   </table>
                   <div class="btn_upload">
-                    <button type="submit" required>글쓰기</button>
+                    <button type="submit" required>완료</button>
                   </div>
                   </table>
                 </form>
@@ -83,7 +80,7 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="notiEdit, repeat : ${notiEdit}"  th:if="${repeat.count} <= 8">
+            <div class="simple_noti" th:each="notiEdit : ${notiEdit}">
               <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiEdit.n_no})}">
                 <h3 th:text="${notiEdit.n_title}">제목</h3>
                 <p th:text="${notiEdit.n_content}">내용</p>

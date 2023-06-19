@@ -14,7 +14,7 @@
 
 <body>
   <dl class="skip-nav">
-    <dt class="blind"><strong>skip naviation</strong></dt>
+    <dt class="blind"><strong>skip navigation</strong></dt>
     <dd><a href="/user/main">skip to main</a></dd>
     <dd><a href="/user/how">skip to how</a></dd>
     <dd><a href="/user/chart">skip to chart</a></dd>
@@ -34,12 +34,11 @@
         <div class="modal_content">
           <div class="description_head">
             <!-- x 버튼 -->
-            <button class="remove_btn_close">&times;</button>
+            <button class="remove_btn_close">×</button>
           </div>
 	  	  <div class="remove_btns">
-		      <input type="hidden" th:name="n_no" th:value="${noti.n_no}">
-		      <!-- type="submit"이 디폴트라서 button으로 변경. 안그럼 취소눌러도 삭제 실행됨 -->
 		    <form th:action="@{/manager/noti/del}" method="post" class="remove_btns">
+		      <input type="hidden" th:name="n_no" th:value="${noti.n_no}">
 		      <button type="button" class="remove_cancel_btn">취소</button>
 		      <button type="submit">확인</button>
 		    </form>
@@ -69,8 +68,6 @@
         <div id="content">
           <div class="wrap_section">
             <div class="icon_back">
-              <!-- <a href="/manager/noti"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a> -->
-              <!-- 뒤로가기 버튼을 '공지목록으로 이동'이 아닌 '뒤로가기'로 수정했습니다. -->
               <button onclick="history.back();"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></button>
             </div>
             <div class="full_content">
@@ -109,9 +106,6 @@
                     <span>
                       <button class="btn_remove">삭제</button>
                       <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
-                      <!-- 수정 후엔 공지상세페이지가 리턴되고 아래 '목록'버튼이 있으면 좋을 것 같아요
-                      그리고 '뒤로가기'버튼을 누르면 공지목록이 아닌 '공지수정 폼'으로 이동하도록 했습니다. -->
-                      <a th:href="@{/manager/noti/}" class="modify">목록</a>
                     </span>
                   </div>
                 
@@ -127,7 +121,7 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="notiDetail, repeat : ${notiDetail}"  th:if="${repeat.count} <= 8">
+            <div class="simple_noti" th:each="notiDetail : ${notiDetail}">
               <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiDetail.n_no})}">
                 <h3 th:text="${notiDetail.n_title}">제목</h3>
                 <p th:text="${notiDetail.n_content}">내용</p>

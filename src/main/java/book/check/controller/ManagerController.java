@@ -25,9 +25,8 @@ public class ManagerController {
 	public ManagerController(NotiService notiService) {
 		this.notiService = notiService;
 	}
-	
 	//공지사항
-	@GetMapping("/noti")
+	@PostMapping("/noti")
 	public String noti (Model model) {
 		log.info("[GET] noti 실행");
 		List<Noti> noti = notiService.findAll();
@@ -35,12 +34,13 @@ public class ManagerController {
 		return "manager/m_noti";
 	}
 	
-	//공지사항 삭제
-	@PostMapping("/noti/del")
-	public String notiDelete(@RequestParam("n_no") Long n_no) {
-	    log.info("[POST] notiDelete 실행");
-	    notiService.deleteNoti(n_no);
-	    return "redirect:/manager/noti";
+	//공지사항
+	@GetMapping("/noti")
+	public String notiList (Model model) {
+		log.info("[GET] noti 실행");
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
+		return "manager/m_noti";
 	}
 	
 	//공지사항 등록 폼
@@ -57,7 +57,7 @@ public class ManagerController {
 	public String notiCreate(@ModelAttribute Noti noti, Model model) {
 		log.info("[POST] notiCreate() 실행");
 		notiService.saveNoti(noti);
-		return "redirect:/manager/noti";
+		return "redirect:/manager/noti"; 
 	}
 
 	// 공지사항 상세
@@ -86,5 +86,16 @@ public class ManagerController {
 		log.info("[POST] notiEdit() 실행");
 		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
 		return "redirect:/manager/noti/detail{n_no}"; 
+	}
+	
+	//공지사항 삭제
+	@PostMapping("/noti/del")
+	public String notiDelete(@RequestParam("n_no") Long n_no,Model model) {
+	    log.info("[POST] notiDelete 실행");
+	    List<Noti> noti = notiService.findAll();
+		model.addAttribute("notiDetail", noti);
+		model.addAttribute("noti", notiService.findByNo(n_no).get());
+	    notiService.deleteNoti(n_no);
+	    return "redirect:/manager/noti";
 	}
 }
