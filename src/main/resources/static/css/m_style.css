@@ -128,15 +128,16 @@ hr {
 }
 
 body {
-  /* width: 100vw; */
+  width: 95rem;
+  margin: 0 auto;
   height: 100vh;
 }
 
-.whole_page {
+/* .whole_page {
   width: 95rem;
   margin: 0 auto;
   position: relative;
-}
+} */
 
 /* index */
 #wrap {
@@ -324,6 +325,14 @@ body {
 /* footer */
 #aside .aside_content .noties {
   height: 90vh;
+  overflow: scroll;
+  border-radius: 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#aside .aside_content .noties::-webkit-scrollbar {
+  display: none;
 }
 
 #aside #side_footer {

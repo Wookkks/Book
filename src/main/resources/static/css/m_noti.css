@@ -23,7 +23,7 @@
 
 #container #content #noti .title {
   width: 100%;
-  background-color: #545454;
+  background-color: #FDEFC8;
   border-radius: 5px;
   text-align: center;
   line-height: 4rem;
@@ -33,13 +33,12 @@
 #container #content #noti .title a {
   display: block;
   transition: all .5s;
-  color: #FDEFC8;
 }
 
 #container #content #noti .title a:hover {
-  background-color: #FDEFC8;
+  background-color: #545454;
   border-radius: 5px;
-  color: #545454;
+  color: #FDEFC8;
 }
 
 #container #content #noti .noti_list {
@@ -52,10 +51,10 @@
 }
 
 #container #content #noti .notice>a {
-  position: relative;
   display: block;
   width: 100%;
-  /* height: 100%; */
+  height: fit-content;
+  position: relative;
 }
 
 #container #content #noti .notice>a::after {
@@ -97,30 +96,15 @@ span {
   justify-content: flex-end;
   align-items: center;
   height: fit-content;
-  text-align: center;
-  z-index: 1;
 }
 
 #container #content #noti .notice .btn_remove,
 .modify {
-  display: inline-block;
-  width: 3.8rem;
-  line-height: 2rem;
   font-size: 15px;
-  background-color: #7a7a7a;
-  border-radius: 5px;
-  color: white;
 }
 
 #container #content #noti .notice .btn_remove {
-  margin-right: 15px;
-  background-color: #9b9b9b;
-}
-
-#container #content #noti .notice .btn_remove:hover,
-.modify:hover {
-  background-color: #545454;
-  font-weight: 900;
+  padding-right: 15px;
 }
 
 #container #content #noti .notice span>img {

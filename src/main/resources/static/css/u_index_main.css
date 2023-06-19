@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+#wrap {
+  position: static;
+}
+
 /* container */
 #container #main_banner {
   position: relative;
@@ -22,6 +26,7 @@
 #container #content .section p {
   text-align: justify;
   font-size: 16px;
+  line-height: 25px;
 }
 
 #container #content .section .sub_line {
