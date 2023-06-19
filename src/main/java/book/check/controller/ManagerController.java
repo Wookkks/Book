@@ -88,14 +88,20 @@ public class ManagerController {
 		return "redirect:/manager/noti/detail{n_no}"; 
 	}
 	
-	//공지사항 삭제
+	//공지사항 삭제(공지상세에서 삭제)
 	@PostMapping("/noti/del")
 	public String notiDelete(@RequestParam("n_no") Long n_no,Model model) {
 	    log.info("[POST] notiDelete 실행");
-	    List<Noti> noti = notiService.findAll();
-		model.addAttribute("notiDetail", noti);
-		model.addAttribute("noti", notiService.findByNo(n_no).get());
 	    notiService.deleteNoti(n_no);
 	    return "redirect:/manager/noti";
 	}
+	
+	//공지사항 삭제(공지리스트에서 삭제, 모달X)
+	@GetMapping("/noti/list/delprocess{n_no}")
+	public String notiListDeleteProcess(@RequestParam("n_no") Long n_no) {
+		log.info("[GET] notiListDeleteProcess 실행");
+		notiService.deleteNoti(n_no);
+		return "redirect:/manager/noti";
+	}
+	
 }
