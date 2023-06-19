@@ -4,10 +4,15 @@
   gap: 5rem;
 }
 
+/* Hide Calendar Icon In Chrome */
+input[type="date"] {
+  border: none;
+}
+
 input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
-	display: none;
-	-webkit-appearance: none;
+  display: none;
+  -webkit-appearance: none;
 }
 
 /* container */
@@ -17,8 +22,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   margin: 5rem 0;
 }
 
-#container #content .icon_back>a {
+#container #content .icon_back::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+#container #content .icon_backa {
   display: inline-block;
+}
+
+#container #content .icon_back a:nth-child(2) {
+  float: right;
+  width: 3.8rem;
+  line-height: 2rem;
+  font-size: 17px;
+  font-weight: bold;
+  /* background-color: #7a7a7a; */
+  /* color: white; */
+  border-radius: 5px;
+  text-align: center;
 }
 
 #container #content .full_content {
@@ -36,10 +59,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   left: 0;
   font-size: 12px;
   vertical-align: middle;
-}
-
-#container #content .full_content .noti_head>input {
-  border: none;
 }
 
 #container #content .full_content .noti_head>h2 {
@@ -69,7 +88,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 #container #content .full_content .noti_body .noti_title .main p {
   font-size: 18px;
-  padding-bottom: 1rem;
+  padding-bottom: 5rem;
   line-height: 27px;
 }
 

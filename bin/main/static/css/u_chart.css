@@ -79,8 +79,8 @@ h4 {
 }
 
 .chart_check div:nth-of-type(3),
-div:nth-of-type(4),
-div:nth-of-type(5) {
+.chart_check div:nth-of-type(4),
+.chart_check div:nth-of-type(5) {
   text-align: center;
 }
 
