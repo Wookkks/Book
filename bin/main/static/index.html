@@ -21,22 +21,38 @@
       <div class="contant">
         <div class="about">
           <a href="/user/main">
-            <h1>책첵</h1>
-            <div>
-              <p>책을 사랑하는 당신을 위한,</p>
-              <p>함께하면 더 좋은 책첵입니다.</p>
+            <!-- <h1 class="bookcheck">책첵</h1> -->
+            <div class="text">
+              <!-- <p>책을 사랑하는 당신을 위한,</p>
+              <p>함께하면 더 좋은 책첵입니다.</p> -->
             </div>
           </a>
         </div>
       </div>
       <div class="index_logo">
         <a href="/user/main">
-          <img src="img/round_logo.png" alt="로고" width="250rem">
+          <img src="/img/round_logo.png" alt="로고" width="250rem">
         </a>
       </div>
     </div>
   </div>
+  <script>
+    const letters = "책을 사랑하는 당신을 위한, \n 함께하면 더 좋은 책첵입니다.";
+    const text = document.querySelector(".text");
+    let i = 0;
 
+    function typing() {
+      if (i < letters.length) {
+        let txt = letters.charAt(i);
+        text.innerHTML += txt == "\n" ? "<br/>" : txt;
+        i++;
+      }
+    }
+
+    setTimeout(function () {
+      setInterval(typing, 150);
+    }, 1000);
+  </script>
 </body>
 
 </html>

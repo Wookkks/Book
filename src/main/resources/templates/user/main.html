@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-  <link rel="icon" href="icon/favicon-96x96.png">
+  <link rel="icon" href="/icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/u_index_main.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>BookCheck_main</title>
@@ -35,10 +35,10 @@
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="main.html">홈</a></li>
-              <li><a href="u_how.html">어때책첵</a></li>
-              <li><a href="u_chart.html">분석책첵</a></li>
-              <li><a href="u_share_book.html">나눔책첵</a></li>
+              <li><a href="user/main">홈</a></li>
+              <li><a href="user/how">어때책첵</a></li>
+              <li><a href="user/chart">분석책첵</a></li>
+              <li><a href="user/share">나눔책첵</a></li>
             </ul>
             <hr>
             <p><a href="u_noti.html">공지사항</a></p>
@@ -49,7 +49,7 @@
       <!-- START container -->
       <div id="container" class="grid-item2">
         <div id="main_banner">
-          <img src="img/pexels-cottonbro-studio-3944456.jpg" alt="메인배너" width="100%">
+          <img src="/img/pexels-cottonbro-studio-3944456.jpg" alt="메인배너" width="100%">
           <!-- <video src="img/pexels-cottonbro-studio-4861110-2048x1080-25fps.mp4" width="100%" autoplay loop></video> -->
         </div>
         <!-- content -->
@@ -96,10 +96,10 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti">
+            <div class="simple_noti" th:each="noti:${noti}">
               <a href="/user/noti/{n_no}">
-                <h3></h3>
-                <p></p>
+                <h3 th:text="${noti.n_title}"></h3>
+                <p th:text="${noti.n_content}"></p>
               </a>
             </div>
             <!-- 신청하기 -->
@@ -133,10 +133,10 @@
                   <button class="pw_btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" name="maneger_pw_form" class="description_header" target="_blank">
+                <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header" target="_blank">
                   <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
-                    required>
-                  <button type="submit" minlength="4">확인</button>
+                    id="pwd" name="pwd" required>
+                  <button type="submit" minlength="4" onclick="return checkPwd()">확인</button>
                 </form>
               </div>
             </div>

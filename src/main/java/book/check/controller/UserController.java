@@ -217,7 +217,4 @@ public class UserController {
 	  applyService.saveApply(apply);
 	  return "redirect:/user/share";
 	  }
-	 
-	
-	
 }

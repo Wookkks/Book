@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
-  <link rel="icon" href="icon/favicon-96x96.png">
+  <link rel="icon" href="/icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/u_index_main.css">
   <link rel="stylesheet" href="/css/style.css">
   <title>BookCheck_main</title>
@@ -35,10 +35,10 @@
           </div>
           <div class="gnb">
             <ul>
-              <li><a href="/user/main">홈</a></li>
-              <li><a href="/user/how">어때책첵</a></li>
-              <li><a href="/user/chart">분석책첵</a></li>
-              <li><a href="/user/share">나눔책첵</a></li>
+              <li><a href="user/main">홈</a></li>
+              <li><a href="user/how">어때책첵</a></li>
+              <li><a href="user/chart">분석책첵</a></li>
+              <li><a href="user/share">나눔책첵</a></li>
             </ul>
             <hr>
             <p><a href="u_noti.html">공지사항</a></p>
@@ -50,6 +50,7 @@
       <div id="container" class="grid-item2">
         <div id="main_banner">
           <img src="/img/pexels-cottonbro-studio-3944456.jpg" alt="메인배너" width="100%">
+          <!-- <video src="img/pexels-cottonbro-studio-4861110-2048x1080-25fps.mp4" width="100%" autoplay loop></video> -->
         </div>
         <!-- content -->
         <div id="content">
@@ -71,16 +72,17 @@
               </div>
               <hr>
               <div class="intro">
-               <h2>어때/분석/나눔 책첵은 뭔가요?</h2>
-                <p class="sub_line">어때 책첵은 책을 사랑하는 책첵이들의 모임주제 및 이력을 확인할 수 있습니다.
+                <h2>어때/분석/나눔 책첵은 뭔가요?</h2>
+                <p class="sub_line"><strong>어때 책첵</strong>은 책을 사랑하는 책첵이들의 모임주제 및 이력을 확인할 수 있습니다.
                   또한 아직 책첵이 낯선 여러분을 위해 기존 책첵이들의 생생한 후기가 남겨져 있으니 확인해 보세요.
                   월간 이력을 확인하시다 보면 자연스럽게 신청하시게 될 거예요!
                   어때 책첵 기록은 매달 1일에 변경됩니다.
                 </p>
-                <p class="sub_line">분석 책첵은 10년간의 데이터를 모아 책첵이 직접 분석하고, 책첵이들을 위해 정리한 추천 페이지입니다.
+                <p class="sub_line"><strong>분석 책첵</strong>은 10년간의 데이터를 모아 책첵이 직접 분석하고, 책첵이들을 위해 정리한 추천 페이지입니다.
                   도무지 어떤 책을 읽어야 할지 모르는 책첵이들부터 본인의 책첵 리스트를 만들고 싶은 책첵이들까지 모두를 위해 준비했어요.
                   분석 책첵은 매달 30일에 변경됩니다.</p>
-                <p class="sub_line">더이상 읽지 않고, 먼지가 쌓여가는 책들이 있나요?
+                <p class="sub_line"><strong>나눔 책첵</strong>은 나누미와 바드미의 공유공간입니다.
+                  더이상 읽지 않고, 먼지가 쌓여가는 책들이 있나요?
                   그런 책들은 나눔 책첵에서 책첵이들과 나눠보세요!
                   서로 책들을 바꾸고, 나눠 읽고 우리 다시 모여서 이야기 나눠봐요.
                   새 책과는 다른 따뜻한 감성도 함께 나눠요.</p>
@@ -94,8 +96,8 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each=noti:${noti}>
-              <a th:href="@{/user/noti/} + ${noti.n_no}" >
+            <div class="simple_noti" th:each="noti:${noti}">
+              <a href="/user/noti/{n_no}">
                 <h3 th:text="${noti.n_title}"></h3>
                 <p th:text="${noti.n_content}"></p>
               </a>
@@ -110,8 +112,8 @@
           <div id="side_footer">
             <div class="footer">
               <ul>
-                <li><a href="/user/terms">이용약관</a></li>
-                <li><a href="/user/privacy">개인정보처리방침</a></li>
+                <li><a href="/terms">이용약관</a></li>
+                <li><a href="/privacy">개인정보처리방침</a></li>
                 <li><button class="btn_modal">관리자페이지</button></li>
               </ul>
               <div>
