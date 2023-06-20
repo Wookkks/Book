@@ -134,12 +134,28 @@ public class UserController {
 	}
 	
 	@PostMapping("/share")
-	public String postWith(@ModelAttribute WithBook withBook) {
+	public String postWith(@ModelAttribute WithBook withBook, @RequestParam Long w_no, @RequestParam String w_pwd) {
 		log.info("[POST] with 실행");
-		withBookService.updateYN(withBook.getW_no(), withBook);
-		return "redirect:/user/share";
+		log.info("w_no : {} ", w_no);
+		log.info("w_pwd : {} ", w_pwd);
+		String userPwd = withBookService.findByNo(w_no).get().getW_pwd();
+		log.info("userPwd : {} ", userPwd);
+		if(w_pwd.equals(userPwd)) {
+			log.info("if문 실행");
+			withBookService.updateYN(w_no, withBook);
+			return "redirect:/user/share";
+		}else {
+			log.info("else문 실행");
+			return "redirect:/user/alert";
+		}
 	}
-	
+	@GetMapping("/alert")
+	public String alert(Model model) {
+		String message = "비밀번호가 일치하지 않습니다";
+		model.addAttribute("message", message);
+		
+		return "user/u_alert";
+	}
 	// 책 나눔 등록 폼
 	@GetMapping("/share/add")
 	public String getWithAdd(Model model) {
