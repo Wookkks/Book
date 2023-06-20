@@ -77,6 +77,7 @@
                       </td>
                     </tr>
                   </table>
+                  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
                   <div class="btn_upload">
                     <button type="submit" required>글쓰기</button>
                 </form>
@@ -117,7 +118,6 @@
     </div>
   </div>
   </div>
-  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
   <script type="text/javascript">
     var currentDate = new Date();
     var year = currentDate.getFullYear(); // 연도 가져오기
