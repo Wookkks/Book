@@ -32,7 +32,6 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		return new RowMapper<WithBook>() {
 			@Override
 			public WithBook mapRow(ResultSet rs, int rowNum) throws SQLException {
-				log.info("withRowMapper() 실행");
 				WithBook withBook = new WithBook();
 				withBook.setW_no(rs.getLong("w_no"));
 				withBook.setW_name(rs.getString("w_name"));
@@ -49,7 +48,6 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	
 	@Override
 	public WithBook saveWithBook(WithBook withBook) {
-		log.info("save() 실행");
 		SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
 		jdbcInsert.withTableName("WITHBOOK").usingGeneratedKeyColumns("w_no");
 		Map<String, Object> parameters = new HashMap<>();

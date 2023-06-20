@@ -6,14 +6,14 @@
   <title>alert</title>
 </head>
 <body>
-	<button onclick="history.back()">뒤로가기</button>
   <script>
   function showAlert(message) {
       alert(message);
     }
 
     window.addEventListener('load', function () {
-      showAlert('비밀번호가 일치하지 않습니다.');
+      showAlert('나눔글 비밀번호가 일치하지 않습니다.');
+      location.href="/user/share";
     });
   </script>
 </body>
