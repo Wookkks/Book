@@ -18,11 +18,12 @@ public class WithBook {
 	
 	public WithBook() {}
 	
-	public WithBook(String w_name, String w_title, String w_memo, String w_area, String w_pwd) {
+	public WithBook(String w_name, String w_title, String w_memo, String w_area, String w_pwd, Boolean w_yn) {
 		this.w_name = w_name;
 		this.w_title = w_title;
 		this.w_memo = w_memo;
 		this.w_area = w_area;
 		this.w_pwd = w_pwd;
+		this.w_yn = w_yn;
 	}
 }

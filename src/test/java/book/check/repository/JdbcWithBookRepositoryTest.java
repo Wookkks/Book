@@ -25,5 +25,15 @@ class JdbcWithBookRepositoryTest {
 		WithBook saveWithBook = repository.saveWithBook(withBook);
 		assertThat(withBook.getW_no()).isEqualTo(saveWithBook.getW_no());
 	}
-
+	
+	@Test
+	void update() {
+		WithBook beforeWithBook = new WithBook("홍길동", "title", "memo", "서울", "1234", false);
+		repository.saveWithBook(beforeWithBook);
+		WithBook afterWithBook = repository.updateYN(beforeWithBook.getW_no(), 
+				new WithBook("홍길동2", "title2", "memo2", "서울2", "1235", true));
+		
+		assertThat(beforeWithBook.getW_no()).isEqualTo(afterWithBook.getW_no());
+		
+	}
 }

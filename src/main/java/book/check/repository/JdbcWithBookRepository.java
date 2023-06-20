@@ -115,10 +115,4 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		return result.stream().findAny().get();
 	}
 
-	@Override
-	public Optional<WithBook> pwd(String w_pwd) {
-		String sql = "SELECT * FROM WITHBOOK WHERE W_PWD = ?";
-		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper(), w_pwd);
-		return result.stream().findAny();
-	}
 }

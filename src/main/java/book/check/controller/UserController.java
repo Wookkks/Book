@@ -129,11 +129,9 @@ public class UserController {
 	public String postWith(@ModelAttribute WithBook withBook, @RequestParam Long w_no, @RequestParam String w_pwd) {
 		String userPwd = withBookService.findByNo(w_no).get().getW_pwd();
 		if(w_pwd.equals(userPwd)) {
-			log.info("if문 실행");
 			withBookService.updateYN(w_no, withBook);
 			return "redirect:/user/share";
 		}else {
-			log.info("else문 실행");
 			return "redirect:/user/alert";
 		}
 	}
@@ -171,15 +169,15 @@ public class UserController {
 		return "/user/u_share_current";
 	}
 	
-	// 신청 현황 및 완료여부
-	@PostMapping("/share/cur/")
-	public String postCur(@RequestParam String w_pwd, Long w_no) {
-		String userPwd = withBookService.pwd(w_pwd).get().getW_pwd();
-		if(userPwd == w_pwd) {
-			return "user/u_share_current";
-		}
-		return "user/u_share_book";
-	}
+//	// 신청 현황 및 완료여부
+//	@PostMapping("/share/cur/")
+//	public String postCur(@RequestParam String w_pwd, Long w_no) {
+//		String userPwd = withBookService.pwd(w_pwd).get().getW_pwd();
+//		if(userPwd == w_pwd) {
+//			return "user/u_share_current";
+//		}
+//		return "user/u_share_book";
+//	}
 	// 분석
 	@GetMapping("/chart")
 	public String chart(Model model) {

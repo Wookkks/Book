@@ -40,10 +40,6 @@ public class WithBookService {
 		return withBookRepository.findPwd(w_no);
 	}
 	
-	public Optional<WithBook> pwd(String w_pwd){
-		return withBookRepository.pwd(w_pwd);
-	}
-	
 	public WithBook updateYN(Long w_no, WithBook withBook) {
 		return withBookRepository.updateYN(w_no, withBook);
 	}
