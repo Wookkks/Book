@@ -40,6 +40,7 @@
 }
 
 #container #content #noti form input,
+select,
 textarea {
   width: 100%;
   margin: 0 0 1rem;
@@ -47,12 +48,16 @@ textarea {
   font-size: 16px;
 }
 
-#container #content #noti form textarea {
-  width: 100%;
+#container #content #noti form select,
+textarea {
   height: 15rem;
   border-radius: 5px;
   resize: none;
   padding: 10px;
+}
+
+#container #content #noti form select {
+  height: auto;
 }
 
 #container #content #noti form .btn_upload {

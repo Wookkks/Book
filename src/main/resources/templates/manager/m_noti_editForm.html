@@ -9,7 +9,7 @@
   <link rel="icon" href="/icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/m_noti_addfrom.css">
   <link rel="stylesheet" href="/css/m_style.css">
-  <title>BookCheck_m_noti_addform</title>
+  <title>BookCheck_m_noti_editform</title>
 </head>
 
 <body>
@@ -35,6 +35,7 @@
           </div>
           <div class="gnb">
             <ul>
+              <li><a href="/manager/how">어때책첵</a></li>
               <li><a href="/manager/noti">공지사항</a></li>
             </ul>
           </div>
@@ -48,21 +49,31 @@
           <div class="wrap_section">
             <div id="noti">
               <div class="icon_back">
-              <a onclick="history.back();"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
+                <a onclick="history.back();"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
               </div>
               <div class="title">
                 <p>공지사항 수정</p>
                 <form th:action="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" method="post">
                   <table class="noti_form_table">
-                    <!-- <tr>
-                      <td><input type=text placeholder="[카테고리]">추후작업 카테고리</td>
-                    </tr> -->
                     <tr>
-                      <td><input type=text name="n_title" id="n_title" th:value="${noti.n_title}" placeholder=" 제목을 입력하세요."></td>
+                      <td>
+                        <select name="category" id="category">
+                          <option value="공지사항">공지사항</option>
+                          <option value="어때책첵">어때책첵</option>
+                        </select>
+                      </td>
                     </tr>
                     <tr>
-                      <td><textarea name="n_content" id="n_content" th:text="${noti.n_content}"
-                          placeholder="내용을 입력하세요."></textarea></td>
+                      <td>
+                        <input type=text name="n_title" id="n_title" th:value="${noti.n_title}"
+                          placeholder=" 제목을 입력하세요.">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <textarea name="n_content" id="n_content" th:text="${noti.n_content}"
+                          placeholder="내용을 입력하세요."></textarea>
+                      </td>
                     </tr>
                   </table>
                   <div class="btn_upload">
@@ -95,7 +106,6 @@
                 <li><a href="/user/terms">이용약관</a></li>
                 <li><a href="/user/privacy">개인정보처리방침</a></li>
                 <li><a href="/user/main">관리자나가기</a></li>
-                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
               </ul>
               <div>
                 <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>

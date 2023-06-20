@@ -35,6 +35,7 @@
           </div>
           <div class="gnb">
             <ul>
+              <li><a href="/manager/how">어때책첵</a></li>
               <li><a href="/manager/noti">공지사항</a></li>
             </ul>
           </div>
@@ -54,76 +55,81 @@
                 <p>공지사항 쓰기</p>
                 <form action="/manager/noti/add" method="post">
                   <table class="noti_form_table">
-<!--                     <tr>
-                      <td><input type=text placeholder="[카테고리]">추후작업 공지사항 카테고리</td>
-                    </tr>
- -->                    <tr>
-                      <td><input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요.">
+                    <tr>
+                      <td>
+                        <select name="category" id="category">
+                          <option value="공지사항">공지사항</option>
+                          <option value="어때책첵">어때책첵</option>
+                        </select>
                       </td>
                     </tr>
                     <tr>
-                      <td><textarea name="n_content" id="n_content" th:value="${n_content}"
-                          placeholder="내용을 입력하세요."></textarea></td>
+                      <td>
+                        <input type=text name="n_title" id="n_title" th:value="${n_title}" placeholder=" 제목을 입력하세요.">
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <textarea name="n_content" id="n_content" th:value="${n_content}" placeholder="내용을 입력하세요.">
+                        </textarea>
+                      </td>
                     </tr>
                   </table>
-                  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
-		            <script type="text/javascript">
-		           	  var currentDate = new Date();
-		              var year = currentDate.getFullYear(); // 연도 가져오기
-		              var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
-		              var day = currentDate.getDate(); // 일 가져오기
-		              if (month < 10) {
-		                month = '0' + month;
-		              }
-		              if (day < 10) {
-		                day = '0' + day;
-		              }
-		              var formattedDate = year + '-' + month + '-' + day;
-		              document.getElementById("n_date").value = formattedDate; 
-		            </script>
                   <div class="btn_upload">
                     <button type="submit" required>글쓰기</button>
-                   </form>
-                  </div>
-                  <!-- </table> -->
-                <!-- </form> -->
+                </form>
               </div>
             </div>
           </div>
-
         </div>
+
       </div>
+    </div>
 
-      <!-- START aside -->
-      <div id="aside" class="grid-item3">
-        <div class="aside_content">
-          <div class="noties">
-             <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
-               <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
-                <h3 th:text="${notiAdd.n_title}">제목</h3>
-                <p th:text="${notiAdd.n_content}">내용</p>
-              </a>
-            </div>
+    <!-- START aside -->
+    <div id="aside" class="grid-item3">
+      <div class="aside_content">
+        <div class="noties">
+          <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
+            <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
+              <h3 th:text="${notiAdd.n_title}">제목</h3>
+              <p th:text="${notiAdd.n_content}">내용</p>
+            </a>
           </div>
-          <!-- footer -->
-          <div id="side_footer">
-            <div class="footer">
-              <ul>
-                <li><a href="/user/terms">이용약관</a></li>
-                <li><a href="/user/privacy">개인정보처리방침</a></li>
-                <li><a href="/user/main">관리자나가기</a></li>
-                <!-- <li><button class="btn_modal">관리자페이지</button></li> -->
-              </ul>
-              <div>
-                <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
-              </div>
-            </div>
-          </div>
-
         </div>
+        <!-- footer -->
+        <div id="side_footer">
+          <div class="footer">
+            <ul>
+              <li><a href="/user/terms">이용약관</a></li>
+              <li><a href="/user/privacy">개인정보처리방침</a></li>
+              <li><a href="/user/main">관리자나가기</a></li>
+            </ul>
+            <div>
+              <p>&copy;BOOKCHECK ALL RIGHTS RESERVED</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+  </div>
+  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
+  <script type="text/javascript">
+    var currentDate = new Date();
+    var year = currentDate.getFullYear(); // 연도 가져오기
+    var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
+    var day = currentDate.getDate(); // 일 가져오기
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    var formattedDate = year + '-' + month + '-' + day;
+    document.getElementById("n_date").value = formattedDate; 
+  </script>
   <script src="/js/main.js"></script>
 </body>
 
