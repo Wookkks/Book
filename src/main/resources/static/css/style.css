@@ -202,8 +202,8 @@ body {
   font-weight: bolder;
 }
 
-#wrap .index_container .contant p {
-  font-size: 35px;
+#wrap .index_container .contant .about .text {
+  font-size: 28px;
 }
 
 #wrap .index_container .contant div {
