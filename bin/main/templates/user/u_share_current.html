@@ -69,10 +69,15 @@
             </table>
             <div>
               <div class="share_complete">
-                <b>신청자 선택을 다시 한번 확인하세요!</b>
-                <input type="checkbox" th:checked="${withBook.w_yn}" id="w_yn" name="w_yn" checked required>
-                <input type="hidden" id="w_no" name="w_no" th:value="${withBook.w_no}">
-                <input type="password" id="w_pwd" name="w_pwd">
+                <div class="nanumi">
+                  <p>나누미 등록 시 작성한 비밀번호를 입력하세요.</p>
+                  <input type="password" id="w_pwd" name="w_pwd" placeholder="비밀번호를 입력해주세요." maxlength="4" required>
+                </div>
+                <div>
+                  <b>신청자 선택을 다시 한번 확인하세요!</b>
+                  <input type="checkbox" th:checked="${withBook.w_yn}" id="w_yn" name="w_yn" checked required>
+                  <input type="hidden" id="w_no" name="w_no" th:value="${withBook.w_no}">
+                </div>
               </div>
               <input type="submit" class="btn_complete" value="나눔 완료">
             </div>
@@ -99,8 +104,8 @@
             <div id="side_footer">
               <div class="footer">
                 <ul>
-                 <li><a href="/user/terms">이용약관</a></li>
-                 <li><a href="/user/privacy">개인정보처리방침</a></li>
+                  <li><a href="/user/terms">이용약관</a></li>
+                  <li><a href="/user/privacy">개인정보처리방침</a></li>
                   <li><button class="btn_modal">관리자페이지</button></li>
                 </ul>
                 <div>
@@ -120,21 +125,22 @@
                     <button class="pw_btn_close">&times;</button>
                   </div>
                   <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header" target="_blank">
-                  <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
-                    id="pwd" name="pwd" required>
-                  <button type="submit" minlength="4" onclick="return checkPwd()">확인</button>
-                </form>
+                  <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header"
+                    target="_blank">
+                    <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
+                      id="pwd" name="pwd" required>
+                    <button type="submit" minlength="4" onclick="return checkPwd()">확인</button>
+                  </form>
                 </div>
               </div>
             </div>
-  
+
           </div>
         </div>
       </div>
     </div>
     <script src="/js/main.js"></script>
 
-</body>
+  </body>
 
 </html>
