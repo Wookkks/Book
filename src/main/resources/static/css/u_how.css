@@ -36,10 +36,35 @@ td {
 }
 
 /* how.css */
-
 .how_check {
   position: relative;
   margin: 50px 0;
+}
+
+.how_check>.month {
+  margin: 50px 0 15px;
+  text-align: center;
+}
+
+.how_check>form>.input_month {
+  line-height: 1.8rem;
+}
+
+.how_check>form>button {
+  background-color: #949494;
+  color: white;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 5px;
+}
+
+.how_check>form>button:hover {
+  font-weight: bold;
+  background-color: #545454;
+}
+
+.how_check .title {
+  margin: 0 0 50px;
 }
 
 .how_check h3 {

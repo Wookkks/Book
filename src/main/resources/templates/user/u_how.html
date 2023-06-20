@@ -50,7 +50,11 @@
       <div class="container how_check">
         <h2>어때 책첵</h2>
         <hr>
-        <h3>책첵 월간 모임 기록</h3>
+        <form action="" class="month">
+          <input type="month" class="input_month">
+          <button type="submit">검색</button>
+        </form>
+        <h3 class="title">책첵 월간 모임 기록</h3>
         <div class="month_record">
           <p>첫째주</p>
           <ul>
@@ -59,7 +63,7 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
           </ul>
-          <img src="/img/책1.jpg" alt="책1">
+          <img src="/img/place1.jpg" alt="장소1">
         </div>
         <div class="month_record">
           <p>둘째주</p>
@@ -69,7 +73,7 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 자유를 얻으려고 시도했던 에피소드를 이야기 해봐요.</li>
           </ul>
-          <img src="/img/책2.jpg" alt="책2">
+          <img src="/img/place2.jpg" alt="장소2">
         </div>
         <div class="month_record">
           <p>셋째주</p>
@@ -79,7 +83,7 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>각자 삶이 힘들 때 이겨내는 방법을 이야기 해봐요.</li>
           </ul>
-          <img src="/img/책3.jpg" alt="책3">
+          <img src="/img/place3.jpg" alt="장소3">
         </div>
         <div class="month_record">
           <p>넷째주</p>
@@ -89,14 +93,15 @@
             <li>가장 기억에 남는 구절을 공유해요.</li>
             <li>범인이 누구라고 예상했는지 같이 이야기 해봐요.</li>
           </ul>
-          <img src="/img/책4.jpg" alt="책4">
+          <img src="/img/place4.jpg" alt="장소4">
         </div>
         <hr>
         <h3>책첵 이용자 솔직담백한 후기 모음</h3>
         <form action="/user/how" method="post">
           <div>
             <input type="text" name="r_name" id="r_name" th:value="${r_name}" placeholder="이름을 입력해주세요." required>
-            <textarea name="r_content" id="r_content" th:value="${r_content}" cols="113" rows="7" placeholder="내용을 입력해주세요." required></textarea>
+            <textarea name="r_content" id="r_content" th:value="${r_content}" cols="113" rows="7"
+              placeholder="내용을 입력해주세요." required></textarea>
             <div class="btn_review">
               <input type="submit" id="btn_sub" value="작성">
               <input type="reset" id="btn_del" value="삭제">
@@ -117,7 +122,7 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti" th:each="noti:${noti}">
-              <a th:href="@{/user/noti/} + ${noti.n_no}" >
+              <a th:href="@{/user/noti/} + ${noti.n_no}">
                 <h3 th:text=${noti.n_title}></h3>
                 <p th:text=${noti.n_content}></p>
               </a>
@@ -153,7 +158,8 @@
                   <button class="pw_btn_close">&times;</button>
                 </div>
                 <!-- m_noti.html 연결 -->
-                <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header" target="_blank">
+                <form action="/manager/noti" method="post" name="maneger_pw_form" class="description_header"
+                  target="_blank">
                   <input type="password" maxlength="6" placeholder=" 비밀번호를 입력하세요." title="숫자 4자리 이상" pattern="[0-9]+"
                     id="pwd" name="pwd" required>
                   <button type="submit" minlength="4" onclick="return checkPwd()">확인</button>
