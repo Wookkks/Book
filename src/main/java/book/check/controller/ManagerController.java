@@ -28,10 +28,10 @@ public class ManagerController {
 	//공지사항
 	@PostMapping("/noti")
 	public String noti (Model model) {
-		log.info("[GET] noti 실행");
+		log.info("[Post] noti 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
-		return "manager/m_noti";
+		return "redirect:/manager/noti";
 	}
 	
 	//공지사항
