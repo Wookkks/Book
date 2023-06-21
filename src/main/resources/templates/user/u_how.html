@@ -50,68 +50,39 @@
       <div class="container how_check">
         <h2>어때 책첵</h2>
         <hr>
-        <form action="/user/how" class="month">
-          <input type="month" name="h_month" class="input_month">
+        <form action="" class="month">
+          <input type="month" class="input_month">
           <button type="submit">검색</button>
         </form>
         <h3 class="title">책첵 월간 모임 기록</h3>
-        <div class="month_record" th:each="how:${how}">
-          <p th:text=${how.h_month}></p><span>월</span>
-          <p th:text="${how.h_week}">첫째주</p>
+        <span class="month_record">
+          <p>첫째주</p>
           <ul>
-            <li><b th:text="${how.h_title}">도둑맞은 집중력</b>을 읽고 함께 이야기 나눠요.</li>
+            <li><b>도둑맞은 집중력</b>을 읽고 함께 이야기 나눠요.</li>
             <li>마포구 채그로 북카페에서 13명이 모였어요.</li>
-            <li th:text=${how.h_content}>가장 기억에 남는 구절을 공유해요.</li>
-            <li>각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
+            <li>가장 기억에 남는 구절을 공유하고, 각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
           </ul>
-          <img src="/img/place1.jpeg" alt="장소1">
-        </div>
-        <div class="month_record">
-          <p>둘째주</p>
-          <ul>
-            <li><b>역행자</b>를 읽고 함께 이야기 나눠요.</li>
-            <li>강남구 욕망의 북카페에서 5명이 모였어요.</li>
-            <li>가장 기억에 남는 구절을 공유해요.</li>
-            <li>각자 자유를 얻으려고 시도했던 에피소드를 이야기 해봐요.</li>
-          </ul>
-          <img src="/img/place2.png" alt="장소2">
-        </div>
-        <div class="month_record">
-          <p>셋째주</p>
-          <ul>
-            <li><b>모든 삶은 흐른다</b>를 읽고 함께 이야기 나눠요.</li>
-            <li>용산구 북파크 라운지에서 8명이 모였어요.</li>
-            <li>가장 기억에 남는 구절을 공유해요.</li>
-            <li>각자 삶이 힘들 때 이겨내는 방법을 이야기 해봐요.</li>
-          </ul>
-          <img src="/img/place3.jpg" alt="장소3">
-        </div>
-        <div class="month_record">
-          <p>넷째주</p>
-          <ul>
-            <li><b>코드612 누가 어린왕자를 죽였는가</b>를 읽고 함께 이야기 나눠요.</li>
-            <li>종로구 더숲 초소책방에서 23명이 모였어요.</li>
-            <li>가장 기억에 남는 구절을 공유해요.</li>
-            <li>범인이 누구라고 예상했는지 같이 이야기 해봐요.</li>
-          </ul>
-          <img src="/img/place4.jpg" alt="장소4">
-        </div>
-        <hr>
-        <h3>책첵 이용자 솔직담백한 후기 모음</h3>
-        <form action="/user/how" method="post">
-          <div>
-            <input type="text" name="r_name" id="r_name" th:value="${r_name}" placeholder="이름을 입력해주세요." required>
-            <textarea name="r_content" id="r_content" th:value="${r_content}" cols="113" rows="7"
-              placeholder="내용을 입력해주세요." required></textarea>
-            <div class="btn_review">
-              <input type="submit" id="btn_sub" value="작성">
-              <input type="reset" id="btn_del" value="삭제">
+        </span>
+        <img src="/img/place1.jpeg" alt="장소1">
+
+        <div class="honest">
+          <hr>
+          <h3>책첵 이용자 솔직담백한 후기 모음</h3>
+          <form action="/user/how" method="post">
+            <div>
+              <input type="text" name="r_name" id="r_name" th:value="${r_name}" placeholder="이름을 입력해주세요." required>
+              <textarea name="r_content" id="r_content" th:value="${r_content}" cols="113" rows="7"
+                placeholder="내용을 입력해주세요." required></textarea>
+              <div class="btn_review">
+                <input type="submit" id="btn_sub" value="작성">
+                <input type="reset" id="btn_del" value="삭제">
+              </div>
             </div>
-          </div>
+        </div>
         </form>
 
         <div class="review">
-          <div class="reviwer" th:each="review:${review}">
+          <div class="first_reviwer" th:each="review:${review}">
             <b th:text="${review.r_name}">김혜수</b>
             <p th:text="${review.r_content}">너무 좋았어요 최고에요! 앞으로 정기모임에 계속 참석할 예정이에요. Lorem, ipsum dolor sit amet
               consectetur adipisicing elit. Labore nihil consequatur tenetur excepturi blanditiis nobis itaque illo ex
@@ -175,13 +146,6 @@
       </div>
     </div>
   </div>
-  <script>
-	  var input = document.querySelector('.input_month');
-	  var currentDate = new Date();
-	  var currentYear = currentDate.getFullYear();
-	  var currentMonth = currentDate.getMonth() + 1;
-	  input.value = currentYear + '-' + (currentMonth < 10 ? '0' : '') + currentMonth;
-  </script>
   <script src="/js/main.js"></script>
 </body>
 

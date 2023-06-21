@@ -39,6 +39,13 @@ td {
 .how_check {
   position: relative;
   margin: 50px 40px;
+
+}
+
+.how_check::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 .how_check>.month {
@@ -82,24 +89,43 @@ td {
   margin-bottom: 20px;
 }
 
-.how_check .month_record {
+.how_check .weeks {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  margin-bottom: 1rem;
+}
+
+.how_check .month_record {
+  float: left;
+  height: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .how_check .month_record p {
-  padding: 95px 0;
+  display: inline-block;
+  padding-right: 1rem;
 }
 
-.how_check .month_record img {
+.how_check .month_record:nth-last-child(4) {
+  margin-bottom: 5rem;
+}
+
+.how_check img {
+  float: right;
   width: 200px;
   /* height: auto; */
-  margin: 10px 0 30px;
+  /* margin: 0 30px; */
   border-radius: 5px;
 }
 
-.how_check hr:nth-of-type(2) {
-  width: 200px;
+.how_check .honest>hr {
+  width: 250px;
   height: 3px;
   border-style: none;
   background-color: rgb(58, 58, 58);
@@ -109,7 +135,7 @@ td {
 
 .how_check .review div {
   background-color: rgb(244, 237, 206);
-  /* width: 800px; */
+  width: 800px;
   height: fit-content;
   border-radius: 10px;
   padding: 10px;
@@ -160,7 +186,7 @@ td {
   margin-left: 20px;
 }
 
-.how_check .reviwer:nth-of-type(1) {
+.how_check .review .first_reviwer {
   margin-top: 70px;
 }
 
