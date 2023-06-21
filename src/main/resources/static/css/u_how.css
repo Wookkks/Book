@@ -38,7 +38,7 @@ td {
 /* how.css */
 .how_check {
   position: relative;
-  margin: 50px 0;
+  margin: 50px 40px;
 }
 
 .how_check>.month {
@@ -88,7 +88,7 @@ td {
 }
 
 .how_check .month_record p {
-  padding: 80px 0;
+  padding: 95px 0;
 }
 
 .how_check .month_record img {
@@ -109,7 +109,7 @@ td {
 
 .how_check .review div {
   background-color: rgb(244, 237, 206);
-  width: 800px;
+  /* width: 800px; */
   height: fit-content;
   border-radius: 10px;
   padding: 10px;
@@ -132,6 +132,7 @@ td {
 .how_check textarea {
   display: block;
   resize: none;
+  width: 100%;
 }
 
 .how_check textarea::placeholder,
@@ -140,8 +141,8 @@ td {
 }
 
 .how_check .btn_review {
-  position: absolute;
-  right: 10px;
+  /* position: absolute;
+  right: 10px; */
   margin-top: 10px;
 }
 
@@ -159,7 +160,7 @@ td {
   margin-left: 20px;
 }
 
-.how_check .review .first_reviwer {
+.how_check .reviwer:nth-of-type(1) {
   margin-top: 70px;
 }
 
