@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import book.check.domain.Apply;
+import book.check.domain.How;
 import book.check.domain.Member;
 import book.check.domain.Noti;
 import book.check.domain.Review;
 import book.check.domain.WithBook;
 import book.check.service.ApplyService;
+import book.check.service.HowService;
 import book.check.service.MemberService;
 import book.check.service.NotiService;
 import book.check.service.ReviewService;
@@ -34,14 +36,16 @@ public class UserController {
 	private final ApplyService applyService;
 	private final WithBookService withBookService;
 	private final NotiService notiService;
+	private final HowService howService;
 	
 	public UserController(MemberService memberService, ReviewService reviewService, ApplyService applyService, 
-			WithBookService withbookService, NotiService notiService) {
+			WithBookService withbookService, NotiService notiService, HowService howService) {
 		this.memberService = memberService;
 		this.reviewService = reviewService;
 		this.applyService = applyService;
 		this.withBookService = withbookService;
 		this.notiService = notiService;
+		this.howService = howService;
 	}
 	
 	// 메인
@@ -103,6 +107,19 @@ public class UserController {
 	public String getReview(Model model) {
 		List<Review> review = reviewService.findAll();
 		List<Noti> noti = notiService.findAll();
+		model.addAttribute("review", review);
+		model.addAttribute("noti", noti);
+		return "user/u_how";
+	}
+	
+	// 월별 활동후기
+	@GetMapping("/how/{h_month}")
+	public String getMonthHow(@PathVariable String h_month, Model model) {
+		log.info("[GET] monthHow 실행");
+		List<How> how = howService.findAll(h_month);
+		List<Review> review = reviewService.findAll();
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("how", how);
 		model.addAttribute("review", review);
 		model.addAttribute("noti", noti);
 		return "user/u_how";
