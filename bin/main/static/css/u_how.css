@@ -36,10 +36,35 @@ td {
 }
 
 /* how.css */
-
 .how_check {
   position: relative;
-  margin: 50px 0;
+  margin: 50px 40px;
+}
+
+.how_check>.month {
+  margin: 50px 0 15px;
+  text-align: center;
+}
+
+.how_check>form>.input_month {
+  line-height: 1.8rem;
+}
+
+.how_check>form>button {
+  background-color: #949494;
+  color: white;
+  font-size: 14px;
+  padding: 10px 18px;
+  border-radius: 5px;
+}
+
+.how_check>form>button:hover {
+  font-weight: bold;
+  background-color: #545454;
+}
+
+.how_check .title {
+  margin: 0 0 50px;
 }
 
 .how_check h3 {
@@ -63,13 +88,14 @@ td {
 }
 
 .how_check .month_record p {
-  padding: 80px 0;
+  padding: 95px 0;
 }
 
 .how_check .month_record img {
-  width: 100px;
-  height: auto;
-  margin: 30px 0;
+  width: 200px;
+  /* height: auto; */
+  margin: 10px 0 30px;
+  border-radius: 5px;
 }
 
 .how_check hr:nth-of-type(2) {
@@ -77,15 +103,14 @@ td {
   height: 3px;
   border-style: none;
   background-color: rgb(58, 58, 58);
-  ;
   text-align: center;
   margin-top: 50px;
 }
 
 .how_check .review div {
   background-color: rgb(244, 237, 206);
-  width: 800px;
-  height: 90px;
+  /* width: 800px; */
+  height: fit-content;
   border-radius: 10px;
   padding: 10px;
 }
@@ -107,6 +132,7 @@ td {
 .how_check textarea {
   display: block;
   resize: none;
+  width: 100%;
 }
 
 .how_check textarea::placeholder,
@@ -115,8 +141,8 @@ td {
 }
 
 .how_check .btn_review {
-  position: absolute;
-  right: 10px;
+  /* position: absolute;
+  right: 10px; */
   margin-top: 10px;
 }
 
@@ -134,7 +160,7 @@ td {
   margin-left: 20px;
 }
 
-.how_check .review .first_reviwer {
+.how_check .reviwer:nth-of-type(1) {
   margin-top: 70px;
 }
 
