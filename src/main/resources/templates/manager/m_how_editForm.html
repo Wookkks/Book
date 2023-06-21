@@ -9,7 +9,7 @@
   <link rel="icon" href="/icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/m_how_editForm.css">
   <link rel="stylesheet" href="/css/m_style.css">
-  <title>BookCheck_m_noti_addform</title>
+  <title>BookCheck_m_how_editForm</title>
 </head>
 
 <body>
@@ -66,11 +66,11 @@
                     </tr>
                     <tr>
                       <td><select name="h_week" id="h_week">
-                        <option value="f_week">첫째주</option>
-                        <option value="s_week">둘째주</option>
-                        <option value="t_week">셋째주</option>
-                        <option value="fo_week">넷째주</option>
-                      </select></td>
+                          <option value="f_week">첫째주</option>
+                          <option value="s_week">둘째주</option>
+                          <option value="t_week">셋째주</option>
+                          <option value="fo_week">넷째주</option>
+                        </select></td>
                     </tr>
                     <tr>
                       <td>
@@ -80,11 +80,11 @@
                     </tr>
                   </table>
                   <input type="submit" value="완료" required>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
 
       <!-- START aside -->
@@ -116,7 +116,7 @@
       </div>
     </div>
   </div>
-  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
+  <!-- <input type="date" name="n_date" id="n_date" th:value=${n_date}>
   <script type="text/javascript">
     var currentDate = new Date();
     var year = currentDate.getFullYear(); // 연도 가져오기
@@ -131,7 +131,7 @@
     var formattedDate = year + '-' + month + '-' + day;
     document.getElementById("n_date").value = formattedDate; 
   </script>
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js"></script> -->
 </body>
 
 </html>
