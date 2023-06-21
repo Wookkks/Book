@@ -1,5 +1,8 @@
 package book.check.controller;
 
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -103,19 +106,25 @@ public class UserController {
 	}
 	
 	// 활동후기
-	@GetMapping("/how")
-	public String getReview(Model model) {
-		List<Review> review = reviewService.findAll();
-		List<Noti> noti = notiService.findAll();
-		model.addAttribute("review", review);
-		model.addAttribute("noti", noti);
-		return "user/u_how";
-	}
+//	@GetMapping("/how")
+//	public String getReview(Model model) {
+//		List<Review> review = reviewService.findAll();
+//		List<Noti> noti = notiService.findAll();
+//		model.addAttribute("review", review);
+//		model.addAttribute("noti", noti);
+//		return "user/u_how";
+//	}
 	
 	// 월별 활동후기
-	@GetMapping("/how/{h_month}")
-	public String getMonthHow(@PathVariable String h_month, Model model) {
+	@GetMapping("/how")
+	public String getMonthHow(@PathVariable(required = false) String h_month, Model model) {
 		log.info("[GET] monthHow 실행");
+		if(h_month == null) {
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+			h_month = sdf.format(date);
+		}
+		log.info("h_month : {} ", h_month);
 		List<How> how = howService.findAll(h_month);
 		List<Review> review = reviewService.findAll();
 		List<Noti> noti = notiService.findAll();
