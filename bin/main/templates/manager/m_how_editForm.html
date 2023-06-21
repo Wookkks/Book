@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
   <link rel="icon" href="/icon/favicon-96x96.png">
-  <link rel="stylesheet" href="/css/m_noti_addfrom.css">
+  <link rel="stylesheet" href="/css/m_how_editForm.css">
   <link rel="stylesheet" href="/css/m_style.css">
-  <title>BookCheck_m_noti_editform</title>
+  <title>BookCheck_m_noti_addform</title>
 </head>
 
 <body>
@@ -49,56 +49,52 @@
           <div class="wrap_section">
             <div id="noti">
               <div class="icon_back">
-                <a onclick="history.back();"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
+                <a href="/manager/how"><img src="/img/arrow_back.png" alt="뒤로" width="27px"></a>
               </div>
               <div class="title">
-                <p>공지사항 수정</p>
-                <form th:action="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" method="post">
+                <p>어때책첵 수정</p>
+                <form action="">
                   <table class="noti_form_table">
                     <tr>
-                      <td>
-                        <select name="category" id="category">
-                          <option value="어때책첵">어때책첵</option>
-                          <option value="공지사항">분석책첵</option>
-                          <option value="공지사항">나눔책첵</option>
-                          <option value="공지사항">공지사항</option>
-                        </select>
-                      </td>
+                      <!-- <td>
+                        <input type="file" onchange="readURL(this);">
+                        <img id="preview">
+                      </td> -->
+                    </tr>
+                    <tr>
+                      <td><input type="month" name="h_month" id="h_month"></td>
+                    </tr>
+                    <tr>
+                      <td><select name="h_week" id="h_week">
+                        <option value="f_week">첫째주</option>
+                        <option value="s_week">둘째주</option>
+                        <option value="t_week">셋째주</option>
+                        <option value="fo_week">넷째주</option>
+                      </select></td>
                     </tr>
                     <tr>
                       <td>
-                        <input type=text name="n_title" id="n_title" th:value="${noti.n_title}"
-                          placeholder=" 제목을 입력하세요.">
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <textarea name="n_content" id="n_content" th:text="${noti.n_content}"
-                          placeholder="내용을 입력하세요."></textarea>
+                        <textarea name=content placeholder="책 제목을 입력하세요." name="h_title" id="h_title"></textarea>
+                        <textarea name=content placeholder="기록 내용을 입력하세요." name="h_content" id="h_content"></textarea>
                       </td>
                     </tr>
                   </table>
-                  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
-                  <div class="btn_upload">
-                    <button type="submit" required>완료</button>
-                  </div>
-                  </table>
-                </form>
-              </div>
+                  <input type="submit" value="완료" required>
+              </form>
             </div>
           </div>
-
         </div>
+      </div>
       </div>
 
       <!-- START aside -->
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="notiEdit : ${notiEdit}">
-              <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiEdit.n_no})}">
-                <h3 th:text="${notiEdit.n_title}">제목</h3>
-                <p th:text="${notiEdit.n_content}">내용</p>
+            <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
+              <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
+                <h3 th:text="${notiAdd.n_title}">제목</h3>
+                <p th:text="${notiAdd.n_content}">내용</p>
               </a>
             </div>
           </div>
@@ -120,6 +116,7 @@
       </div>
     </div>
   </div>
+  <input type="date" name="n_date" id="n_date" th:value=${n_date}>
   <script type="text/javascript">
     var currentDate = new Date();
     var year = currentDate.getFullYear(); // 연도 가져오기

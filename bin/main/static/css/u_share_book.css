@@ -108,6 +108,10 @@ td {
   line-height: 30px;
 }
 
+.share_check input[type="checkbox"] {
+  width: 20px;
+}
+
 .share_check .accept {
   float: right;
   width: 150px;

@@ -166,7 +166,7 @@ public class UserController {
 		model.addAttribute("apply", apply);
 		model.addAttribute("noti", noti);
 		model.addAttribute("withBook", withBook);
-		return "/user/u_share_current";
+		return "user/u_share_current";
 	}
 	
 //	// 신청 현황 및 완료여부
@@ -183,7 +183,7 @@ public class UserController {
 	public String chart(Model model) {
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
-		return "/user/u_chart";
+		return "user/u_chart";
 	}
 	
 	  // 책 나눔 수정 폼	  

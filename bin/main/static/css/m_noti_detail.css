@@ -28,8 +28,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   clear: both;
 }
 
-#container #content .icon_backa {
+#container #content .icon_back img {
   display: inline-block;
+  vertical-align: middle;
 }
 
 #container #content .icon_back a:nth-child(2) {
