@@ -38,6 +38,7 @@ public class JdbcNotiRepository implements NotiRepository {
 				noti.setN_title(rs.getString("n_title"));
 				noti.setN_content(rs.getString("n_content"));
 				noti.setN_date(rs.getDate("n_date"));
+				noti.setN_category(rs.getString("n_category"));
 				return noti;
 			}
 		};
@@ -51,6 +52,7 @@ public class JdbcNotiRepository implements NotiRepository {
 		parameters.put("n_title", noti.getN_title());
 		parameters.put("n_content", noti.getN_content());
 		parameters.put("n_date", noti.getN_date());
+		parameters.put("n_category", noti.getN_category());
 		Number key = jdbcinsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
 		noti.setN_no(key.longValue());
 		return noti;
@@ -77,8 +79,8 @@ public class JdbcNotiRepository implements NotiRepository {
 
 	@Override
 	public Noti updateNoti(Long n_no, Noti updateNoti) {
-		String sql = "UPDATE NOTI SET N_TITLE = ?, N_CONTENT = ? WHERE N_NO = ?";
-		jdbcTemplate.update(sql, updateNoti.getN_title(), updateNoti.getN_content(), n_no);
+		String sql = "UPDATE NOTI SET N_CATEGORY = ?, N_TITLE = ?, N_CONTENT = ?, N_DATE = ? WHERE N_NO = ?";
+		jdbcTemplate.update(sql, updateNoti.getN_category(), updateNoti.getN_title(), updateNoti.getN_content(), updateNoti.getN_date(), n_no);
 		updateNoti.setN_no(n_no);
 		return findByNo(n_no).get();
 	}
