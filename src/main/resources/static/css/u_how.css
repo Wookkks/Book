@@ -86,7 +86,6 @@ td {
   background-color: rgb(247, 236, 230);
   border-radius: 30px;
   padding: 20px;
-  margin-bottom: 20px;
 }
 
 .how_check .weeks {
@@ -99,12 +98,20 @@ td {
 }
 
 .how_check .month_record {
-  float: left;
+  /* float: left; */
+  position: relative;
   height: fit-content;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+}
+
+.how_check .place_img {
+  position: absolute;
+  display: grid;
+  top: 217px;
+  right: 0;
 }
 
 .how_check .month_record p {
@@ -116,12 +123,12 @@ td {
   margin-bottom: 5rem;
 }
 
-.how_check img {
+.how_check .place_img img {
   float: right;
-  width: 200px;
+  width: 160px;
   /* height: auto; */
-  /* margin: 0 30px; */
   border-radius: 5px;
+  margin-bottom: 2.9rem;
 }
 
 .how_check .honest>hr {
