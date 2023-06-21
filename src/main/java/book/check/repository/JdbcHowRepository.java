@@ -33,7 +33,7 @@ public class JdbcHowRepository implements HowRepository{
 				How how = new How();
 				how.setH_no(rs.getLong("h_no"));
 				how.setH_month(rs.getString("h_month"));
-				how.setH_week(rs.getInt("h_week"));
+				how.setH_week(rs.getString("h_week"));
 				how.setH_title(rs.getString("h_title"));
 				how.setH_content(rs.getString("h_content"));
 				return how;
