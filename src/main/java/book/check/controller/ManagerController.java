@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import book.check.domain.How;
 import book.check.domain.Noti;
+import book.check.service.HowService;
 import book.check.service.NotiService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,10 +23,13 @@ import lombok.extern.slf4j.Slf4j;
 public class ManagerController {
 	
 	private final NotiService notiService;
+	private final HowService howService;
 
-	public ManagerController(NotiService notiService) {
+	public ManagerController(NotiService notiService, HowService howService) {
 		this.notiService = notiService;
+		this.howService = howService;
 	}
+	
 	//공지사항
 	@PostMapping("/noti")
 	public String noti (Model model) {
@@ -102,6 +107,52 @@ public class ManagerController {
 		log.info("[GET] notiListDeleteProcess 실행");
 		notiService.deleteNoti(n_no);
 		return "redirect:/manager/noti";
+	}
+	
+	//how
+	//어때책첵
+	@GetMapping("/how")
+	public String how(Model model, String h_month) {
+		log.info("[GET] how 실행");
+		List<How> how = howService.findAll(h_month);
+		model.addAttribute("how", how);
+		return "manager/m_how";
+	}
+	
+	//어때책첵 수정 폼
+	@GetMapping("/how/edit{h_no}")
+	public String howEditForm(@PathVariable Long h_no, Model model, String h_month) {
+		log.info("[GET] howEditForm 실행");
+		List<How> how = howService.findAll(h_month);
+		model.addAttribute("howEdit", how);
+		model.addAttribute("how", howService.findByNo(h_no).get());
+		return "manager/m_how_editForm";
+	}
+	
+	//어때책첵 수정
+	@PostMapping("/how/edit{h_no}")
+	public String howEdit(@ModelAttribute How how, Model model) {
+		log.info("[POST] howEdit 실행");
+		how = howService.updateHow(how.getH_no(), how);
+		model.addAttribute("how", how);
+		return "redirect:/manager/how";
+	}
+	
+	//어때책첵 등록 폼
+	@GetMapping("/how/add")
+	public String howForm(Model model, String h_month) {
+		log.info("[GET] howForm 실행");
+		List<How> how = howService.findAll(h_month);
+		model.addAttribute("howForm", how);
+		return "manager/m_how_addForm";
+	}
+	
+	//어때책첵 등록
+	@PostMapping("/how/add")
+	public String howCreate(@ModelAttribute How how, Model model) {
+		log.info("[POST] howCreate 실행");
+		howService.saveHow(how);
+		return "redirect:/manager/how";
 	}
 	
 }

@@ -15,7 +15,11 @@ public class HowService {
 	@Autowired
 	JdbcHowRepository howRepository;
 	
-	public Optional<How> findByNo(Long h_no){
+	public How saveHow(How how) {
+		return howRepository.saveHow(how);
+	}
+	
+	public Optional<How> findByNo(Long h_no) {
 		return howRepository.findByNo(h_no);
 	}
 	
@@ -23,7 +27,7 @@ public class HowService {
 		return howRepository.updateHow(h_no, how);
 	}
 	
-	public List<How> findAll(String h_month){
+	public List<How> findAll(String h_month) {
 		return howRepository.findAll(h_month);
 	}
 }
