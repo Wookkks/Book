@@ -58,15 +58,34 @@ h4 {
 }
 
 .chart_check .visual {
-  display: flex;
+	text-align: center;
+}
+
+.chart_check .visual b, .chart_check .visual p {
+  display: block;
+  text-align: center;
+}
+
+.chart_check .visual b {
+  font-size: 20px;
+  display: inline-block;
+  width: 200px;
+  line-height: 50px;
+  border-radius: 10px;
+  background-color: rgb(244, 237, 206);
+  margin: 20px 0 0;
 }
 
 .chart_check .visual img {
-  width: 500px;
+  width: 100%;
 }
 
 .chart_check .visual div p {
-  margin-top: 30px;
+  margin-top: 20px;
+}
+
+.chart_check .visual div p:nth-of-type(1) {
+	margin-bottom: 50px;
 }
 
 .chart_check hr:nth-of-type(2) {
