@@ -51,15 +51,15 @@
         <h2>어때 책첵</h2>
         <hr>
         <form action="" class="month">
-          <input type="month" name="h_month" id="h_month" class="input_month">
+          <input type="month" class="input_month">
           <button type="submit">검색</button>
         </form>
         <h3 class="title">책첵 월간 모임 기록</h3>
-        <span class="month_record" th:each="how:${how}">
-          <p th:text="${how.h_week}">첫째주</p>
+        <span class="month_record">
+          <p>첫째주</p>
           <ul>
-            <li><b th:text="${how.h_title}">도둑맞은 집중력</b>을 읽고 함께 이야기 나눠요.</li>
-            <li th:text=${how.h_content}>가장 기억에 남는 구절을 공유하고, 각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
+            <li><b>도둑맞은 집중력</b>을 읽고 함께 이야기 나눠요.</li>
+            <li>가장 기억에 남는 구절을 공유하고, 각자 집중력과 관련된 에피소드를 이야기 해봐요.</li>
           </ul>
         </span>
         <span class="month_record">
