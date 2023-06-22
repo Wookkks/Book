@@ -81,7 +81,7 @@ td {
 
 .how_check ul {
   display: inline-block;
-  width: 500px;
+  /* width: 500px; */
   line-height: 40px;
   background-color: rgb(247, 236, 230);
   border-radius: 30px;
@@ -97,14 +97,27 @@ td {
   margin-bottom: 1rem;
 }
 
+.how_check .book_place {
+   margin-bottom: 50px; 
+}
+
+.how_check .book_place img {
+   width: 100%;
+}
+
+.how_check .book_place p {
+   font-size: 12px;
+}
+
 .how_check .month_record {
   /* float: left; */
   position: relative;
   height: fit-content;
   display: flex;
+  justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .how_check .place_img {
@@ -119,10 +132,6 @@ td {
   padding-right: 1rem;
 }
 
-.how_check .month_record:nth-last-child(4) {
-  margin-bottom: 5rem;
-}
-
 .how_check .place_img img {
   float: right;
   width: 160px;
@@ -132,12 +141,12 @@ td {
 }
 
 .how_check .honest>hr {
-  width: 250px;
+  width: 200px;
   height: 3px;
   border-style: none;
   background-color: rgb(58, 58, 58);
   text-align: center;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .how_check .review div {

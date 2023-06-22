@@ -55,65 +55,22 @@
                 <a href="/manager/how/add">어때책첵 쓰기</a>
               </div>
               <div class="noti_list">
+              	<form action="/manager/how">
                 <input type="month" id="h_month" name="h_month">
                 <input type="submit" value="확인" id="m_how_sub" name="m_how_sub">
-                <div class="notice">
-                  <a href="/user/how">
-                    <p>첫째주</p>
-                    <p>도둑맞은 집중력을 읽고 함께 이야기 나눠요.</p>
-                    <p>마포구 채그로 북카페에서 13명이 모였어요.</p>
+               	</form> 
+                <div class="notice" th:each="how:${how}">
+                  <a th:href="@{/manager/how/edit/} + ${how.h_no}">
+                    <p th:text=${how.h_week}>첫째주</p>
+                    <p><b th:text="${how.h_title}">도둑맞은 집중력</b>을 읽고 함께 이야기 나눠요.</p>
+                    <p th:text="${how.h_content}">마포구 채그로 북카페에서 13명이 모였어요.</p>
                     <p>가장 기억에 남는 구절을 공유해요.</p>
                     <p>각자 집중력과 관련된 에피소드를 이야기 해봐요.</p>
                   </a>
                   <div class="btns">
                     <span>
                       <!-- <button class="btn_remove">삭제</button> -->
-                      <a href="/manager/how/edit" class="modify">수정</a>
-                    </span>
-                  </div>
-                </div>
-                <div class="notice">
-                  <a href="/user/how">
-                    <p>둘째주</p>
-                    <p>역행자를 읽고 함께 이야기 나눠요.</p>
-                    <p>강남구 욕망의 북카페에서 5명이 모였어요.</p>
-                    <p>가장 기억에 남는 구절을 공유해요.</p>
-                    <p>각자 자유를 얻으려고 시도했던 에피소드를 이야기 해봐요.</p>
-                  </a>
-                  <div class="btns">
-                    <span>
-                      <!-- <button class="btn_remove">삭제</button> -->
-                      <a href="/manager/how/edit" class="modify">수정</a>
-                    </span>
-                  </div>
-                </div>
-                <div class="notice">
-                  <a href="/user/how">
-                    <p>셋째주</p>
-                    <p>모든 삶은 흐른다를 읽고 함께 이야기 나눠요.</p>
-                    <p>용산구 북파크 라운지에서 8명이 모였어요.</p>
-                    <p>가장 기억에 남는 구절을 공유해요.</p>
-                    <p>각자 삶이 힘들 때 이겨내는 방법을 이야기 해봐요.</p>
-                  </a>
-                  <div class="btns">
-                    <span>
-                      <!-- <button class="btn_remove">삭제</button> -->
-                      <a href="/manager/how/edit" class="modify">수정</a>
-                    </span>
-                  </div>
-                </div>
-                <div class="notice">
-                  <a href="/user/how">
-                    <p>넷째주</p>
-                    <p>코드612 누가 어린왕자를 죽였는가를 읽고 함께 이야기 나눠요.</p>
-                    <p>종로구 더숲 초소책방에서 23명이 모였어요.</p>
-                    <p>가장 기억에 남는 구절을 공유해요.</p>
-                    <p>범인이 누구라고 예상했는지 같이 이야기 해봐요.</p>
-                  </a>
-                  <div class="btns">
-                    <span>
-                      <!-- <button class="btn_remove">삭제</button> -->
-                      <a href="/manager/how/edit" class="modify">수정</a>
+                      <a th:href="@{/manager/how/edit/} + ${how.h_no}" class="modify">수정</a>
                     </span>
                   </div>
                 </div>
@@ -128,10 +85,10 @@
       <div id="aside" class="grid-item3">
         <div class="aside_content">
           <div class="noties">
-            <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
-              <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
-                <h3 th:text="${notiAdd.n_title}">제목</h3>
-                <p th:text="${notiAdd.n_content}">내용</p>
+            <div class="simple_noti" th:each="noti : ${noti}">
+              <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+                <h3 th:text="${noti.n_title}">제목</h3>
+                <p th:text="${noti.n_content}">내용</p>
               </a>
             </div>
           </div>
@@ -153,22 +110,24 @@
       </div>
     </div>
   </div>
-  <!-- <input type="date" name="n_date" id="n_date" th:value=${n_date}>
-  <script type="text/javascript">
-    var currentDate = new Date();
-    var year = currentDate.getFullYear(); // 연도 가져오기
-    var month = currentDate.getMonth() + 1; // 월(0부터 시작하므로 1을 더함)
-    var day = currentDate.getDate(); // 일 가져오기
-    if (month < 10) {
-      month = '0' + month;
-    }
-    if (day < 10) {
-      day = '0' + day;
-    }
-    var formattedDate = year + '-' + month + '-' + day;
-    document.getElementById("n_date").value = formattedDate; 
+  <script>
+     var input = document.getElementById("h_month");
+     var currentDate = new Date();
+     var currentYear = currentDate.getFullYear();
+     var currentMonth = currentDate.getMonth() + 1;
+     input.value = currentYear + '-' + (currentMonth < 10 ? '0' : '') + currentMonth;
+   
+     var queryString = window.location.search;
+     var urlParams = new URLSearchParams(queryString);
+     var selectedMonth = urlParams.get("h_month");
+     
+     console.log(selectedMonth);
+    
+     if(selectedMonth){
+        input.value = selectedMonth;
+     }
   </script>
-  <script src="/js/main.js"></script> -->
+  <script src="/js/main.js"></script>
 </body>
 
 </html>

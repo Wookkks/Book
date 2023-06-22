@@ -117,7 +117,7 @@ public class UserController {
 	
 	// 월별 활동후기
 	@GetMapping("/how")
-	public String getMonthHow(@PathVariable(required = false) String h_month, Model model) {
+	public String getMonthHow(@RequestParam(required = false) String h_month, Model model) {
 		log.info("[GET] monthHow 실행");
 		if(h_month == null) {
 			Date date = new Date();

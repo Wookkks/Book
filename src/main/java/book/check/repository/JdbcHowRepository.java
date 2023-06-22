@@ -16,8 +16,10 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import book.check.domain.How;
+import lombok.extern.slf4j.Slf4j;
 
 @Repository
+@Slf4j
 public class JdbcHowRepository implements HowRepository{
 	
 	private final JdbcTemplate jdbcTemplate;
@@ -65,9 +67,11 @@ public class JdbcHowRepository implements HowRepository{
 
 	@Override
 	public How updateHow(Long h_no, How how) {
-		String sql = "UPDATE HOW SET H_MONTH = ?, H_WEEK = ?, H_TITLE = ?, H_CONTENT = ?";
-		jdbcTemplate.update(sql, how.getH_month(), how.getH_week(), how.getH_title(), how.getH_content());
+		log.info("updateHow 실행");
+		String sql = "UPDATE HOW SET H_MONTH = ?, H_WEEK = ?, H_TITLE = ?, H_CONTENT = ? WHERE H_NO = ?";
+		jdbcTemplate.update(sql, how.getH_month(), how.getH_week(), how.getH_title(), how.getH_content(), h_no);
 		how.setH_no(h_no);
+		log.info("updateHow 실행 끝");
 		return findByNo(h_no).get();
 	}
 

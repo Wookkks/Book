@@ -1,5 +1,7 @@
 package book.check.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -33,7 +35,6 @@ public class ManagerController {
 	//공지사항
 	@PostMapping("/noti")
 	public String noti (Model model) {
-		log.info("[Post] noti 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
 		return "redirect:/manager/noti";
@@ -42,7 +43,6 @@ public class ManagerController {
 	//공지사항
 	@GetMapping("/noti")
 	public String notiList (Model model) {
-		log.info("[GET] noti 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("noti", noti);
 		return "manager/m_noti";
@@ -51,7 +51,6 @@ public class ManagerController {
 	//공지사항 등록 폼
 	@GetMapping("/noti/add")
 	public String notiForm(Model model) {
-		log.info("[GET] notiForm 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("notiAdd", noti);
 		return "manager/m_noti_addForm";
@@ -60,7 +59,6 @@ public class ManagerController {
 	//공지사항 등록 	
 	@PostMapping("/noti/add")
 	public String notiCreate(@ModelAttribute Noti noti, Model model) {
-		log.info("[POST] notiCreate() 실행");
 		notiService.saveNoti(noti);
 		return "redirect:/manager/noti"; 
 	}
@@ -68,7 +66,6 @@ public class ManagerController {
 	// 공지사항 상세
 	@GetMapping("/noti/detail{n_no}")
 	public String notiDetail(@PathVariable Long n_no, Model model) {
-		log.info("[GET] notiDetail() 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("notiDetail", noti);
 		model.addAttribute("noti", notiService.findByNo(n_no).get());
@@ -78,7 +75,6 @@ public class ManagerController {
 	//공지사항 수정 폼
 	@GetMapping("/noti/edit{n_no}")
 	public String notiEditForm(@PathVariable Long n_no, Model model) {
-		log.info("[GET] notiEditForm() 실행");
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("notiEdit", noti);
 		model.addAttribute("noti", notiService.findByNo(n_no).get());
@@ -88,7 +84,6 @@ public class ManagerController {
 	//공지사항 수정  
 	@PostMapping("/noti/edit{n_no}")
 	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model) {
-		log.info("[POST] notiEdit() 실행");
 		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
 		return "redirect:/manager/noti/detail{n_no}"; 
 	}
@@ -96,7 +91,6 @@ public class ManagerController {
 	//공지사항 삭제(공지상세에서 삭제)
 	@PostMapping("/noti/del")
 	public String notiDelete(@RequestParam("n_no") Long n_no) {
-	    log.info("[POST] notiDelete 실행");
 	    notiService.deleteNoti(n_no);
 	    return "redirect:/manager/noti";
 	}
@@ -104,7 +98,6 @@ public class ManagerController {
 	//공지사항 삭제(공지리스트에서 삭제, 모달X)
 	@GetMapping("/noti/list/delprocess{n_no}")
 	public String notiListDeleteProcess(@RequestParam("n_no") Long n_no) {
-		log.info("[GET] notiListDeleteProcess 실행");
 		notiService.deleteNoti(n_no);
 		return "redirect:/manager/noti";
 	}
@@ -112,37 +105,41 @@ public class ManagerController {
 	//how
 	//어때책첵
 	@GetMapping("/how")
-	public String how(Model model, String h_month) {
-		log.info("[GET] how 실행");
+	public String how(@RequestParam(required = false) String h_month, Model model) {
+		if(h_month == null) {
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+			h_month = sdf.format(date);
+		}
+		List<Noti> noti = notiService.findAll();
 		List<How> how = howService.findAll(h_month);
+		model.addAttribute("noti", noti);
 		model.addAttribute("how", how);
 		return "manager/m_how";
 	}
 	
 	//어때책첵 수정 폼
-	@GetMapping("/how/edit{h_no}")
-	public String howEditForm(@PathVariable Long h_no, Model model, String h_month) {
-		log.info("[GET] howEditForm 실행");
-		List<How> how = howService.findAll(h_month);
-		model.addAttribute("howEdit", how);
+	@GetMapping("/how/edit/{h_no}")
+	public String howEditForm(@PathVariable Long h_no, Model model) {
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		model.addAttribute("how", howService.findByNo(h_no).get());
 		return "manager/m_how_editForm";
 	}
 	
 	//어때책첵 수정
-	@PostMapping("/how/edit{h_no}")
-	public String howEdit(@ModelAttribute How how, Model model) {
-		log.info("[POST] howEdit 실행");
-		how = howService.updateHow(how.getH_no(), how);
-		model.addAttribute("how", how);
+	@PostMapping("/how/edit")
+	public String howEdit(@ModelAttribute How how) {
+		howService.updateHow(how.getH_no(), how);
 		return "redirect:/manager/how";
 	}
 	
 	//어때책첵 등록 폼
 	@GetMapping("/how/add")
 	public String howForm(Model model, String h_month) {
-		log.info("[GET] howForm 실행");
 		List<How> how = howService.findAll(h_month);
+		List<Noti> noti = notiService.findAll();
+		model.addAttribute("noti", noti);
 		model.addAttribute("howForm", how);
 		return "manager/m_how_addForm";
 	}
@@ -150,7 +147,6 @@ public class ManagerController {
 	//어때책첵 등록
 	@PostMapping("/how/add")
 	public String howCreate(@ModelAttribute How how, Model model) {
-		log.info("[POST] howCreate 실행");
 		howService.saveHow(how);
 		return "redirect:/manager/how";
 	}
