@@ -58,7 +58,7 @@ public class ManagerController {
 	
 	//공지사항 등록 	
 	@PostMapping("/noti/add")
-	public String notiCreate(@ModelAttribute Noti noti, Model model) {
+	public String notiCreate(@ModelAttribute Noti noti) { //, Model model
 		notiService.saveNoti(noti);
 		return "redirect:/manager/noti"; 
 	}
@@ -146,7 +146,7 @@ public class ManagerController {
 	
 	//어때책첵 등록
 	@PostMapping("/how/add")
-	public String howCreate(@ModelAttribute How how, Model model) {
+	public String howCreate(@ModelAttribute How how) { //, Model model
 		howService.saveHow(how);
 		return "redirect:/manager/how";
 	}
