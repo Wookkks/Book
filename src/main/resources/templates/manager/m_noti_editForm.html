@@ -53,7 +53,7 @@
               </div>
               <div class="title">
                 <p>공지사항 수정</p>
-                <form th:action="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" method="post">
+                <form th:action="@{/manager/noti/edit{n_no}/(n_no=${noti.n_no})}" method="post">
                   <table class="noti_form_table">
                     <tr>
                       <td>
@@ -98,7 +98,7 @@
         <div class="aside_content">
           <div class="noties">
             <div class="simple_noti" th:each="notiEdit : ${notiEdit}">
-              <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiEdit.n_no})}">
+              <a th:href="@{/manager/noti/detail/{n_no}(n_no=${notiEdit.n_no})}">
                 <h3 th:text="${notiEdit.n_title}">제목</h3>
                 <p th:text="${notiEdit.n_content}">내용</p>
               </a>

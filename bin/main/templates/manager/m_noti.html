@@ -71,7 +71,7 @@
             </div>
             <div class="noti_list">
               <div class="notice" th:each="noti:${noti}">
-                <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+                <a th:href="@{/manager/noti/detail/{n_no}(n_no=${noti.n_no})}">
                   <p th:text="${noti.n_title}">제목</p>
                   <p th:text="${noti.n_content}">내용</p>
                 </a>
@@ -79,7 +79,7 @@
                   <span>
                     <!-- <button class="btn_remove" id="">삭제</button> -->
                     <a th:href="@{/manager/noti/list/delprocess(n_no=${noti.n_no})}" class="modify">삭제</a>
-                    <a th:href="@{/manager/noti/edit{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
+                    <a th:href="@{/manager/noti/edit/{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                   </span>
                 </div>
               </div>
@@ -96,7 +96,7 @@
       <div class="aside_content">
         <div class="noties">
           <div class="simple_noti" th:each="noti : ${noti}">
-            <a th:href="@{/manager/noti/detail{n_no}(n_no=${noti.n_no})}">
+            <a th:href="@{/manager/noti/detail/{n_no}(n_no=${noti.n_no})}">
               <h3 th:text="${noti.n_title}">제목</h3>
               <p th:text="${noti.n_content}">내용</p>
             </a>

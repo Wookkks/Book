@@ -58,6 +58,7 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "user/main";
 	}
+	
 	// 개인정보처리방침
 	@GetMapping("/privacy")
 	public String privacy(Model model) {
@@ -65,6 +66,7 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "user/u_privacy";
 	}
+	
 	// 이용약관
 	@GetMapping("/terms")
 	public String terms(Model model) {
@@ -72,6 +74,7 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "user/u_terms";
 	}
+	
 	// 공지 
 	@GetMapping("/noti")
 	public String noti(Model model){
@@ -105,26 +108,14 @@ public class UserController {
 		return "redirect:/user/main";
 	}
 	
-	// 활동후기
-//	@GetMapping("/how")
-//	public String getReview(Model model) {
-//		List<Review> review = reviewService.findAll();
-//		List<Noti> noti = notiService.findAll();
-//		model.addAttribute("review", review);
-//		model.addAttribute("noti", noti);
-//		return "user/u_how";
-//	}
-	
 	// 월별 활동후기
 	@GetMapping("/how")
 	public String getMonthHow(@RequestParam(required = false) String h_month, Model model) {
-		log.info("[GET] monthHow 실행");
 		if(h_month == null) {
 			Date date = new Date();
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
 			h_month = sdf.format(date);
 		}
-		log.info("h_month : {} ", h_month);
 		List<How> how = howService.findAll(h_month);
 		List<Review> review = reviewService.findAll();
 		List<Noti> noti = notiService.findAll();
@@ -161,13 +152,14 @@ public class UserController {
 			return "redirect:/user/alert";
 		}
 	}
+	
 	@GetMapping("/alert")
 	public String alert(Model model) {
 		String message = "비밀번호가 일치하지 않습니다";
 		model.addAttribute("message", message);
-		
 		return "user/u_alert";
 	}
+	
 	// 책 나눔 등록 폼
 	@GetMapping("/share/add")
 	public String getWithAdd(Model model) {
@@ -194,16 +186,7 @@ public class UserController {
 		model.addAttribute("withBook", withBook);
 		return "user/u_share_current";
 	}
-	
-//	// 신청 현황 및 완료여부
-//	@PostMapping("/share/cur/")
-//	public String postCur(@RequestParam String w_pwd, Long w_no) {
-//		String userPwd = withBookService.pwd(w_pwd).get().getW_pwd();
-//		if(userPwd == w_pwd) {
-//			return "user/u_share_current";
-//		}
-//		return "user/u_share_book";
-//	}
+
 	// 분석
 	@GetMapping("/chart")
 	public String chart(Model model) {
@@ -211,33 +194,17 @@ public class UserController {
 		model.addAttribute("noti", noti);
 		return "user/u_chart";
 	}
+	  
+	// 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)	  
+	@GetMapping("/apply/{w_no}")
+	public String getApply() {
+	return "user/u_apply_addForm";
+	}
 	
-	  // 책 나눔 수정 폼	  
-	  @GetMapping("/share/edit{w_no}") 
-	  public String getWithEdit() {
-	  
-	  return "user/u_share_editForm";
-	  }
-	  
-	  // 책 나눔 수정	  
-	  @PostMapping("/share/edit{w_no}")
-	  public String postWithEdit() {
-	  
-	  return "redirect:/user/u_share_book";
-	  }
-	  
-	  // 책 나눔 신청 폼 (핸드폰번호 가운데 4자리)	  
-	  @GetMapping("/apply/{w_no}")
-	  public String getApply() {
-	  log.info("[GET] apply 실행");
-	  return "user/u_apply_addForm";
-	  }
-	  
-	  // 책 나눔 신청
-	  @PostMapping("/apply")
-	  public String postApply(Apply apply) {
-	  log.info("[POST] apply 실행");
-	  applyService.saveApply(apply);
-	  return "redirect:/user/share";
-	  }
+	// 책 나눔 신청
+	@PostMapping("/apply")
+	public String postApply(Apply apply) {
+	applyService.saveApply(apply);
+	return "redirect:/user/share";
+	}
 }

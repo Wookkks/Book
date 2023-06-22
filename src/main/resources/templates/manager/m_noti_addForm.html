@@ -96,7 +96,7 @@
       <div class="aside_content">
         <div class="noties">
           <div class="simple_noti" th:each="notiAdd : ${notiAdd}">
-            <a th:href="@{/manager/noti/detail{n_no}(n_no=${notiAdd.n_no})}">
+            <a th:href="@{/manager/noti/detail/{n_no}(n_no=${notiAdd.n_no})}">
               <h3 th:text="${notiAdd.n_title}">제목</h3>
               <p th:text="${notiAdd.n_content}">내용</p>
             </a>

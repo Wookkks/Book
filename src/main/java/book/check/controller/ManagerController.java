@@ -58,13 +58,13 @@ public class ManagerController {
 	
 	//공지사항 등록 	
 	@PostMapping("/noti/add")
-	public String notiCreate(@ModelAttribute Noti noti) { //, Model model
+	public String notiCreate(@ModelAttribute Noti noti, Model model) {
 		notiService.saveNoti(noti);
 		return "redirect:/manager/noti"; 
 	}
 
 	// 공지사항 상세
-	@GetMapping("/noti/detail{n_no}")
+	@GetMapping("/noti/detail/{n_no}")
 	public String notiDetail(@PathVariable Long n_no, Model model) {
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("notiDetail", noti);
@@ -73,7 +73,7 @@ public class ManagerController {
 	}
 	
 	//공지사항 수정 폼
-	@GetMapping("/noti/edit{n_no}")
+	@GetMapping("/noti/edit/{n_no}")
 	public String notiEditForm(@PathVariable Long n_no, Model model) {
 		List<Noti> noti = notiService.findAll();
 		model.addAttribute("notiEdit", noti);
@@ -82,10 +82,10 @@ public class ManagerController {
 	}
 	
 	//공지사항 수정  
-	@PostMapping("/noti/edit{n_no}")
+	@PostMapping("/noti/edit/{n_no}")
 	public String notiEdit(@PathVariable Long n_no, @ModelAttribute Noti noti, Model model) {
 		model.addAttribute("noti", notiService.updateNoti(n_no, noti));
-		return "redirect:/manager/noti/detail{n_no}"; 
+		return "redirect:/manager/noti/detail/{n_no}"; 
 	}
 	
 	//공지사항 삭제(공지상세에서 삭제)
@@ -96,7 +96,7 @@ public class ManagerController {
 	}
 	
 	//공지사항 삭제(공지리스트에서 삭제, 모달X)
-	@GetMapping("/noti/list/delprocess{n_no}")
+	@GetMapping("/noti/list/delprocess/{n_no}")
 	public String notiListDeleteProcess(@RequestParam("n_no") Long n_no) {
 		notiService.deleteNoti(n_no);
 		return "redirect:/manager/noti";
@@ -146,7 +146,7 @@ public class ManagerController {
 	
 	//어때책첵 등록
 	@PostMapping("/how/add")
-	public String howCreate(@ModelAttribute How how) { //, Model model
+	public String howCreate(@ModelAttribute How how, Model model) {
 		howService.saveHow(how);
 		return "redirect:/manager/how";
 	}

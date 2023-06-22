@@ -113,11 +113,16 @@ td {
   /* float: left; */
   position: relative;
   height: fit-content;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
+  display: grid;
+  /* justify-content: space-around; */
+  /* flex-wrap: nowrap; */
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.how_check .month_record p {
+	font-weight: bold;
+	margin: 0 0 5px 10px;
 }
 
 .how_check .place_img {
@@ -125,11 +130,6 @@ td {
   display: grid;
   top: 217px;
   right: 0;
-}
-
-.how_check .month_record p {
-  display: inline-block;
-  padding-right: 1rem;
 }
 
 .how_check .place_img img {
