@@ -53,7 +53,7 @@
               </div>
               <div class="title">
                 <p>공지사항 수정</p>
-                <form th:action="@{/manager/noti/edit{n_no}/(n_no=${noti.n_no})}" method="post">
+                <form th:action="@{/manager/noti/edit/{n_no}(n_no=${noti.n_no})}" method="post">
                   <table class="noti_form_table">
                     <tr>
                       <td>

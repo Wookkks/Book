@@ -78,7 +78,7 @@
                 <div class="btns">
                   <span>
                     <!-- <button class="btn_remove" id="">삭제</button> -->
-                    <a th:href="@{/manager/noti/list/delprocess(n_no=${noti.n_no})}" class="modify">삭제</a>
+                    <a th:href="@{/manager/noti/list/delprocess/{n_no}(n_no=${noti.n_no})}" class="modify">삭제</a>
                     <a th:href="@{/manager/noti/edit/{n_no}(n_no=${noti.n_no})}" class="modify">수정</a>
                   </span>
                 </div>

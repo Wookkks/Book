@@ -97,7 +97,7 @@ public class ManagerController {
 	
 	//공지사항 삭제(공지리스트에서 삭제, 모달X)
 	@GetMapping("/noti/list/delprocess/{n_no}")
-	public String notiListDeleteProcess(@RequestParam("n_no") Long n_no) {
+	public String notiListDeleteProcess(@PathVariable Long n_no) {
 		notiService.deleteNoti(n_no);
 		return "redirect:/manager/noti";
 	}
