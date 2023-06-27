@@ -36,10 +36,6 @@ public class WithBookService {
 		return withBookRepository.updateWithBook(w_no, withBook);
 	}
 	
-	public WithBook findPwd(Long w_no) {
-		return withBookRepository.findPwd(w_no);
-	}
-	
 	public WithBook updateYN(Long w_no, WithBook withBook) {
 		return withBookRepository.updateYN(w_no, withBook);
 	}

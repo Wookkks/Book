@@ -107,12 +107,4 @@ public class JdbcWithBookRepository implements WithBookRepository{
 		String sql = "DELETE FROM WITHBOOK WHERE W_NO = ?";
 		jdbcTemplate.update(sql, w_no);
 	}
-
-	@Override
-	public WithBook findPwd(Long w_no) {
-		String sql = "SELECT W_PWD FROM WITHBOOK WHERE W_NO = ?";
-		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper(), w_no);
-		return result.stream().findAny().get();
-	}
-
 }
