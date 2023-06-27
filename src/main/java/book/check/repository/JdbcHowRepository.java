@@ -67,11 +67,9 @@ public class JdbcHowRepository implements HowRepository{
 
 	@Override
 	public How updateHow(Long h_no, How how) {
-		log.info("updateHow 실행");
 		String sql = "UPDATE HOW SET H_MONTH = ?, H_WEEK = ?, H_TITLE = ?, H_CONTENT = ? WHERE H_NO = ?";
 		jdbcTemplate.update(sql, how.getH_month(), how.getH_week(), how.getH_title(), how.getH_content(), h_no);
 		how.setH_no(h_no);
-		log.info("updateHow 실행 끝");
 		return findByNo(h_no).get();
 	}
 
