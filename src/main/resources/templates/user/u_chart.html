@@ -10,6 +10,8 @@
   <link rel="icon" href="/icon/favicon-96x96.png">
   <link rel="stylesheet" href="/css/u_chart.css">
   <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="/js/chart.js"></script>
 </head>
 
 <body id="wrap">
@@ -53,7 +55,8 @@
         <h3>책첵이 대신해서 도서 트렌드를 분석해봤어요!</h3>
         <div class="visual">
             <b>분야별 인기작가 순위</b>
-          <img src="/img/작가시각화.png" alt="시각화1">
+          <!-- <img src="/img/작가시각화.png" alt="시각화1"> -->
+          <div id="chart_div_one"></div>
           <div>
             <p>
               베스트셀러에 10회이상 이름을 올린 작가를 분석해보니 <br> 1위는 히가시노 게이고(21회), 2위는 김난도(12회), 3위는 기욤 뮈소와 유시민(10회) 작가
@@ -65,7 +68,8 @@
         </div>
         <div class="visual">
             <b>분야별 인기장르 순위</b>
-          <img src="/img/분야시각화.png" alt="시각화2">
+          <!-- <img src="/img/분야시각화.png" alt="시각화2"> -->
+          <div id="chart_div_two"></div>
           <div>
             <p>책첵이 생각한 가장 인기 많은 장르는 소설이었습니다.<br><br>
               10년간 베스트셀러에 오른 분야별 책의 권수를 분석해보니<br>1위는 소설(364권), 2위는 시/에세이(311권), 3위는 경제/경영(235권) 순으로 결과가
