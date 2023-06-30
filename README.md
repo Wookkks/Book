@@ -33,7 +33,6 @@
 - 의존성 <img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white"> <img src="https://img.shields.io/badge/lombok-FF5722?style=for-the-badge&logo=lombok&logoColor=white">
 - 분석 <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white"> <img src="https://img.shields.io/badge/jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"> 
 ## 📍 핵심기능
-<a href = "https://github.com/Wookkks/Book/wiki">핵심기능</a>
 - 첫 번째 핵심기능
   - 나눔 글 별 신청자 목록
 - 두 번째 핵심기능
@@ -41,4 +40,4 @@
 - 세 번째 핵심기능
   - 비밀번호 체크 로직
 - 네 번째 핵심기능
-  - 데이터 분석
+  - 데이터 분석 <a href = "[https://github.com/Wookkks/Book/wiki](https://github.com/Wookkks/Book/wiki/4.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D)">바로가기</a>
