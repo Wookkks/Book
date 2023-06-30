@@ -21,5 +21,31 @@
 - 원가희
   - 프론트
   - 인덱스, 메인 및 공지 페이지, 관리자 공지페이지, 화면설계서
-
-
+## ⏲ 작업 기간
+2023.05.30 - 2023.07.04
+## 🔧 개발 및 배포 환경
+- OS
+  - Window 10
+- IDE
+  - Eclipse
+  - VS Code
+- DB
+  - MY SQL
+- 배포
+  - AWS EC2
+  - RDS
+- 언어
+  - Java 11
+  - HTML
+  - CSS
+  - JavaScript
+- 개발 툴
+  - Spring Boot 2.7.12
+  - Gradle
+- 의존성
+  - Thymeleaf
+  - Lombok
+- 분석
+  - Python
+  - Anacoda
+  - Jupyter Notebook
