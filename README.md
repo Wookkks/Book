@@ -24,16 +24,10 @@
 ## ⏲ 작업 기간
 2023.05.30 - 2023.07.04
 ## 🔧 개발 및 배포 환경
-- OS
-  - Window 10
-- IDE
-  - Eclipse
-  - VS Code
-- DB
-  - MY SQL
-- 배포
-  - AWS EC2
-  - RDS
+- OS : Window 10
+- IDE : Eclipse, VS Code
+- DB : MY SQL
+- 배포 : AWS EC2, RDS
 - 언어
   - Java 11
   - HTML
