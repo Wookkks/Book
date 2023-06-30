@@ -32,3 +32,12 @@
 - 개발 툴 : Spring Boot 2.7.12, Gradle
 - 의존성 : Thymeleaf, Lombok
 - 분석 : Python, Anacoda, Jupyter Notebook
+## 📍 핵심기능
+- 첫 번째 핵심기능
+  - 나눔 글 별 신청자 목록
+- 두 번째 핵심기능
+  - 월 별 모임 기록 조회
+- 세 번째 핵심기능
+  - 비밀번호 체크 로직
+- 네 번째 핵심기능
+  - 데이터 분석
