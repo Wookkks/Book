@@ -28,4 +28,5 @@ public interface WithBookRepository {
 	// 나눔글 삭제
 	void deleteWithBook(Long w_no);
 	
+	String findPwd(Long w_no);
 }

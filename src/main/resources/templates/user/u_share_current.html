@@ -60,9 +60,9 @@
                 <th>선택</th>
               </thead>
               <tbody>
-                <tr th:each="apply:${apply}">
-                  <td th:text="${apply.a_name}">홍서범</td>
-                  <td th:text="${apply.a_phone}">1111</td>
+                <tr th:each="applyList:${applyList}">
+                  <td th:text="${applyList.a_name}">홍서범</td>
+                  <td th:text="${applyList.a_phone}">1111</td>
                   <td><input type="radio" name="selector" required></td>
                 </tr>
               </tbody>

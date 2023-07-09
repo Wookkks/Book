@@ -1,10 +1,8 @@
 package book.check.controller;
 
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +25,8 @@ import book.check.service.MemberService;
 import book.check.service.NotiService;
 import book.check.service.ReviewService;
 import book.check.service.WithBookService;
-import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
 @RequestMapping("/user")
 public class UserController {
 	
@@ -144,7 +140,7 @@ public class UserController {
 	
 	@PostMapping("/share")
 	public String postWith(@ModelAttribute WithBook withBook, @RequestParam Long w_no, @RequestParam String w_pwd) {
-		String userPwd = withBookService.findByNo(w_no).get().getW_pwd();
+		String userPwd = withBookService.findPwd(w_no);
 		if(w_pwd.equals(userPwd)) {
 			withBookService.updateYN(w_no, withBook);
 			return "redirect:/user/share";
@@ -177,11 +173,11 @@ public class UserController {
 	
 	// 신청 현황 및 완료여부 폼
 	@GetMapping("/share/cur/{w_no}")
-	public String getCur(Model model, @PathVariable Long w_no) {
-		List<Apply> apply = applyService.findAll(w_no);
+	public String getCurent(Model model, @PathVariable Long w_no) {
+		List<Apply> applyList = applyService.findAll(w_no);
 		List<Noti> noti = notiService.findAll();
 		WithBook withBook = withBookService.findByNo(w_no).get();
-		model.addAttribute("apply", apply);
+		model.addAttribute("applyList", applyList);
 		model.addAttribute("noti", noti);
 		model.addAttribute("withBook", withBook);
 		return "user/u_share_current";

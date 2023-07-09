@@ -3,7 +3,6 @@ package book.check.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import book.check.domain.How;
@@ -12,8 +11,11 @@ import book.check.repository.JdbcHowRepository;
 @Service
 public class HowService {
 	
-	@Autowired
-	JdbcHowRepository howRepository;
+	private final JdbcHowRepository howRepository;
+	
+	public HowService(JdbcHowRepository howRepository) {
+		this.howRepository = howRepository;
+	}
 	
 	public How saveHow(How how) {
 		return howRepository.saveHow(how);

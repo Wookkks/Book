@@ -16,10 +16,8 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import book.check.domain.WithBook;
-import lombok.extern.slf4j.Slf4j;
 
 @Repository
-@Slf4j
 public class JdbcWithBookRepository implements WithBookRepository{
 	
 	private final JdbcTemplate jdbcTemplate;
@@ -106,5 +104,12 @@ public class JdbcWithBookRepository implements WithBookRepository{
 	public void deleteWithBook(Long w_no) {
 		String sql = "DELETE FROM WITHBOOK WHERE W_NO = ?";
 		jdbcTemplate.update(sql, w_no);
+	}
+
+	@Override
+	public String findPwd(Long w_no) {
+		String sql = "SELECT * FROM WITHBOOK WHERE W_NO = ?";
+		List<WithBook> result = jdbcTemplate.query(sql, withRowMapper(), w_no);
+		return result.stream().findAny().get().getW_pwd();
 	}
 }
