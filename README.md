@@ -34,10 +34,10 @@
 - 분석 <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/anaconda-44A833?style=for-the-badge&logo=anaconda&logoColor=white"> <img src="https://img.shields.io/badge/jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"> 
 ## 📍 핵심기능
 - 첫 번째 핵심기능
-  - 나눔 글 별 신청자 목록 <a href = "https://github.com/Wookkks/Book/wiki/1.-%EB%82%98%EB%88%94%EA%B8%80%EB%B3%84-%EC%8B%A0%EC%B2%AD%EC%9E%90-%EB%AA%A9%EB%A1%9D">👉상세보기 - WIKI이동</a>
+  - 나눔 글 별 신청자 목록 <a href = "https://github.com/Wookkks/Book/wiki/1.-%EC%B2%AB-%EB%B2%88%EC%A7%B8-%ED%95%B5%EC%8B%AC%EA%B8%B0%EB%8A%A5">👉상세보기 - WIKI이동</a>
 - 두 번째 핵심기능
-  - 월 별 모임 기록 조회 <a href = "https://github.com/Wookkks/Book/wiki/2.-%EC%9B%94%EB%B3%84-%EB%AA%A8%EC%9E%84-%EA%B8%B0%EB%A1%9D-%EC%A1%B0%ED%9A%8C">👉상세보기 - WIKI이동</a>
+  - 월 별 모임 기록 조회 <a href = "https://github.com/Wookkks/Book/wiki/2.-%EB%91%90-%EB%B2%88%EC%A7%B8-%ED%95%B5%EC%8B%AC%EA%B8%B0%EB%8A%A5">👉상세보기 - WIKI이동</a>
 - 세 번째 핵심기능
-  - 비밀번호 체크 로직 <a href = "https://github.com/Wookkks/Book/wiki/3.-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B2%B4%ED%81%AC-%EB%A1%9C%EC%A7%81">👉상세보기 - WIKI이동</a>
+  - 비밀번호 체크 로직 <a href = "https://github.com/Wookkks/Book/wiki/3.-%EC%84%B8-%EB%B2%88%EC%A7%B8-%ED%95%B5%EC%8B%AC%EA%B8%B0%EB%8A%A5">👉상세보기 - WIKI이동</a>
 - 네 번째 핵심기능
   - 데이터 분석 <a href = "https://github.com/Wookkks/Book/wiki/4.-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D">👉상세보기 - WIKI이동</a>
