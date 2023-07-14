@@ -76,7 +76,9 @@ public class ManagerController {
 	@GetMapping("/noti/edit/{n_no}")
 	public String notiEditForm(@PathVariable Long n_no, Model model) {
 		List<Noti> noti = notiService.findAll();
+		List<Noti> notiEdit = notiService.findAll();
 		model.addAttribute("noti", noti);
+		model.addAttribute("notiEdit", notiEdit);
 		model.addAttribute("noti", notiService.findByNo(n_no).get());
 		return "manager/m_noti_editForm";
 	}
